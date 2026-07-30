@@ -76,19 +76,23 @@ function LeadsPanel() {
     [filter, search]
   );
 
+  // Restore a password already entered this session, so switching Studio tabs
+  // doesn't ask again. sessionStorage is unreadable during render.
   useEffect(() => {
     const saved = sessionStorage.getItem("roar_leads_pw");
     if (saved) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setPassword(saved);
       void load(saved);
     }
-    // Intentionally runs once; `load` changes with filter/search which the
-    // second effect handles.
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    // Runs once; the effect below handles filter/search changes.
   }, []);
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     if (authed) void load(password);
+    // `load` and `password` are deliberately omitted: including `load` would
+    // refetch on every keystroke, since it closes over `search`.
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [filter, search, authed]);
 

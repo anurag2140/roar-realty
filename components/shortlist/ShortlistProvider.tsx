@@ -64,7 +64,11 @@ export function ShortlistProvider({ children }: { children: React.ReactNode }) {
   const [compareIds, setCompareIds] = useState<string[]>([]);
   const [ready, setReady] = useState(false);
 
+  // Hydrate from localStorage after mount. It cannot be read during render
+  // without breaking SSR, so the initial state is empty and `ready` tells
+  // consumers when the real list has arrived.
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setIds(read(KEY));
     setCompareIds(read(COMPARE_KEY));
     setReady(true);

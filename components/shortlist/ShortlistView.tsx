@@ -16,9 +16,11 @@ export function ShortlistView() {
 
   const allIds = Array.from(new Set([...ids, ...compareIds]));
 
+  // Fetches the saved ids from the API once the provider has hydrated.
   useEffect(() => {
     if (!ready) return;
     if (!allIds.length) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setProperties([]);
       setLoading(false);
       return;

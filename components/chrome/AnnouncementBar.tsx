@@ -11,9 +11,10 @@ export function AnnouncementBar({ settings }: { settings: SiteSettings | null })
   const [hidden, setHidden] = useState(true);
 
   // Start hidden and reveal after checking storage, so a dismissed bar never
-  // flashes in on hydration.
+  // flashes in on hydration. localStorage is unavailable during render.
   useEffect(() => {
     if (!a?.enabled || !a.text) return;
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setHidden(localStorage.getItem(KEY) === a.text);
   }, [a?.enabled, a?.text]);
 

@@ -23,8 +23,10 @@ export function SiteHeader({ settings }: { settings: SiteSettings | null }) {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // Close the drawer on navigation, and lock scroll while it's open.
+  // Close the drawer whenever the route changes. Syncing UI state to an
+  // external event (navigation) is exactly what an effect is for.
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setMenuOpen(false);
   }, [pathname]);
 

@@ -63,8 +63,10 @@ export function Filters({
   const [sheetOpen, setSheetOpen] = useState(false);
   const [q, setQ] = useState(params.get("q") ?? "");
 
-  // Keep the input in step when the user navigates back/forward.
+  // Keep the input in step when the user navigates back/forward. The URL is
+  // the external store here; the input mirrors it.
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setQ(params.get("q") ?? "");
   }, [params]);
 
@@ -404,6 +406,8 @@ function NumberInput({
   onCommit: (v: string) => void;
 }) {
   const [local, setLocal] = useState(value);
+  // Resync when the URL changes underneath us (back button, clear filters).
+  // eslint-disable-next-line react-hooks/set-state-in-effect
   useEffect(() => setLocal(value), [value]);
 
   return (

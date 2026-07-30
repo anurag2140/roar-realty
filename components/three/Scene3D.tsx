@@ -49,6 +49,7 @@ export function Scene3D({
     if (!el) return;
 
     if (forced) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setActive(true);
       return;
     }

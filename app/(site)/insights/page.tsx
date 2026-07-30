@@ -92,6 +92,8 @@ export default async function InsightsPage() {
         ) : (
           <p className="border border-dashed border-gold/25 px-6 py-16 text-center text-ivory/45">
             No articles published yet. Write your first in{" "}
+            {/* Deliberately a full page load: /studio is a separate SPA. */}
+            {/* eslint-disable-next-line @next/next/no-html-link-for-pages */}
             <a href="/studio" className="text-gold-hi underline underline-offset-2">
               Studio → Insights
             </a>

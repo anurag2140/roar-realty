@@ -61,7 +61,10 @@ export function LeadForm({
   const [fieldErrors, setFieldErrors] = useState<Record<string, string>>({});
   const [turnstileToken, setTurnstileToken] = useState("");
   const formRef = useRef<HTMLFormElement>(null);
-  const renderedAt = useRef<string>(String(Date.now()));
+  // Stamped in an effect, not in the ref initializer: Date.now() during render
+  // is impure and re-runs on every render. An empty value simply skips the
+  // timing check server-side, which is the safe direction to fail.
+  const renderedAt = useRef<string>("");
   const { toast } = useToast();
 
   // Attribution: capture UTMs on first landing and keep them for the session,
@@ -76,7 +79,10 @@ export function LeadForm({
     utmContent: "",
   });
 
+  // Reads browser-only state (URL, sessionStorage, referrer) once on mount.
   useEffect(() => {
+    renderedAt.current = String(Date.now());
+
     const params = new URLSearchParams(window.location.search);
     const stored = (() => {
       try {
@@ -98,6 +104,7 @@ export function LeadForm({
       sessionStorage.setItem("roar_utm", JSON.stringify(utm));
     }
 
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setAttribution({
       sourcePage: window.location.pathname + window.location.search,
       referrer: stored.referrer || document.referrer || "",
