@@ -1,0 +1,179 @@
+@import "tailwindcss";
+
+/* ============================================================
+   Roar Realty design tokens — lifted verbatim from the approved
+   prototype so nothing drifts.
+   ============================================================ */
+@theme {
+  --color-ink: #0a0907; /* page background */
+  --color-ink-2: #0c0b08; /* raised surface */
+  --color-ink-3: #080706; /* footer */
+  --color-ivory: #f4efe4; /* primary text / light sections */
+  --color-ivory-ink: #141209; /* text on ivory */
+  --color-gold: #c6a15b;
+  --color-gold-hi: #e8cd8f;
+  --color-gold-dim: #8a6c33;
+  --color-gold-deep: #9a7b3c;
+
+  --font-display: var(--font-marcellus), Georgia, serif;
+  --font-serif: var(--font-cormorant), Georgia, serif;
+  --font-sans: var(--font-jost), ui-sans-serif, system-ui, sans-serif;
+
+  --animate-marquee: roarMarquee 30s linear infinite;
+  --animate-pulse-dot: roarPulse 2s ease-in-out infinite;
+  --animate-scroll-cue: roarScrollCue 2.2s ease-in-out infinite;
+  --animate-shimmer: roarShimmer 7s linear infinite;
+}
+
+/* Runtime-tunable gold, so Site Settings can shift the brand tone
+   without a redeploy. Defaults match the prototype. */
+:root {
+  --gold: #c6a15b;
+  --goldhi: #e8cd8f;
+}
+
+@keyframes roarMarquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+@keyframes roarPulse {
+  0%, 100% { opacity: 0.35; }
+  50% { opacity: 1; }
+}
+@keyframes roarScrollCue {
+  0% { transform: translateY(0); opacity: 1; }
+  70% { transform: translateY(14px); opacity: 0; }
+  100% { opacity: 0; }
+}
+@keyframes roarShimmer {
+  from { background-position: 200% center; }
+  to { background-position: -200% center; }
+}
+@keyframes roarFadeUp {
+  from { opacity: 0; transform: translateY(44px); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes roarModalIn {
+  from { opacity: 0; transform: translateY(12px) scale(0.98); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes roarBackdropIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes roarSheetUp {
+  from { transform: translateY(100%); }
+  to { transform: translateY(0); }
+}
+@keyframes roarSpin {
+  to { transform: rotate(360deg); }
+}
+
+html {
+  scroll-behavior: smooth;
+  background: var(--color-ink);
+  /* Nav is fixed at ~72px; keep anchor targets clear of it. */
+  scroll-padding-top: 96px;
+}
+
+body {
+  margin: 0;
+  background: var(--color-ink);
+  color: var(--color-ivory);
+  font-family: var(--font-sans);
+  font-weight: 300;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: clip;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+::selection {
+  background: var(--gold);
+  color: var(--color-ink);
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: rgb(244 239 228 / 0.3);
+  font-family: var(--font-sans);
+}
+
+/* Visible, on-brand focus ring — the prototype had none, which made the
+   site unusable by keyboard. */
+:focus-visible {
+  outline: 2px solid var(--goldhi);
+  outline-offset: 3px;
+}
+
+/* Utility: the shimmering gold text treatment from the hero headline. */
+.roar-shimmer {
+  background: linear-gradient(
+    110deg,
+    #8a6c33 10%,
+    var(--goldhi) 42%,
+    var(--gold) 60%,
+    #f4e3b6 78%,
+    #8a6c33 92%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: var(--animate-shimmer);
+}
+
+/* Reveal-on-scroll. Elements start hidden only when JS is available, so
+   no-JS users still see everything. */
+.roar-reveal {
+  opacity: 0;
+  transform: translateY(44px);
+  transition:
+    opacity 1s cubic-bezier(0.22, 0.8, 0.3, 1),
+    transform 1s cubic-bezier(0.22, 0.8, 0.3, 1);
+}
+.roar-reveal[data-revealed="true"] {
+  opacity: 1;
+  transform: none;
+}
+.no-js .roar-reveal {
+  opacity: 1;
+  transform: none;
+}
+
+/* Hairline grid used across stat strips and comparison tables. */
+.roar-hairline {
+  background: rgb(198 161 91 / 0.18);
+  border: 1px solid rgb(198 161 91 / 0.18);
+}
+
+.roar-scrollbar::-webkit-scrollbar { height: 6px; width: 6px; }
+.roar-scrollbar::-webkit-scrollbar-track { background: rgb(198 161 91 / 0.08); }
+.roar-scrollbar::-webkit-scrollbar-thumb { background: rgb(198 161 91 / 0.4); }
+
+/* Lock background scroll while a modal or sheet is open. */
+body[data-scroll-locked="true"] {
+  overflow: hidden;
+  touch-action: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+  .roar-reveal {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media print {
+  .roar-no-print { display: none !important; }
+}
