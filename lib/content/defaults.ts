@@ -440,6 +440,13 @@ export const DEFAULT_PROPERTIES = [
 
 export const DEFAULT_FAQS = [
   {
+    question: "Do you work in Dubai or India?",
+    answer:
+      "Both. The majority of our advisory work is Dubai, where we have twelve years of transaction experience. We also advise on Gurgaon and NCR, applying the same verification standard. The market changes; the process does not.",
+    category: "Buying",
+    order: 0,
+  },
+  {
     question: "What exactly is a Glass File?",
     answer:
       "A complete due-diligence pack we prepare before you shortlist a property: the 30-year title chain, an independent litigation scan, outstanding dues, the encumbrance position, the builder's delivery record, and the true carpet-area maths behind the quoted price. You get it before you fall in love with a place, not after you've committed.",

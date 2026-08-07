@@ -33,29 +33,29 @@ export default function OpengraphImage() {
           }}
         >
           <div style={{ width: 60, height: 2, background: "#C6A15B" }} />
-          Dubai → Delhi NCR
+          Dubai · Gurgaon
         </div>
 
         <div
           style={{
             marginTop: 34,
-            fontSize: 86,
-            lineHeight: 1.05,
+            fontSize: 72,
+            lineHeight: 1.08,
             color: "#F4EFE4",
             fontFamily: "serif",
           }}
         >
-          India, meet
+          Most buyers are shown property.
         </div>
         <div
           style={{
-            fontSize: 86,
-            lineHeight: 1.05,
+            fontSize: 72,
+            lineHeight: 1.08,
             color: "#E8CD8F",
             fontFamily: "serif",
           }}
         >
-          the Dubai standard.
+          Almost none are shown the risk.
         </div>
 
         <div
@@ -67,15 +67,13 @@ export default function OpengraphImage() {
             color: "rgba(244,239,228,0.55)",
           }}
         >
-          <span>Escrow-protected</span>
-          {/* A plain middot, not the site's ✦ — next/og's dynamic font
-              loader cannot resolve that glyph and warns on every build. */}
-          <span style={{ color: "#C6A15B" }}>·</span>
-          <span>Title verified thrice</span>
+          <span>Verified before recommended</span>
           {/* A plain middot, not the site's ✦ — next/og's dynamic font
               loader cannot resolve that glyph and warns on every build. */}
           <span style={{ color: "#C6A15B" }}>·</span>
           <span>Carpet-area pricing</span>
+          <span style={{ color: "#C6A15B" }}>·</span>
+          <span>Exit before entry</span>
         </div>
 
         <div

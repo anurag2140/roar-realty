@@ -2,10 +2,14 @@
  *  filters are built from. Content lives in Sanity; structure lives here. */
 
 export const SITE_NAME = "Roar Realty";
-export const SITE_TAGLINE = "The Dubai Standard, Now in India";
+export const SITE_TAGLINE = "Verified Before Recommended";
 export const SITE_DESCRIPTION =
-  "Escrow-protected payments, thrice-verified titles and carpet-area pricing. " +
-  "Twelve years of Dubai discipline, brought to Delhi NCR property.";
+  "Most buyers are shown property. Almost none are shown the risk. " +
+  "Twelve years of Dubai transaction experience applied to Dubai and Gurgaon — " +
+  "titles verified, carpet-area pricing, one fee in writing, exit planned before entry.";
+
+/** The line the whole brand rests on. Used in CTAs and social cards. */
+export const SITE_LINE = "Don't buy the story. Test the investment.";
 
 /**
  * Dubai sits before Gurgaon deliberately — that ordering communicates the

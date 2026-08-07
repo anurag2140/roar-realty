@@ -25,9 +25,18 @@ export function OrganizationJsonLd({ settings }: { settings: SiteSettings | null
     description: SITE_DESCRIPTION,
     url: siteUrl,
     areaServed: [
+      { "@type": "City", name: "Dubai" },
       { "@type": "City", name: "Gurugram" },
       { "@type": "City", name: "New Delhi" },
       { "@type": "City", name: "Noida" },
+    ],
+    knowsAbout: [
+      "Dubai off-plan property",
+      "Dubai ready property investment",
+      "Property title verification",
+      "RERA compliance",
+      "NRI property investment",
+      "Carpet area pricing",
     ],
   };
 

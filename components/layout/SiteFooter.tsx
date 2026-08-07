@@ -34,14 +34,14 @@ export function SiteFooter({ settings }: { settings: SiteSettings | null }) {
                   ROAR REALTY
                 </div>
                 <div className="mt-1 text-xs tracking-[0.2em] text-ivory/35 uppercase">
-                  Dubai discipline · Indian soil
+                  Dubai · Gurgaon
                 </div>
               </div>
             </div>
             <p className="mt-6 max-w-xs text-sm leading-relaxed text-ivory/45">
-              Escrow-protected payments, thrice-verified titles, carpet-area
-              pricing and one fee in writing. Every promise in your agreement,
-              not in a brochure.
+              Titles verified before you shortlist, carpet-area pricing, one fee
+              in writing, and the exit planned before the entry. In Dubai and in
+              Gurgaon.
             </p>
           </div>
 

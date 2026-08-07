@@ -59,12 +59,15 @@ export function Hero({
           <p className="m-0 max-w-[520px] text-base leading-[1.75] text-ivory/60 sm:text-[18px]">
             {data?.heroBody || d.heroBody}
           </p>
+          {/* Primary CTA is the property file, not the listings page — the
+              listings are hidden until real inventory exists, and "request a
+              file" is the conversion the whole brand is built around. */}
           <Link
-            href="/properties"
+            href="/contact"
             className="inline-flex items-center gap-3.5 px-8 py-4 text-[13px] font-medium tracking-[0.22em] whitespace-nowrap text-ink uppercase no-underline transition-all hover:-translate-y-0.5 hover:brightness-110 sm:px-8.5 sm:py-[18px] sm:text-sm"
             style={{ background: "linear-gradient(120deg, var(--gold), var(--goldhi))" }}
           >
-            Explore properties <span aria-hidden className="text-lg">→</span>
+            Request a property file <span aria-hidden className="text-lg">→</span>
           </Link>
         </div>
 
