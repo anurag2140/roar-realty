@@ -6,11 +6,14 @@ export const homepage = defineType({
   type: "document",
   groups: [
     { name: "hero", title: "Hero", default: true },
+    { name: "doors", title: "Dubai / Gurgaon" },
+    { name: "framework", title: "Selection framework" },
     { name: "story", title: "Chapters I & II" },
     { name: "standard", title: "The Roar Standard" },
     { name: "process", title: "Process" },
     { name: "portfolio", title: "Portfolio" },
     { name: "compare", title: "Comparison" },
+    { name: "founder", title: "Founder block" },
     { name: "contact", title: "Contact" },
     { name: "seo", title: "SEO" },
   ],
@@ -41,6 +44,67 @@ export const homepage = defineType({
       of: [{ type: "string" }],
       options: { layout: "tags" },
     }),
+
+    /* The two doors */
+    defineField({ name: "doorsEyebrow", title: "Eyebrow", type: "string", group: "doors" }),
+    defineField({ name: "doorsHeading", title: "Heading", type: "string", group: "doors" }),
+    defineField({
+      name: "doors",
+      title: "Market doors",
+      type: "array",
+      group: "doors",
+      description: "Dubai first — the order here sets the visual weight on the page.",
+      of: [
+        {
+          type: "object",
+          fields: [
+            { name: "market", type: "string", title: "Market label" },
+            { name: "heading", type: "string", title: "Heading" },
+            { name: "body", type: "text", rows: 4, title: "Body" },
+            { name: "cta", type: "string", title: "Button text" },
+            { name: "href", type: "string", title: "Link" },
+          ],
+          preview: { select: { title: "heading", subtitle: "market" } },
+        },
+      ],
+      validation: (r) => r.max(2),
+    }),
+
+    /* Selection framework */
+    defineField({ name: "frameworkEyebrow", title: "Eyebrow", type: "string", group: "framework" }),
+    defineField({ name: "frameworkHeading", title: "Heading", type: "string", group: "framework" }),
+    defineField({ name: "frameworkBody", title: "Intro", type: "text", rows: 3, group: "framework" }),
+    defineField({
+      name: "framework",
+      title: "The three steps",
+      type: "array",
+      group: "framework",
+      of: [
+        {
+          type: "object",
+          fields: [
+            { name: "num", type: "string", title: "Number" },
+            { name: "title", type: "string", title: "Title" },
+            { name: "intro", type: "string", title: "Lead-in line" },
+            {
+              name: "items",
+              type: "array",
+              title: "Checklist",
+              of: [{ type: "string" }],
+              options: { layout: "tags" },
+            },
+            { name: "line", type: "text", rows: 2, title: "Simple line" },
+          ],
+          preview: { select: { title: "title", subtitle: "line" } },
+        },
+      ],
+      validation: (r) => r.max(4),
+    }),
+
+    /* Founder */
+    defineField({ name: "founderHeading", title: "Heading", type: "string", group: "founder" }),
+    defineField({ name: "founderBody", title: "Body", type: "text", rows: 5, group: "founder" }),
+    defineField({ name: "founderCta", title: "Button text", type: "string", group: "founder" }),
 
     /* Chapters */
     defineField({ name: "chapter1Label", title: "Chapter I — label", type: "string", group: "story" }),
@@ -160,7 +224,20 @@ export const siteSettings = defineType({
       group: "contact",
       description: "With country code, e.g. +919810000000. Powers the floating WhatsApp button.",
     }),
-    defineField({ name: "email", title: "Email", type: "string", group: "contact" }),
+    defineField({
+      name: "email",
+      title: "Primary email",
+      type: "string",
+      group: "contact",
+      description: "e.g. contact@roarrealty.ae",
+    }),
+    defineField({
+      name: "emailIndia",
+      title: "India email",
+      type: "string",
+      group: "contact",
+      description: "Optional second address, e.g. admin@roarrealty.in",
+    }),
     defineField({ name: "officeAddress", title: "Office address", type: "text", rows: 3, group: "contact" }),
     defineField({
       name: "socials",
@@ -178,8 +255,25 @@ export const siteSettings = defineType({
       description:
         "Displayed in the footer and on every listing. Legally required on brokerage advertising in Haryana and UP.",
     }),
+    defineField({
+      name: "hideReraNotice",
+      title: "Hide the “registration pending” notice",
+      type: "boolean",
+      group: "legal",
+      initialValue: false,
+      description:
+        "Hides the ⚠ marker while your number is being issued. The number itself still appears automatically once you enter it above.",
+    }),
     defineField({ name: "legalEntity", title: "Registered entity name", type: "string", group: "legal" }),
-    defineField({ name: "cin", title: "CIN", type: "string", group: "legal" }),
+    defineField({
+      name: "foundedYear",
+      title: "Year founded",
+      type: "number",
+      group: "legal",
+      description: "Used for the copyright line, e.g. “© 2016–2026”.",
+      validation: (r) => r.min(1900).max(2100),
+    }),
+    defineField({ name: "cin", title: "CIN / trade licence", type: "string", group: "legal" }),
     defineField({ name: "footerNote", title: "Footer note", type: "string", group: "legal" }),
 
     defineField({
@@ -207,6 +301,15 @@ export const siteSettings = defineType({
         "Master switch for the Three.js scenes. They already auto-disable on low-powered phones.",
     }),
     defineField({ name: "grainOverlay", title: "Film grain overlay", type: "boolean", group: "look", initialValue: true }),
+    defineField({
+      name: "showProperties",
+      title: "Show the properties section",
+      type: "boolean",
+      group: "look",
+      initialValue: false,
+      description:
+        "Off until you have real listings. Hides the homepage portfolio grid and the Properties link in the menu. Your listings and the search page still exist — they're just not linked.",
+    }),
 
     defineField({
       name: "announcement",

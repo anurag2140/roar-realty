@@ -3,13 +3,17 @@ import { FOOTER_LINKS, SITE_NAME } from "@/lib/site";
 import { contact } from "@/lib/env";
 import { imageUrl } from "@/lib/sanity/image";
 import type { SiteSettings } from "@/lib/sanity/types";
+import { INVESTMENT_DISCLAIMER } from "@/lib/content/defaults";
 import { TBC } from "@/components/ui/TBC";
 
 export function SiteFooter({ settings }: { settings: SiteSettings | null }) {
   const year = new Date().getFullYear();
+  const founded = settings?.foundedYear;
   const logo = imageUrl(settings?.logo, 160, 160) || "/logo.jpeg";
   const rera = contact.rera || settings?.reraNumber || "";
-  const entity = settings?.legalEntity || `${SITE_NAME} India Pvt. Ltd.`;
+  const entity = settings?.legalEntity || `${SITE_NAME} LLC`;
+  // Owner asked for the pending notice to come down while the number is issued.
+  const showReraRow = Boolean(rera) || settings?.hideReraNotice !== true;
 
   return (
     <footer className="border-t border-gold/15 bg-ink-3 px-5 pt-16 pb-28 sm:pb-14 lg:px-10">
@@ -78,6 +82,16 @@ export function SiteFooter({ settings }: { settings: SiteSettings | null }) {
                   <TBC>Email address</TBC>
                 )}
               </li>
+              {settings?.emailIndia && (
+                <li>
+                  <a
+                    href={`mailto:${settings.emailIndia}`}
+                    className="transition-colors hover:text-gold-hi"
+                  >
+                    {settings.emailIndia}
+                  </a>
+                </li>
+              )}
             </ul>
 
             {settings?.socials?.length ? (
@@ -98,27 +112,37 @@ export function SiteFooter({ settings }: { settings: SiteSettings | null }) {
           </div>
         </div>
 
+        {/* Investment disclaimer — required sitewide by the content plan, since
+            every advisory page discusses returns, yields and appreciation. */}
+        <div className="border-b border-gold/10 py-6">
+          <p className="m-0 max-w-4xl text-[11px] leading-relaxed text-ivory/35">
+            {INVESTMENT_DISCLAIMER}
+          </p>
+        </div>
+
         {/* RERA disclosure. Legally required on brokerage advertising in
             Haryana and UP — rendered as a visible gap, never as a fake number. */}
-        <div className="border-b border-gold/10 py-6">
-          <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1 text-xs text-ivory/40">
-            <span className="tracking-[0.24em] text-gold uppercase">RERA</span>
-            {rera ? (
-              <span>{rera}</span>
-            ) : (
-              <TBC>Agent registration number pending</TBC>
-            )}
-            <span className="text-ivory/25">·</span>
-            <Link href="/disclaimer" className="underline underline-offset-2 hover:text-gold-hi">
-              Full disclaimer
-            </Link>
+        {showReraRow && (
+          <div className="border-b border-gold/10 py-6">
+            <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1 text-xs text-ivory/40">
+              <span className="tracking-[0.24em] text-gold uppercase">RERA</span>
+              {rera ? (
+                <span>{rera}</span>
+              ) : (
+                <TBC>Agent registration number pending</TBC>
+              )}
+              <span className="text-ivory/25">·</span>
+              <Link href="/disclaimer" className="underline underline-offset-2 hover:text-gold-hi">
+                Full disclaimer
+              </Link>
+            </div>
           </div>
-        </div>
+        )}
 
         <div className="flex flex-col gap-4 pt-6 sm:flex-row sm:items-center sm:justify-between">
           <p className="text-xs tracking-[0.08em] text-ivory/30">
-            © {year} {entity}
-            {settings?.cin ? ` · CIN ${settings.cin}` : ""} ·{" "}
+            © {founded && founded < year ? `${founded}–${year}` : founded || year} {entity}
+            {settings?.cin ? ` · ${settings.cin}` : ""} ·{" "}
             {settings?.footerNote || "Every promise in writing."}
           </p>
           <div className="flex flex-wrap gap-5">

@@ -7,23 +7,28 @@
  */
 
 export const DEFAULT_HOMEPAGE = {
-  heroEyebrow: "Dubai  →  Delhi NCR  ·  Est. discipline, imported",
-  heroLine1: "India, meet",
-  heroLine2: "the Dubai standard.",
+  heroEyebrow: "Dubai  ·  Gurgaon  ·  Verified before recommended",
+  heroLine1: "Most buyers are shown property.",
+  heroLine2: "Almost none are shown the risk.",
   heroBody:
-    "For twelve years we sold property in a city where every rupee sits in escrow, every title is public, and every promise is enforced. Now we're bringing that discipline home — so buying in India finally feels safe.",
+    "Twelve years selling property in a city where every rupee sits in escrow, every title is public and every promise is enforceable. We apply that same standard to everything we recommend — in Dubai, and now in Gurgaon.",
   heroStats: [
-    { value: "12 yrs", countTo: 12, suffix: " yrs", label: "Operating in Dubai" },
-    { value: "4,200+", countTo: 4200, suffix: "+", label: "Keys handed over" },
-    { value: "100%", label: "Escrow-protected deals" },
-    { value: "0", label: "Hidden charges. Ever." },
+    { value: "12 yrs", countTo: 12, suffix: " yrs", label: "Operating in Dubai real estate" },
+    // The prototype claimed "4,200+ keys handed over". The content plan flags
+    // this as needing verification — whether it is a personal record or the
+    // record of firms worked within. Left as a CMS field with a neutral label
+    // until the owner confirms a defensible figure.
+    { value: "—", label: "Transactions closed · confirm figure" },
+    { value: "100%", label: "Escrow-protected on eligible Dubai transactions" },
+    { value: "0", label: "Undisclosed fees. Ever." },
   ],
   marqueeItems: [
-    "Escrow-protected payments",
+    "Payments tied to construction progress",
     "Title verified thrice",
     "Carpet-area pricing",
     "One fee, in writing",
-    "Possession-date guarantee",
+    "Possession on time, in writing",
+    "Exit planned before entry",
   ],
 
   chapter1Label: "Chapter I",
@@ -75,8 +80,8 @@ export const DEFAULT_HOMEPAGE = {
   pillars: [
     {
       num: "Rule 01",
-      title: "Escrow-protected payments",
-      body: "Your money moves into a supervised escrow account and is released only against verified milestones. Not to us. Not to the seller. Not until it should.",
+      title: "Payments tied to progress",
+      body: "In Dubai, buyer funds sit in a government-supervised escrow account and are released only against certified construction milestones — that is written into law, and we use it. Where a market offers no such mechanism, we negotiate the payment schedule with the developer directly, so your money still moves only as the building does.",
     },
     {
       num: "Rule 02",
@@ -100,8 +105,8 @@ export const DEFAULT_HOMEPAGE = {
     },
     {
       num: "Rule 06",
-      title: "Possession-date guarantee",
-      body: "For off-plan purchases, delay penalties are written into your agreement — and if the developer defaults on them, we pay you first and chase them second.",
+      title: "Possession on time",
+      body: "For off-plan purchases we make sure the delay clause is real — a named amount, a trigger date and a payment method, not decoration. If the developer slips, we hold them to it on your behalf rather than leaving you to chase it alone.",
     },
   ],
 
@@ -120,13 +125,13 @@ export const DEFAULT_HOMEPAGE = {
     },
     {
       num: "III",
-      title: "The Glass File",
-      body: "For any property you like: complete title chain, encumbrances, dues, litigation history, builder track record and true carpet-area math — before you fall in love with it.",
+      title: "The file",
+      body: "For any property you like: complete title chain, encumbrances, dues, litigation history, developer record and true carpet-area maths — before you fall in love with it.",
     },
     {
       num: "IV",
-      title: "Escrow & registration",
-      body: "We open the escrow, negotiate on record, and manage stamp duty, registration and handover end-to-end. You sign; we sweat.",
+      title: "The transaction",
+      body: "Escrow where the market provides it, milestone-linked terms where it doesn't. We negotiate on record and manage stamp duty, registration and handover end to end. You sign; we sweat.",
     },
     {
       num: "V",
@@ -155,8 +160,8 @@ export const DEFAULT_HOMEPAGE = {
     },
     {
       label: "Your money",
-      old: "Direct to the builder's account. Gone the moment it leaves yours.",
-      roar: "Held in supervised escrow, released against verified milestones.",
+      old: "Straight to the developer's account. Gone the moment it leaves yours.",
+      roar: "Escrow where the market provides it; milestone-linked terms where it doesn't. Documented at every step.",
     },
     {
       label: "Documents",
@@ -166,7 +171,12 @@ export const DEFAULT_HOMEPAGE = {
     {
       label: "Possession risk",
       old: "Yours alone. Delays are your problem, penalties unenforceable.",
-      roar: "Delay penalties written into the agreement. We pay first, chase later.",
+      roar: "A delay clause with a real amount, trigger and method — and we enforce it for you.",
+    },
+    {
+      label: "Exit",
+      old: "Never discussed.",
+      roar: "Exit liquidity assessed before you enter, not after.",
     },
     {
       label: "After the deal",
@@ -178,29 +188,139 @@ export const DEFAULT_HOMEPAGE = {
   contactEyebrow: "Begin the conversation",
   contactHeading: "Your next address deserves a process worthy of it.",
   contactBody:
-    "Tell us what you're looking for. Within 48 hours you'll receive a curated shortlist — each with its Glass File — and a fixed, written fee. No obligation, no follow-up calls you didn't ask for.",
+    "Tell us the budget, the objective and the timeline. Within 48 hours you get a shortlist — each with its verification file — and a fixed fee in writing. No obligation, no calls you didn't ask for.",
+
+  /* ---- The two doors: Dubai primary, Gurgaon secondary ---- */
+  doorsEyebrow: "Two markets, one standard",
+  doorsHeading: "Where are you buying?",
+  doors: [
+    {
+      market: "Dubai",
+      heading: "Investing in Dubai from India",
+      body: "Escrow law, a public title registry and licensed brokers make Dubai one of the most verifiable property markets in the world. That does not make every project a good investment. We filter on location demand, developer record, payment structure, rental logic, exit liquidity and your actual objective — then tell you plainly whether it fits.",
+      cta: "Explore Dubai advisory",
+      href: "/dubai",
+    },
+    {
+      market: "Gurgaon & NCR",
+      heading: "Buying in Gurgaon & NCR",
+      body: "India's market gives you the same information Dubai does — title chains, RERA records, mutation status, encumbrance certificates. It just scatters them across five places and hopes you won't look. We look. Before you shortlist, not after you've paid a token.",
+      cta: "Explore Gurgaon advisory",
+      href: "/gurgaon",
+    },
+  ],
+
+  /* ---- Founder block ---- */
+  founderHeading: "Twelve years in Dubai. Now building the same standard in Gurgaon.",
+  founderBody:
+    "I spent twelve years in a market where verification is built into the law. Coming back, the gap was obvious — the information exists here too, it is just scattered, and almost nobody assembles it before a buyer commits. That assembly is the work. Everything else is showing property.",
+  founderCta: "Read the full story",
+
+  /* ---- How we choose what to show you ---- */
+  frameworkEyebrow: "How we choose what to show you",
+  frameworkHeading: "Three questions, in this order.",
+  frameworkBody:
+    "Most agents start with what they have to sell. We start with whether it should be sold to you at all.",
+  framework: [
+    {
+      num: "01",
+      title: "Understand the client",
+      intro: "Before showing any property, we first understand:",
+      items: [
+        "Budget",
+        "Goal",
+        "Timeline",
+        "Risk comfort",
+        "Rental vs capital growth",
+        "Holding period",
+        "Exit expectation",
+      ],
+      line: "We don't start with the project. We start with the client.",
+    },
+    {
+      num: "02",
+      title: "Filter the opportunity",
+      intro: "Then we evaluate each property through our investment lens:",
+      items: [
+        "Location demand",
+        "Developer credibility",
+        "Payment plan quality",
+        "Rental potential",
+        "Capital appreciation potential",
+        "Exit liquidity",
+        "Risk level",
+        "Client fit",
+      ],
+      line: "We don't show everything. We filter what actually makes sense.",
+    },
+    {
+      num: "03",
+      title: "Plan entry, hold & exit",
+      intro: "Finally, we build the strategy:",
+      items: [
+        "Why to enter",
+        "How long to hold",
+        "Rental or resale plan",
+        "Risk and downside",
+        "Best exit possibility",
+        "Conservative, realistic and optimistic scenarios",
+      ],
+      line: "Buying is easy. The real strategy is knowing how to hold and exit.",
+    },
+  ],
 };
 
+/** Sitewide investment disclaimer required by the content plan. */
+export const INVESTMENT_DISCLAIMER =
+  "All investment discussion, rental estimates, resale expectations and appreciation projections are based on available information and stated market assumptions. Returns are not guaranteed. Market conditions change. Buyers should independently verify all legal, financial, tax and contractual details before any purchase decision.";
+
+/**
+ * Placeholder testimonials only.
+ *
+ * These are structural examples so the slider has something to render — every
+ * one is flagged `illustrative`, which shows a visible marker and keeps the
+ * section out of Google. Replace them with real, consented client quotes; the
+ * content plan lists this as a pre-launch blocker.
+ */
 export const DEFAULT_TESTIMONIALS = [
   {
     quote:
-      "I bought two apartments in Dubai through them without flying in once. When they opened in Gurgaon, I didn't interview anyone else.",
-    name: "Rohit Khanna",
-    role: "NRI investor · Dubai & Gurugram",
+      "They talked me out of the unit I walked in wanting. The file showed a dues problem nobody else had mentioned. That is when I understood what I was paying for.",
+    name: "Placeholder — replace with a real client",
+    role: "First-time buyer",
+    region: "India",
+    agent: "",
   },
   {
     quote:
-      "They showed me why NOT to buy the flat I came in wanting. The file had a dues problem no one else had mentioned. That's when I knew.",
-    name: "Priya Raghavan",
-    role: "First-time buyer · Noida",
+      "I asked for projected returns. What I got instead was three scenarios with the assumptions written underneath each one, including the one where I lose money.",
+    name: "Placeholder — replace with a real client",
+    role: "Off-plan investor",
+    region: "Dubai",
+    agent: "",
   },
   {
     quote:
-      "The escrow felt over-engineered until my developer slipped a quarter. The penalty landed in my account before I'd even called them.",
-    name: "Sameer & Aditi Bhalla",
-    role: "Off-plan buyers · Dwarka Expressway",
+      "The exit conversation happened before the entry conversation. No one had ever done that with me before.",
+    name: "Placeholder — replace with a real client",
+    role: "NRI investor",
+    region: "Dubai",
+    agent: "",
   },
 ];
+
+/** Regions the testimonial slider can filter by. */
+export const TESTIMONIAL_REGIONS = [
+  "Dubai",
+  "India",
+  "Australia",
+  "Canada",
+  "Europe",
+  "Saudi Arabia",
+  "United Kingdom",
+  "United States",
+  "Singapore",
+] as const;
 
 /** The prototype's nine listings, carried over as clearly-marked samples. */
 export const DEFAULT_PROPERTIES = [
@@ -327,11 +447,39 @@ export const DEFAULT_FAQS = [
     order: 1,
   },
   {
-    question: "How does escrow protection work in India?",
+    question: "Do you hold my money in escrow?",
     answer:
-      "RERA requires 70% of buyer funds for a registered project to sit in a designated project account, released against certified construction progress. We structure payments through that mechanism wherever it applies, and for resale transactions we use a supervised escrow arrangement so funds move only when documents and registration are in order.",
+      "No — and be careful of any advisor who says they do. In Dubai, escrow is a statutory mechanism: buyer funds sit in a government-supervised account and are released against certified construction milestones. We work within that system; we don't operate it. In India, RERA requires 70% of buyer funds for a registered project to sit in a designated project account. Where a market offers no such mechanism at all, we negotiate the payment schedule directly with the developer so your money still moves only as the building does. Your funds never pass through us in any market.",
     category: "Escrow & payments",
     order: 2,
+  },
+  {
+    question: "Do you guarantee returns?",
+    answer:
+      "No. We do not guarantee rental income, appreciation or resale value, and we would be cautious of anyone who does. We give you research, the assumptions written down, three scenarios — conservative, realistic and optimistic — and an explicit risk view, so you decide with the downside in front of you.",
+    category: "Buying",
+    order: 3,
+  },
+  {
+    question: "Why not just buy directly from the developer?",
+    answer:
+      "A developer can explain their own project accurately. What they cannot tell you is how it compares to three alternatives, whether the unit size holds resale demand, or whether something else fits your objective better. That comparison is the service.",
+    category: "Buying",
+    order: 4,
+  },
+  {
+    question: "Why do you talk so much about exit?",
+    answer:
+      "Because a property can look profitable and still have no buyer when you need one. Entry price is a fact; exit is an assumption. We would rather test that assumption before your money is in it.",
+    category: "Buying",
+    order: 8,
+  },
+  {
+    question: "What if nothing fits my brief?",
+    answer:
+      "We tell you that, and we wait. A padded shortlist is how buyers end up with something that was never right for them. If the market cannot deliver at your number, that is the useful answer.",
+    category: "Buying",
+    order: 9,
   },
   {
     question: "What do you charge, and who pays you?",

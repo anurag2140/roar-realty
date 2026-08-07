@@ -74,15 +74,11 @@ export default async function InsightsPage() {
                         {post.excerpt}
                       </p>
                     )}
+                    {/* Deliberately no publication date: these are evergreen
+                        guides, and a visible date makes them look stale long
+                        before the advice actually is. */}
                     <div className="mt-auto pt-5 text-[11px] tracking-[0.16em] text-ivory/35 uppercase">
-                      <time dateTime={post.publishedAt}>
-                        {new Date(post.publishedAt).toLocaleDateString("en-IN", {
-                          day: "numeric",
-                          month: "long",
-                          year: "numeric",
-                        })}
-                      </time>
-                      {post.readingMinutes ? ` · ${post.readingMinutes} min read` : ""}
+                      {post.readingMinutes ? `${post.readingMinutes} min read` : "Guide"}
                     </div>
                   </div>
                 </article>

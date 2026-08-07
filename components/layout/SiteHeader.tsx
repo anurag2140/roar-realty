@@ -1,9 +1,9 @@
-"use client";
+﻿"use client";
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-import { NAV_LINKS } from "@/lib/site";
+import { NAV_LINKS, PROPERTIES_NAV_LINK } from "@/lib/site";
 import { imageUrl } from "@/lib/sanity/image";
 import { useShortlist } from "@/components/shortlist/ShortlistProvider";
 import type { SiteSettings } from "@/lib/sanity/types";
@@ -15,6 +15,13 @@ export function SiteHeader({ settings }: { settings: SiteSettings | null }) {
   const { ids, ready } = useShortlist();
 
   const logo = imageUrl(settings?.logo, 128, 128) || "/logo.jpeg";
+
+  // Properties is hidden until real inventory exists. The pages still work —
+  // they're just not advertised in the menu.
+  const showProperties = settings?.showProperties === true;
+  const navLinks = showProperties
+    ? [NAV_LINKS[0], NAV_LINKS[1], PROPERTIES_NAV_LINK, ...NAV_LINKS.slice(2)]
+    : [...NAV_LINKS];
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -72,7 +79,7 @@ export function SiteHeader({ settings }: { settings: SiteSettings | null }) {
 
         <div className="flex items-center gap-6">
           <div className="hidden items-center gap-8 lg:flex">
-            {NAV_LINKS.map((link) => (
+            {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
@@ -162,7 +169,7 @@ export function SiteHeader({ settings }: { settings: SiteSettings | null }) {
           </div>
 
           <div className="flex flex-1 flex-col gap-1 overflow-y-auto px-6 py-6">
-            {NAV_LINKS.map((link) => (
+            {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}

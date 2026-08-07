@@ -84,9 +84,10 @@ export async function getSiteSettings(): Promise<SiteSettings | null> {
     groq`*[_type == "siteSettings"][0]{
       title,
       logo{ ${imageFields} },
-      phone, whatsapp, email, officeAddress, reraNumber, legalEntity, cin,
+      phone, whatsapp, email, emailIndia, officeAddress,
+      reraNumber, hideReraNotice, legalEntity, foundedYear, cin,
       socials[]{ _key, platform, url },
-      goldTone, effects3d, grainOverlay,
+      goldTone, effects3d, grainOverlay, showProperties,
       announcement, exitIntent, footerNote,
       defaultSeo{ title, description, ogImage{ ${imageFields} } }
     }`,
@@ -107,6 +108,8 @@ export async function getHomepage(): Promise<Homepage | null> {
       heroStats[]{ _key, value, countTo, suffix, label },
       chapter2Stats[]{ _key, value, countTo, suffix, label },
       chapter1Cards[]{ _key, title, body },
+      doors[]{ _key, market, heading, body, cta, href },
+      framework[]{ _key, num, title, intro, items, line },
       ${seoFields}
     }`,
     {},
@@ -361,10 +364,11 @@ export async function getAllLocalityPaths(): Promise<
 
 /* ---------------- Editorial ---------------- */
 
-export async function getTestimonials(limit = 12): Promise<Testimonial[]> {
+export async function getTestimonials(limit = 300): Promise<Testimonial[]> {
   return sanityFetch<Testimonial[]>(
     groq`*[_type == "testimonial"] | order(order asc, _createdAt asc)[0...$limit]{
-      _id, quote, name, role, rating, illustrative, order, avatar{ ${imageFields} }
+      _id, quote, name, role, region, market, agent, rating, illustrative, order,
+      avatar{ ${imageFields} }
     }`,
     { limit },
     { tags: ["testimonial"] }

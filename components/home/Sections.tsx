@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { Scene3D, GoldFallback } from "@/components/three/Scene3D";
-import { DEFAULT_HOMEPAGE, DEFAULT_TESTIMONIALS } from "@/lib/content/defaults";
-import type { Homepage, Testimonial } from "@/lib/sanity/types";
+import { DEFAULT_HOMEPAGE } from "@/lib/content/defaults";
+import type { Homepage } from "@/lib/sanity/types";
 
 /* ---------------- The Roar Standard ---------------- */
 
@@ -169,52 +169,32 @@ export function ComparisonSection({ data }: { data: Homepage | null }) {
   );
 }
 
-/* ---------------- Testimonials ---------------- */
+/* ---------------- Founder ---------------- */
 
-export function TestimonialsSection({ items }: { items: Testimonial[] }) {
-  const list = items.length
-    ? items
-    : DEFAULT_TESTIMONIALS.map((t, i) => ({
-        _id: `default-${i}`,
-        quote: t.quote,
-        name: t.name,
-        role: t.role,
-        illustrative: true,
-      }));
-
-  const anyIllustrative = list.some((t) => t.illustrative);
-
+export function FounderBlock({ data }: { data: Homepage | null }) {
+  const d = DEFAULT_HOMEPAGE;
   return (
-    <section className="mx-auto max-w-[1400px] px-5 pt-10 pb-24 lg:px-10 lg:pb-35">
-      <div className="grid grid-cols-[repeat(auto-fit,minmax(280px,1fr))] gap-5.5">
-        {list.map((q) => (
-          <figure
-            key={q._id}
-            className="roar-reveal m-0 flex flex-col gap-5.5 border border-gold/20 bg-ink-2 p-8"
-          >
-            <div aria-hidden className="mt-2.5 font-serif text-[64px] leading-[0.5] text-gold">
-              &ldquo;
-            </div>
-            <blockquote className="m-0 font-serif text-[22px] leading-[1.5] italic text-ivory">
-              {q.quote}
-            </blockquote>
-            <figcaption className="mt-auto">
-              <div className="text-sm tracking-[0.08em] text-gold-hi">{q.name}</div>
-              {q.role && (
-                <div className="mt-1.5 text-xs tracking-[0.22em] text-ivory/40 uppercase">
-                  {q.role}
-                </div>
-              )}
-            </figcaption>
-          </figure>
-        ))}
-      </div>
-
-      {anyIllustrative && (
-        <p className="mt-6 text-center text-[11px] tracking-[0.16em] text-ivory/30 uppercase">
-          Illustrative testimonials — real client quotes will replace these before launch
+    <section
+      aria-labelledby="founder-heading"
+      className="border-t border-gold/15 px-5 py-24 lg:px-10 lg:py-28"
+    >
+      <div className="roar-reveal mx-auto max-w-3xl text-center">
+        <h2
+          id="founder-heading"
+          className="m-0 font-display text-[clamp(1.875rem,3.6vw,3rem)] leading-[1.12] text-balance text-ivory"
+        >
+          {data?.founderHeading || d.founderHeading}
+        </h2>
+        <p className="mx-auto mt-7 max-w-2xl text-[17px] leading-[1.85] text-ivory/60">
+          {data?.founderBody || d.founderBody}
         </p>
-      )}
+        <Link
+          href="/about"
+          className="mt-9 inline-flex items-center gap-3 text-[12px] tracking-[0.26em] text-gold-hi uppercase no-underline transition-all hover:gap-5"
+        >
+          {data?.founderCta || d.founderCta} <span aria-hidden>→</span>
+        </Link>
+      </div>
     </section>
   );
 }

@@ -136,16 +136,16 @@ export default async function InsightPage({
           {post.title}
         </h1>
 
+        {/* No visible date — these are evergreen guides. The machine-readable
+            date still goes to Google via the Article JSON-LD. */}
         <div className="mt-5 flex flex-wrap items-center gap-3 text-[11px] tracking-[0.16em] text-ivory/40 uppercase">
-          <time dateTime={post.publishedAt}>
-            {new Date(post.publishedAt).toLocaleDateString("en-IN", {
-              day: "numeric",
-              month: "long",
-              year: "numeric",
-            })}
-          </time>
-          {post.author && <span>· {post.author.name}</span>}
-          {post.readingMinutes ? <span>· {post.readingMinutes} min read</span> : null}
+          {post.author && <span>{post.author.name}</span>}
+          {post.readingMinutes ? (
+            <span>
+              {post.author ? "· " : ""}
+              {post.readingMinutes} min read
+            </span>
+          ) : null}
         </div>
 
         {cover && (

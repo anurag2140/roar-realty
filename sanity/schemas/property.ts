@@ -186,10 +186,12 @@ export const property = defineType({
     }),
     defineField({
       name: "escrowProtected",
-      title: "Escrow-protected",
+      title: "Payments tied to construction progress",
       type: "boolean",
       group: "specs",
       initialValue: false,
+      description:
+        "Tick where funds are protected by statutory escrow, or where the payment schedule is contractually linked to verified milestones.",
     }),
 
     /* ---- Media ---- */

@@ -261,7 +261,7 @@ export function Filters({
             onChange={(e) => setSingle("escrow", e.target.checked ? "1" : "")}
             className="h-4 w-4 accent-[var(--gold)]"
           />
-          Escrow-protected only
+          Payments tied to construction progress
         </label>
       </FilterGroup>
     </>

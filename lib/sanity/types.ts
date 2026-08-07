@@ -47,10 +47,31 @@ export type Testimonial = {
   quote: string;
   name: string;
   role?: string;
+  region?: string;
+  market?: string;
+  agent?: string;
   avatar?: SanityImage;
   rating?: number;
   illustrative?: boolean;
   order?: number;
+};
+
+export type Door = {
+  _key: string;
+  market: string;
+  heading: string;
+  body: string;
+  cta: string;
+  href: string;
+};
+
+export type FrameworkStep = {
+  _key: string;
+  num: string;
+  title: string;
+  intro?: string;
+  items: string[];
+  line: string;
 };
 
 /** The differentiator: due-diligence facts shown on every listing. */
@@ -209,6 +230,16 @@ export type Homepage = {
   contactEyebrow?: string;
   contactHeading?: string;
   contactBody?: string;
+  doorsEyebrow?: string;
+  doorsHeading?: string;
+  doors?: Door[];
+  founderHeading?: string;
+  founderBody?: string;
+  founderCta?: string;
+  frameworkEyebrow?: string;
+  frameworkHeading?: string;
+  frameworkBody?: string;
+  framework?: FrameworkStep[];
   seo?: Seo;
 };
 
@@ -218,8 +249,14 @@ export type SiteSettings = {
   phone?: string;
   whatsapp?: string;
   email?: string;
+  emailIndia?: string;
   officeAddress?: string;
   reraNumber?: string;
+  /** Hides the "registration pending" marker while the number is being issued. */
+  hideReraNotice?: boolean;
+  /** Master switch for the homepage portfolio grid and the Properties nav item. */
+  showProperties?: boolean;
+  foundedYear?: number;
   legalEntity?: string;
   cin?: string;
   socials?: { _key: string; platform: string; url: string }[];

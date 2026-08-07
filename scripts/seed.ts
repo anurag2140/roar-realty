@@ -1,12 +1,14 @@
 /**
- * Seeds Sanity with the approved prototype's content.
+ * Seeds Sanity with the launch content.
  *
- * Safe to re-run: every document uses a deterministic `_id` and
- * `createIfNotExists`, so existing edits are never overwritten. Pass
- * `--force` to overwrite them deliberately.
+ * Safe to re-run. Singletons (homepage, site settings) are patched field by
+ * field rather than replaced, so manual edits made in Studio survive. Pass
+ * `--force` to overwrite documents wholesale, and `--drop-samples` to delete
+ * the nine illustrative listings and their localities.
  *
  *   npm run seed
  *   npm run seed -- --force
+ *   npm run seed -- --drop-samples
  */
 
 import { createClient } from "@sanity/client";
@@ -16,18 +18,17 @@ import {
   DEFAULT_PROPERTIES,
   DEFAULT_TESTIMONIALS,
 } from "../lib/content/defaults";
+import { SEED_ARTICLES } from "../lib/content/insights";
 
 const force = process.argv.includes("--force");
+const dropSamples = process.argv.includes("--drop-samples");
 
 const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID;
 const dataset = process.env.NEXT_PUBLIC_SANITY_DATASET || "production";
 const token = process.env.SANITY_API_WRITE_TOKEN;
 
 if (!projectId || !token) {
-  console.error(
-    "Missing NEXT_PUBLIC_SANITY_PROJECT_ID or SANITY_API_WRITE_TOKEN.\n" +
-      "Run with: npm run seed"
-  );
+  console.error("Missing NEXT_PUBLIC_SANITY_PROJECT_ID or SANITY_API_WRITE_TOKEN.");
   process.exit(1);
 }
 
@@ -39,108 +40,82 @@ const client = createClient({
   useCdn: false,
 });
 
-/** Stable, human-readable ids so re-runs update rather than duplicate. */
 const slugify = (s: string) =>
-  s
-    .toLowerCase()
-    .replace(/[^a-z0-9]+/g, "-")
-    .replace(/^-|-$/g, "");
+  s.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
 
-const withKeys = <T extends object>(items: T[], prefix: string) =>
+const withKeys = <T extends object>(items: readonly T[], prefix: string) =>
   items.map((item, i) => ({ ...item, _key: `${prefix}-${i}` }));
 
 async function upsert(doc: { _id: string; _type: string; [k: string]: unknown }) {
-  if (force) {
-    await client.createOrReplace(doc);
-    return "replaced";
-  }
-  await client.createIfNotExists(doc);
-  return "ensured";
+  if (force) await client.createOrReplace(doc);
+  else await client.createIfNotExists(doc);
+}
+
+/** Creates if missing, then sets the given fields — preserving other edits. */
+async function upsertAndPatch(
+  id: string,
+  type: string,
+  fields: Record<string, unknown>
+) {
+  await client.createIfNotExists({ _id: id, _type: type });
+  await client.patch(id).set(fields).commit();
+}
+
+/** Turns plain paragraphs (and "## Heading" lines) into Portable Text. */
+function toPortableText(paragraphs: string[]) {
+  return paragraphs.map((p, i) => {
+    const isHeading = p.startsWith("## ");
+    return {
+      _type: "block",
+      _key: `b-${i}`,
+      style: isHeading ? "h2" : "normal",
+      markDefs: [],
+      children: [
+        {
+          _type: "span",
+          _key: `s-${i}`,
+          text: isHeading ? p.slice(3) : p,
+          marks: [],
+        },
+      ],
+    };
+  });
 }
 
 async function main() {
   console.log(`Seeding ${projectId}/${dataset}${force ? " (force)" : ""}…\n`);
 
-  /* ---- Localities (referenced by properties, so these go first) ---- */
-  const localities = Array.from(
-    new Map(
-      DEFAULT_PROPERTIES.map((p) => [
-        `${p.city}|${p.locality}`,
-        { city: p.city, locality: p.locality },
-      ])
-    ).values()
-  );
-
-  const localityIdBy = new Map<string, string>();
-  for (const l of localities) {
-    const id = `locality-${slugify(l.city)}-${slugify(l.locality)}`;
-    localityIdBy.set(`${l.city}|${l.locality}`, id);
-    await upsert({
-      _id: id,
-      _type: "locality",
-      name: l.locality,
-      slug: { _type: "slug", current: slugify(l.locality) },
-      city: l.city,
-      citySlug: { _type: "slug", current: slugify(l.city) },
-      blurb: `${l.locality}, ${l.city} — every listing here carries a complete Glass File before it reaches this page.`,
-    });
+  /* ---- Remove the illustrative sample listings ---- */
+  if (dropSamples) {
+    const ids = DEFAULT_PROPERTIES.map((p) => `property-${slugify(p.name)}`);
+    const localityIds = Array.from(
+      new Set(
+        DEFAULT_PROPERTIES.map(
+          (p) => `locality-${slugify(p.city)}-${slugify(p.locality)}`
+        )
+      )
+    );
+    // Properties reference localities, so listings must go first.
+    for (const id of ids) await client.delete(id).catch(() => {});
+    for (const id of localityIds) await client.delete(id).catch(() => {});
+    console.log(`✓ removed ${ids.length} sample listings and ${localityIds.length} localities`);
   }
-  console.log(`✓ ${localities.length} localities`);
-
-  /* ---- Properties ---- */
-  for (const p of DEFAULT_PROPERTIES) {
-    await upsert({
-      _id: `property-${slugify(p.name)}`,
-      _type: "property",
-      name: p.name,
-      slug: { _type: "slug", current: slugify(p.name) },
-      propertyType: p.propertyType,
-      tag: p.tag,
-      priceCr: p.priceCr,
-      city: p.city,
-      citySlug: { _type: "slug", current: slugify(p.city) },
-      locality: {
-        _type: "reference",
-        _ref: localityIdBy.get(`${p.city}|${p.locality}`),
-      },
-      bedrooms: p.bedrooms,
-      carpetArea: p.carpetArea,
-      plotArea: p.plotArea,
-      areaUnit: p.areaUnit || "sq ft",
-      possessionStatus: p.possessionStatus,
-      possessionDate: p.possessionDate,
-      escrowProtected: Boolean(p.escrowProtected),
-      featured: Boolean(p.featured),
-      // Every seeded listing is flagged, so nothing invented can quietly go
-      // live looking like real inventory.
-      illustrative: true,
-      summary: `${p.name} in ${p.locality}, ${p.city}. Illustrative sample listing — replace with real inventory before launch.`,
-      glassFile: {
-        titleChainYears: 30,
-        litigationScan: true,
-        encumbranceChecked: true,
-        duesCleared: true,
-        builderRecordChecked: true,
-        reraVerified: false,
-      },
-      publishedAt: new Date().toISOString(),
-    });
-  }
-  console.log(`✓ ${DEFAULT_PROPERTIES.length} properties (all marked illustrative)`);
 
   /* ---- Testimonials ---- */
   for (const [i, t] of DEFAULT_TESTIMONIALS.entries()) {
     await upsert({
-      _id: `testimonial-${slugify(t.name)}`,
+      _id: `testimonial-placeholder-${i + 1}`,
       _type: "testimonial",
       quote: t.quote,
       name: t.name,
       role: t.role,
+      region: t.region,
+      agent: t.agent || undefined,
       illustrative: true,
       order: i + 1,
     });
   }
-  console.log(`✓ ${DEFAULT_TESTIMONIALS.length} testimonials (all marked illustrative)`);
+  console.log(`✓ ${DEFAULT_TESTIMONIALS.length} placeholder testimonials`);
 
   /* ---- FAQs ---- */
   for (const f of DEFAULT_FAQS) {
@@ -155,17 +130,42 @@ async function main() {
   }
   console.log(`✓ ${DEFAULT_FAQS.length} FAQs`);
 
+  /* ---- Insights ---- */
+  for (const [i, a] of SEED_ARTICLES.entries()) {
+    await upsert({
+      _id: `insight-${a.slug}`,
+      _type: "insight",
+      title: a.title,
+      slug: { _type: "slug", current: a.slug },
+      excerpt: a.excerpt,
+      category: a.category,
+      readingMinutes: a.readingMinutes,
+      // Spread across the past so ordering is stable; the UI hides dates.
+      publishedAt: new Date(Date.now() - (SEED_ARTICLES.length - i) * 864e5).toISOString(),
+      body: toPortableText(a.body),
+    });
+  }
+  console.log(`✓ ${SEED_ARTICLES.length} insight articles`);
+
   /* ---- Homepage ---- */
   const d = DEFAULT_HOMEPAGE;
-  await upsert({
-    _id: "homepage",
-    _type: "homepage",
+  await upsertAndPatch("homepage", "homepage", {
     heroEyebrow: d.heroEyebrow,
     heroLine1: d.heroLine1,
     heroLine2: d.heroLine2,
     heroBody: d.heroBody,
     heroStats: withKeys(d.heroStats, "stat"),
     marqueeItems: d.marqueeItems,
+    doorsEyebrow: d.doorsEyebrow,
+    doorsHeading: d.doorsHeading,
+    doors: withKeys(d.doors, "door"),
+    frameworkEyebrow: d.frameworkEyebrow,
+    frameworkHeading: d.frameworkHeading,
+    frameworkBody: d.frameworkBody,
+    framework: withKeys(d.framework, "fw"),
+    founderHeading: d.founderHeading,
+    founderBody: d.founderBody,
+    founderCta: d.founderCta,
     chapter1Label: d.chapter1Label,
     chapter1Heading: d.chapter1Heading,
     chapter1Body: d.chapter1Body,
@@ -195,33 +195,35 @@ async function main() {
   });
   console.log("✓ homepage");
 
-  /* ---- Site settings ----
-     Contact fields are deliberately left empty. The prototype's placeholders
-     (+91 98100 00000, HRERA-GGM-XXXX-2026) were invented, and a fake phone
-     number that looks real is more dangerous than a visible gap. */
-  await upsert({
-    _id: "siteSettings",
-    _type: "siteSettings",
+  /* ---- Site settings ---- */
+  await upsertAndPatch("siteSettings", "siteSettings", {
     title: "Roar Realty",
-    phone: "",
-    whatsapp: "",
-    email: "",
-    officeAddress: "",
+    phone: "+971 58 545 5256",
+    whatsapp: "+971585455256",
+    email: "contact@roarrealty.ae",
+    emailIndia: "admin@roarrealty.in",
+    officeAddress: "1507, Al Manara Tower, Business Bay, Dubai",
+    legalEntity: "Roar Realty LLC",
+    foundedYear: 2016,
+    // Owner asked for the "registration pending" marker to come down while
+    // the number is being issued. Entering a number re-enables the row.
+    hideReraNotice: true,
     reraNumber: "",
-    legalEntity: "Roar Realty India Pvt. Ltd.",
+    // Off until real inventory is loaded.
+    showProperties: false,
     goldTone: "#C6A15B",
     effects3d: true,
     grainOverlay: true,
-    footerNote: "Every promise in writing.",
+    footerNote: "Don't buy the story. Test the investment.",
     exitIntent: {
       enabled: true,
       heading: "Before you go —",
-      body: "Get our Delhi NCR market brief: what's actually selling, where prices moved, and which projects we walked away from. One email, no follow-up calls.",
-      cta: "Send me the brief →",
+      body: "Get the verification checklist: the free public checks most buyers never run, in Dubai and in Gurgaon. One email, no follow-up calls.",
+      cta: "Send me the checklist →",
     },
     announcement: { enabled: false },
   });
-  console.log("✓ site settings (contact fields intentionally blank)");
+  console.log("✓ site settings (Dubai office, Roar Realty LLC, RERA notice hidden)");
 
   console.log("\nDone. Open /studio to edit.");
 }

@@ -1,4 +1,5 @@
 import { defineField, defineType } from "sanity";
+import { TESTIMONIAL_REGIONS } from "@/lib/content/defaults";
 
 export const builder = defineType({
   name: "builder",
@@ -82,7 +83,26 @@ export const testimonial = defineType({
   fields: [
     defineField({ name: "quote", title: "Quote", type: "text", rows: 4, validation: (r) => r.required() }),
     defineField({ name: "name", title: "Client name", type: "string", validation: (r) => r.required() }),
-    defineField({ name: "role", title: "Descriptor", type: "string", description: 'e.g. "NRI investor · Dubai & Gurugram"' }),
+    defineField({ name: "role", title: "Descriptor", type: "string", description: 'e.g. "NRI investor", "First-time buyer"' }),
+    defineField({
+      name: "region",
+      title: "Where the client is based",
+      type: "string",
+      options: { list: [...TESTIMONIAL_REGIONS] },
+      description: "Powers the region filter on the testimonial slider.",
+    }),
+    defineField({
+      name: "market",
+      title: "Where they bought",
+      type: "string",
+      options: { list: ["Dubai", "Gurgaon & NCR", "Both"] },
+    }),
+    defineField({
+      name: "agent",
+      title: "Advisor who handled it",
+      type: "string",
+      description: "Optional. Shown as “Handled by …” beneath the quote.",
+    }),
     defineField({ name: "avatar", title: "Photo", type: "image", options: { hotspot: true } }),
     defineField({ name: "rating", title: "Rating (1–5)", type: "number", validation: (r) => r.min(1).max(5) }),
     defineField({

@@ -11,11 +11,14 @@ import { Marquee } from "@/components/home/Marquee";
 import { ChapterOne, ChapterTwo } from "@/components/home/Chapters";
 import {
   ComparisonSection,
+  FounderBlock,
   PortfolioHeader,
   ProcessSection,
   StandardSection,
-  TestimonialsSection,
 } from "@/components/home/Sections";
+import { Doors } from "@/components/home/Doors";
+import { Framework } from "@/components/home/Framework";
+import { TestimonialSlider } from "@/components/home/TestimonialSlider";
 import { ContactSection } from "@/components/home/ContactSection";
 import { PropertyCard } from "@/components/property/PropertyCard";
 import { SITE_DESCRIPTION, SITE_NAME, SITE_TAGLINE } from "@/lib/site";
@@ -43,51 +46,59 @@ export default async function HomePage() {
     getHomepage(),
     getSiteSettings(),
     getFeaturedProperties(6),
-    getTestimonials(3),
+    getTestimonials(),
     getProperties({ page: 1 }),
   ]);
 
   const effects3d = settings?.effects3d !== false;
+  // Off until the owner loads real inventory — an empty or sample-filled
+  // portfolio is the single most damaging thing on a verification-led site.
+  const showProperties = settings?.showProperties === true;
 
   return (
     <>
       <Hero data={home} effects3d={effects3d} />
       <Marquee items={home?.marqueeItems} />
+      <Doors data={home} />
       <ChapterOne data={home} effects3d={effects3d} />
       <ChapterTwo data={home} />
       <StandardSection data={home} effects3d={effects3d} />
+      <Framework data={home} />
       <ProcessSection data={home} />
 
-      <section
-        id="properties"
-        className="border-y border-gold/15 bg-ink-2 px-5 py-24 lg:px-10 lg:pt-30 lg:pb-35"
-      >
-        <div className="mx-auto max-w-[1400px]">
-          <PortfolioHeader data={home} total={all.total} />
+      {showProperties && (
+        <section
+          id="properties"
+          className="border-y border-gold/15 bg-ink-2 px-5 py-24 lg:px-10 lg:pt-30 lg:pb-35"
+        >
+          <div className="mx-auto max-w-[1400px]">
+            <PortfolioHeader data={home} total={all.total} />
 
-          {featured.length ? (
-            <div className="grid grid-cols-[repeat(auto-fill,minmax(min(320px,100%),1fr))] gap-6.5">
-              {featured.map((p, i) => (
-                <PropertyCard key={p._id} property={p} priority={i < 3} />
-              ))}
-            </div>
-          ) : (
-            <p className="border border-dashed border-gold/25 px-6 py-14 text-center text-ivory/45">
-              No properties published yet. Add your first listing in{" "}
-              {/* Deliberately a full page load: /studio is a separate SPA and
-                  client-navigating into it drags the Studio bundle in. */}
-              {/* eslint-disable-next-line @next/next/no-html-link-for-pages */}
-              <a href="/studio" className="text-gold-hi underline underline-offset-2">
-                Studio → Properties
-              </a>
-              .
-            </p>
-          )}
-        </div>
-      </section>
+            {featured.length ? (
+              <div className="grid grid-cols-[repeat(auto-fill,minmax(min(320px,100%),1fr))] gap-6.5">
+                {featured.map((p, i) => (
+                  <PropertyCard key={p._id} property={p} priority={i < 3} />
+                ))}
+              </div>
+            ) : (
+              <p className="border border-dashed border-gold/25 px-6 py-14 text-center text-ivory/45">
+                No properties published yet. Add your first listing in{" "}
+                {/* Deliberately a full page load: /studio is a separate SPA and
+                    client-navigating into it drags the Studio bundle in. */}
+                {/* eslint-disable-next-line @next/next/no-html-link-for-pages */}
+                <a href="/studio" className="text-gold-hi underline underline-offset-2">
+                  Studio → Properties
+                </a>
+                .
+              </p>
+            )}
+          </div>
+        </section>
+      )}
 
       <ComparisonSection data={home} />
-      <TestimonialsSection items={testimonials} />
+      <TestimonialSlider items={testimonials} />
+      <FounderBlock data={home} />
       <ContactSection data={home} settings={settings} effects3d={effects3d} />
     </>
   );

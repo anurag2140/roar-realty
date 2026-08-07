@@ -7,23 +7,30 @@ export const SITE_DESCRIPTION =
   "Escrow-protected payments, thrice-verified titles and carpet-area pricing. " +
   "Twelve years of Dubai discipline, brought to Delhi NCR property.";
 
+/**
+ * Dubai sits before Gurgaon deliberately — that ordering communicates the
+ * 60/40 weighting of the business before anyone reads a word.
+ */
 export const NAV_LINKS = [
-  { href: "/about", label: "Story" },
+  { href: "/dubai", label: "Dubai" },
+  { href: "/gurgaon", label: "Gurgaon" },
   { href: "/the-roar-standard", label: "The Standard" },
-  { href: "/properties", label: "Properties" },
-  { href: "/process", label: "Process" },
   { href: "/insights", label: "Insights" },
+  { href: "/about", label: "About" },
 ] as const;
+
+/** Only shown once Site settings → "Show the properties section" is on. */
+export const PROPERTIES_NAV_LINK = { href: "/properties", label: "Properties" } as const;
 
 export const FOOTER_LINKS = {
   explore: [
-    { href: "/properties", label: "All properties" },
-    { href: "/shortlist", label: "My shortlist" },
+    { href: "/dubai", label: "Dubai advisory" },
+    { href: "/gurgaon", label: "Gurgaon & NCR" },
     { href: "/insights", label: "Insights" },
     { href: "/contact", label: "Contact" },
   ],
   company: [
-    { href: "/about", label: "Our story" },
+    { href: "/about", label: "About Anurag" },
     { href: "/the-roar-standard", label: "The Roar Standard" },
     { href: "/process", label: "How we work" },
   ],

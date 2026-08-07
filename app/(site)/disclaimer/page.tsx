@@ -89,13 +89,38 @@ export default async function DisclaimerPage() {
           qualified professional before making a financial decision.
         </LegalP>
 
-        <LegalHeading>Escrow references</LegalHeading>
+        <LegalHeading>Payment protection and escrow</LegalHeading>
         <LegalP>
-          References to escrow protection describe the designated project
-          account mechanism under Section 4(2)(l)(D) of the RERA Act, and, for
-          resale transactions, supervised escrow arrangements agreed in writing
-          between the parties. The specific mechanism applicable to any given
-          transaction is set out in that transaction&apos;s agreement.
+          We do not operate an escrow service and client funds do not pass
+          through us in any market. Where we refer to escrow, we mean the
+          statutory mechanisms operated by others: in Dubai, the project escrow
+          accounts supervised under UAE Law No. 8 of 2007; in India, the
+          designated project account required by Section 4(2)(l)(D) of the RERA
+          Act. Where a transaction falls outside any such mechanism, we
+          negotiate a payment schedule linked to verified construction
+          progress. That is a contractual arrangement between buyer and seller,
+          not a guarantee by us, and the mechanism applicable to any given
+          transaction is set out in that transaction&apos;s own agreement.
+        </LegalP>
+
+        <LegalHeading>Delay and possession</LegalHeading>
+        <LegalP>
+          Where we describe holding a developer to a delay clause, we mean
+          pursuing the contractual remedy on your behalf. We do not underwrite,
+          insure or assume a developer&apos;s obligations, and no statement on
+          this website should be read as a guarantee of possession on any
+          particular date.
+        </LegalP>
+
+        <LegalHeading>Investment discussion</LegalHeading>
+        <LegalP>
+          All investment discussion, rental estimates, resale expectations and
+          appreciation projections published here are based on available
+          information and stated assumptions. Returns are not guaranteed and
+          market conditions change. Scenario analysis we provide — conservative,
+          realistic and optimistic — describes possible outcomes under stated
+          assumptions and is not a forecast or a promise. We are not licensed
+          investment or tax advisors.
         </LegalP>
       </Legal>
     </>

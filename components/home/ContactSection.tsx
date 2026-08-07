@@ -36,18 +36,32 @@ export function ContactSection({
     {
       label: "Email",
       value: settings?.email ? (
-        <a href={`mailto:${settings.email}`} className="hover:text-gold-hi">
-          {settings.email}
-        </a>
+        <span className="flex flex-wrap gap-x-3 gap-y-1">
+          <a href={`mailto:${settings.email}`} className="hover:text-gold-hi">
+            {settings.email}
+          </a>
+          {settings.emailIndia && (
+            <>
+              <span className="text-ivory/25">·</span>
+              <a href={`mailto:${settings.emailIndia}`} className="hover:text-gold-hi">
+                {settings.emailIndia}
+              </a>
+            </>
+          )}
+        </span>
       ) : (
         <TBC>Email address</TBC>
       ),
     },
-    {
-      label: "RERA",
-      value: rera || <TBC>Registration pending</TBC>,
-    },
   ];
+
+  // The pending marker comes down while the registration is being issued;
+  // a real number always shows.
+  if (rera) {
+    rows.push({ label: "RERA", value: rera });
+  } else if (settings?.hideReraNotice !== true) {
+    rows.push({ label: "RERA", value: <TBC>Registration pending</TBC> });
+  }
 
   return (
     <section
