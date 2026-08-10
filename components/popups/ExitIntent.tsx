@@ -100,7 +100,7 @@ export function ExitIntent({ settings }: { settings: SiteSettings | null }) {
         suppress();
         setOpen(false);
       }}
-      title={config?.heading || "Before you go,"}
+      title={config?.heading || "Before you go"}
       description={
         config?.body ||
         "Get our Delhi NCR market brief: what's actually selling, where prices moved, and which projects we walked away from. One email, no follow-up calls."

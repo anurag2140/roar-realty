@@ -218,7 +218,7 @@ async function main() {
     footerNote: "Don't buy the story. Test the investment.",
     exitIntent: {
       enabled: true,
-      heading: "Before you go —",
+      heading: "Before you go",
       body: "Get the verification checklist: the free public checks most buyers never run, in Dubai and in Gurgaon. One email, no follow-up calls.",
       cta: "Send me the checklist →",
     },
