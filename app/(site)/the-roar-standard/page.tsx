@@ -8,7 +8,7 @@ import { ButtonLink } from "@/components/ui/Button";
 export const revalidate = 3600;
 
 export const metadata: Metadata = {
-  title: "The Roar Standard — six rules, in writing",
+  title: "The Roar Standard, six rules, in writing",
   description:
     "Escrow-protected payments, titles verified thrice, carpet-area pricing, one fixed fee, a full digital paper trail and a possession-date guarantee. Written into your agreement, not a brochure.",
   alternates: { canonical: "/the-roar-standard" },

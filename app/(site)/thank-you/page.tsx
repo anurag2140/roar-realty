@@ -15,8 +15,8 @@ export default function ThankYouPage() {
         Consider it heard.
       </div>
       <p className="max-w-md text-[17px] leading-[1.8] text-ivory/60">
-        Your brief is with our Gurugram desk. Expect a curated shortlist — each
-        listing with its complete Glass File — within 48 hours.
+        Your brief is with our Gurugram desk. Expect a curated shortlist, each
+        listing with its complete Glass File, within 48 hours.
       </p>
       <p className="mt-4 text-sm text-ivory/40">
         No obligation, and no follow-up calls you didn&apos;t ask for.

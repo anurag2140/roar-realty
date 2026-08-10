@@ -62,7 +62,7 @@ export function ShortlistView() {
           <div className="mb-4 font-serif text-[28px] italic text-gold">Nothing saved yet.</div>
           <p className="mx-auto mb-8 max-w-sm text-[15px] leading-relaxed text-ivory/55">
             Tap the heart on any property to keep it here. Your shortlist is stored
-            on this device only — nothing is sent to us until you ask.
+            on this device only, nothing is sent to us until you ask.
           </p>
           <ButtonLink href="/properties" size="lg">
             Browse properties →
@@ -74,18 +74,24 @@ export function ShortlistView() {
 
   const rows: { label: string; get: (p: Property) => string }[] = [
     { label: "Price", get: (p) => (p.priceOnRequest ? "On request" : formatPriceCr(p.priceCr)) },
-    { label: "Type", get: (p) => p.propertyType || "—" },
-    { label: "Location", get: (p) => [p.locality, p.city].filter(Boolean).join(", ") || "—" },
-    { label: "Bedrooms", get: (p) => (p.bedrooms ? `${p.bedrooms} BHK` : "—") },
+    { label: "Type", get: (p) => p.propertyType || "Not stated" },
+    {
+      label: "Location",
+      get: (p) => [p.locality, p.city].filter(Boolean).join(", ") || "Not stated",
+    },
+    { label: "Bedrooms", get: (p) => (p.bedrooms ? `${p.bedrooms} BHK` : "Not stated") },
     {
       label: "Carpet area",
-      get: (p) => (p.carpetArea ? formatArea(p.carpetArea, p.areaUnit) : "—"),
+      get: (p) => (p.carpetArea ? formatArea(p.carpetArea, p.areaUnit) : "Not stated"),
     },
     {
       label: "Plot area",
-      get: (p) => (p.plotArea ? formatArea(p.plotArea, p.areaUnit) : "—"),
+      get: (p) => (p.plotArea ? formatArea(p.plotArea, p.areaUnit) : "Not stated"),
     },
-    { label: "Possession", get: (p) => p.possessionDate || p.possessionStatus || "—" },
+    {
+      label: "Possession",
+      get: (p) => p.possessionDate || p.possessionStatus || "Not stated",
+    },
     { label: "Escrow", get: (p) => (p.escrowProtected ? "Protected" : "Not applicable") },
   ];
 
@@ -170,8 +176,8 @@ export function ShortlistView() {
           Send us the whole list.
         </h2>
         <p className="mb-6 text-sm leading-relaxed text-ivory/55">
-          We&apos;ll come back with a Glass File for each — title chain, dues,
-          litigation scan and builder record — plus an honest view on which one
+          We&apos;ll come back with a Glass File for each, title chain, dues,
+          litigation scan and builder record, plus an honest view on which one
           we&apos;d actually buy.
         </p>
         <LeadForm

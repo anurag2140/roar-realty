@@ -21,9 +21,9 @@ export async function generateMetadata({
   const summary = describeFilters(filters);
 
   return {
-    title: active ? `${summary} — search` : "Properties for sale in Delhi NCR",
+    title: active ? `${summary}, search` : "Properties for sale in Delhi NCR",
     description: active
-      ? `Browse ${summary} with Roar Realty. Every listing carries a complete Glass File — title chain, dues, litigation scan and builder record.`
+      ? `Browse ${summary} with Roar Realty. Every listing carries a complete Glass File, title chain, dues, litigation scan and builder record.`
       : "Escrow-protected, Glass-File-verified property across Gurugram, New Delhi and Noida. Search by type, budget, bedrooms, locality and possession.",
     // Filtered permutations are near-duplicates; only the clean page should be
     // indexed, or Google sees thousands of thin variants of the same list.
@@ -66,8 +66,8 @@ export default async function PropertiesPage({
             {activeCount ? "Search results." : "The portfolio."}
           </h1>
           <p className="mt-5 max-w-[560px] text-[15px] leading-relaxed text-ivory/50">
-            Every listing here carries a complete Glass File — title chain, dues,
-            litigation scan and builder record — before we let it on this page.
+            Every listing here carries a complete Glass File, title chain, dues,
+            litigation scan and builder record, before we let it on this page.
           </p>
         </header>
 

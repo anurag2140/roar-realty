@@ -11,7 +11,7 @@ export const revalidate = 3600;
 export const metadata: Metadata = {
   title: "Investing in Dubai property from India",
   description:
-    "Dubai is one of the most verifiable property markets in the world — escrow law, a public title registry, licensed brokers. That doesn't make every project a good investment. Our eight-point filter, and what Dubai's protections don't cover.",
+    "Dubai is one of the most verifiable property markets in the world, escrow law, a public title registry, licensed brokers. That doesn't make every project a good investment. Our eight-point filter, and what Dubai's protections don't cover.",
   alternates: { canonical: "/dubai" },
 };
 
@@ -59,7 +59,7 @@ export default async function DubaiPage() {
             <ul className="m-0 flex list-none flex-col gap-4 p-0">
               {d.doesNot.map((item) => (
                 <li key={item} className="flex items-start gap-2.5 text-[15px] leading-relaxed text-ivory/60">
-                  <span aria-hidden className="mt-1 text-ivory/30">—</span>
+                  <span aria-hidden className="mt-[3px] text-[10px] text-ivory/30">✕</span>
                   {item}
                 </li>
               ))}
@@ -178,7 +178,7 @@ export default async function DubaiPage() {
 
       <MarketCta
         heading="Start your Dubai investment review"
-        body="Tell us the budget, the objective and the timeline. You get a filtered shortlist with the reasoning written down — including what we rejected and why."
+        body="Tell us the budget, the objective and the timeline. You get a filtered shortlist with the reasoning written down, including what we rejected and why."
         formType="enquiry"
       />
     </>

@@ -7,9 +7,9 @@ import { MarketCta } from "@/components/market/MarketCta";
 export const revalidate = 3600;
 
 export const metadata: Metadata = {
-  title: "Buying property in Gurgaon & NCR — verified before you shortlist",
+  title: "Buying property in Gurgaon & NCR, verified before you shortlist",
   description:
-    "Title chain, mutation status, encumbrance certificate, RERA registration, DTCP licence, litigation scan and true carpet area — assembled before you pay a token, not after.",
+    "Title chain, mutation status, encumbrance certificate, RERA registration, DTCP licence, litigation scan and true carpet area, assembled before you pay a token, not after.",
   alternates: { canonical: "/gurgaon" },
 };
 
@@ -112,7 +112,7 @@ export default function GurgaonPage() {
 
       <MarketCta
         heading="Get the verification done before you commit"
-        body="Send us the property you're considering — or tell us what you're looking for. We'll assemble the file: title chain, mutation, encumbrance, litigation and the real carpet-area maths."
+        body="Send us the property you're considering, or tell us what you're looking for. We'll assemble the file: title chain, mutation, encumbrance, litigation and the real carpet-area maths."
         formType="enquiry"
       />
     </>

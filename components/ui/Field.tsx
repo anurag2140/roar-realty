@@ -4,8 +4,10 @@ import { useId } from "react";
 
 const LABEL =
   "flex flex-col gap-2.5 text-[11px] tracking-[0.28em] text-ivory/50 uppercase";
+// min-h-11 keeps every control at a comfortable thumb size on a phone; the
+// 16px floor set in globals.css stops iOS zooming the page on focus.
 const CONTROL =
-  "border-0 border-b border-gold/30 bg-transparent py-2 font-sans text-[17px] text-ivory outline-none transition-colors focus:border-b-gold-hi";
+  "min-h-11 border-0 border-b border-gold/30 bg-transparent py-2.5 font-sans text-[17px] text-ivory outline-none transition-colors focus:border-b-gold-hi";
 
 type BaseProps = {
   label: string;

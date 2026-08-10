@@ -11,14 +11,14 @@ export const DEFAULT_HOMEPAGE = {
   heroLine1: "Most buyers are shown property.",
   heroLine2: "Almost none are shown the risk.",
   heroBody:
-    "Twelve years selling property in a city where every rupee sits in escrow, every title is public and every promise is enforceable. We apply that same standard to everything we recommend — in Dubai, and now in Gurgaon.",
+    "Twelve years selling property in a city where every rupee sits in escrow, every title is public and every promise is enforceable. We apply that same standard to everything we recommend, in Dubai and now in Gurgaon.",
   heroStats: [
     { value: "12 yrs", countTo: 12, suffix: " yrs", label: "Operating in Dubai real estate" },
     // The prototype claimed "4,200+ keys handed over". The content plan flags
     // this as needing verification — whether it is a personal record or the
     // record of firms worked within. Left as a CMS field with a neutral label
     // until the owner confirms a defensible figure.
-    { value: "—", label: "Transactions closed · confirm figure" },
+    { value: "TBC", label: "Transactions closed · confirm figure" },
     { value: "100%", label: "Escrow-protected on eligible Dubai transactions" },
     { value: "0", label: "Undisclosed fees. Ever." },
   ],
@@ -35,7 +35,7 @@ export const DEFAULT_HOMEPAGE = {
   chapter1Heading: "Where we come from, a handshake is law.",
   chapter1Body: [
     "In Dubai, a buyer's money never touches a developer's pocket directly. It sits in a government-regulated escrow account and is released only as construction milestones are certified. Every title is registered with the Land Department. Every off-plan sale is recorded before a single brick is laid. Every broker carries a licence number you can verify in seconds.",
-    "We didn't just work inside that system — we were shaped by it. And after twelve years and thousands of handovers, one question kept following us home: why doesn't buying in India feel like this?",
+    "We didn't just work inside that system, we were shaped by it. And after twelve years and thousands of handovers, one question kept following us home: why doesn't buying in India feel like this?",
   ],
   chapter1Cards: [
     { title: "Escrow law", body: "Buyer funds locked & milestone-released since 2007" },
@@ -46,12 +46,12 @@ export const DEFAULT_HOMEPAGE = {
   chapter2Label: "Chapter II",
   chapter2Heading: "Then we looked at what Indian buyers endure.",
   chapter2Body:
-    "The largest purchase of a family's life — negotiated in whispers, priced on area they'll never occupy, paid into accounts nobody audits, delivered years late with a shrug. It isn't a market. It's a maze built to exhaust you into agreeing.",
+    "The largest purchase of a family's life, negotiated in whispers, priced on area they'll never occupy, paid into accounts nobody audits, delivered years late with a shrug. It isn't a market. It's a maze built to exhaust you into agreeing.",
   chapter2Stats: [
     {
       value: "5+ yrs",
       label:
-        "of possession delay is routine on stalled projects — with the buyer's money already gone.",
+        "of possession delay is routine on stalled projects, with the buyer's money already gone.",
     },
     {
       value: "~40%",
@@ -66,27 +66,27 @@ export const DEFAULT_HOMEPAGE = {
     {
       value: "1 in 3",
       label:
-        'resale deals hits a title surprise — dues, disputes or documents that were "coming tomorrow".',
+        'resale deals hits a title surprise: dues, disputes or documents that were "coming tomorrow".',
     },
   ],
   chapter2Quote:
     "Buyers don't fear property. They fear the process. So we rebuilt the process.",
-  chapter2QuoteAttrib: "— Founding note, Roar Realty India",
+  chapter2QuoteAttrib: "Founding note, Roar Realty India",
 
   standardLabel: "Chapter III",
   standardHeading: "The Roar Standard.",
   standardBody:
-    "Six rules we brought from Dubai. Every transaction, every client, no exceptions. Each one is written into your agreement — not into a brochure.",
+    "Six rules we brought from Dubai. Every transaction, every client, no exceptions. Each one is written into your agreement, not into a brochure.",
   pillars: [
     {
       num: "Rule 01",
       title: "Payments tied to progress",
-      body: "In Dubai, buyer funds sit in a government-supervised escrow account and are released only against certified construction milestones — that is written into law, and we use it. Where a market offers no such mechanism, we negotiate the payment schedule with the developer directly, so your money still moves only as the building does.",
+      body: "In Dubai, buyer funds sit in a government-supervised escrow account and are released only against certified construction milestones. That is written into law, and we use it. Where a market offers no such mechanism, we negotiate the payment schedule with the developer directly, so your money still moves only as the building does.",
     },
     {
       num: "Rule 02",
       title: "Title verified thrice",
-      body: "A 30-year ownership chain, an independent litigation scan, and a RERA cross-check — completed before a property earns a place on our shelf.",
+      body: "A 30-year ownership chain, an independent litigation scan, and a RERA cross-check, completed before a property earns a place on our shelf.",
     },
     {
       num: "Rule 03",
@@ -106,7 +106,7 @@ export const DEFAULT_HOMEPAGE = {
     {
       num: "Rule 06",
       title: "Possession on time",
-      body: "For off-plan purchases we make sure the delay clause is real — a named amount, a trigger date and a payment method, not decoration. If the developer slips, we hold them to it on your behalf rather than leaving you to chase it alone.",
+      body: "For off-plan purchases we make sure the delay clause is real: a named amount, a trigger date and a payment method, not decoration. If the developer slips, we hold them to it on your behalf rather than leaving you to chase it alone.",
     },
   ],
 
@@ -116,7 +116,7 @@ export const DEFAULT_HOMEPAGE = {
     {
       num: "I",
       title: "The brief",
-      body: "One sitting — your budget, your non-negotiables, your timeline. We tell you honestly what the market can and cannot give you at that number.",
+      body: "One sitting, your budget, your non-negotiables, your timeline. We tell you honestly what the market can and cannot give you at that number.",
     },
     {
       num: "II",
@@ -126,7 +126,7 @@ export const DEFAULT_HOMEPAGE = {
     {
       num: "III",
       title: "The file",
-      body: "For any property you like: complete title chain, encumbrances, dues, litigation history, developer record and true carpet-area maths — before you fall in love with it.",
+      body: "For any property you like: complete title chain, encumbrances, dues, litigation history, developer record and true carpet-area maths, before you fall in love with it.",
     },
     {
       num: "IV",
@@ -136,26 +136,26 @@ export const DEFAULT_HOMEPAGE = {
     {
       num: "V",
       title: "The aftercare",
-      body: "Twenty-four months of post-possession support — mutation, society transfer, snag lists, leasing if you want it. The relationship outlives the deal.",
+      body: "Twenty-four months of post-possession support: mutation, society transfer, snag lists, leasing if you want it. The relationship outlives the deal.",
     },
   ],
 
   portfolioEyebrow: "Curated · Delhi NCR",
   portfolioHeading: "The portfolio.",
   portfolioBody:
-    "Every listing below carries a complete Glass File — title chain, dues, litigation scan and builder record — before we let it on this page.",
+    "Every listing below carries a complete Glass File: title chain, dues, litigation scan and builder record, verified before we let it on this page.",
 
   compareEyebrow: "Why buyers switch",
   compareHeading: "The old way, retired.",
   compareRows: [
     {
       label: "Fee",
-      old: "Undisclosed. Often paid twice — by you and by the builder, to the same broker.",
+      old: "Undisclosed. Often paid twice, by you and by the builder, to the same broker.",
       roar: "One fixed advisory fee, quoted in writing before work begins.",
     },
     {
       label: "Price basis",
-      old: '"Super built-up" area — you pay for lobbies, walls and air.',
+      old: '"Super built-up" area: you pay for lobbies, walls and air.',
       roar: "Carpet area, with every other charge itemised in plain language.",
     },
     {
@@ -166,12 +166,12 @@ export const DEFAULT_HOMEPAGE = {
     {
       label: "Documents",
       old: '"Sir, papers are coming tomorrow." Verified after you commit.',
-      roar: "Full Glass File — title, dues, litigation — before you shortlist.",
+      roar: "Full Glass File, title, dues, litigation, before you shortlist.",
     },
     {
       label: "Possession risk",
       old: "Yours alone. Delays are your problem, penalties unenforceable.",
-      roar: "A delay clause with a real amount, trigger and method — and we enforce it for you.",
+      roar: "A delay clause with a real amount, trigger and method, and we enforce it for you.",
     },
     {
       label: "Exit",
@@ -188,7 +188,7 @@ export const DEFAULT_HOMEPAGE = {
   contactEyebrow: "Begin the conversation",
   contactHeading: "Your next address deserves a process worthy of it.",
   contactBody:
-    "Tell us the budget, the objective and the timeline. Within 48 hours you get a shortlist — each with its verification file — and a fixed fee in writing. No obligation, no calls you didn't ask for.",
+    "Tell us the budget, the objective and the timeline. Within 48 hours you get a shortlist, each with its verification file, and a fixed fee in writing. No obligation, no calls you didn't ask for.",
 
   /* ---- The two doors: Dubai primary, Gurgaon secondary ---- */
   doorsEyebrow: "Two markets, one standard",
@@ -197,14 +197,14 @@ export const DEFAULT_HOMEPAGE = {
     {
       market: "Dubai",
       heading: "Investing in Dubai from India",
-      body: "Escrow law, a public title registry and licensed brokers make Dubai one of the most verifiable property markets in the world. That does not make every project a good investment. We filter on location demand, developer record, payment structure, rental logic, exit liquidity and your actual objective — then tell you plainly whether it fits.",
+      body: "Escrow law, a public title registry and licensed brokers make Dubai one of the most verifiable property markets in the world. That does not make every project a good investment. We filter on location demand, developer record, payment structure, rental logic, exit liquidity and your actual objective, then tell you plainly whether it fits.",
       cta: "Explore Dubai advisory",
       href: "/dubai",
     },
     {
       market: "Gurgaon & NCR",
       heading: "Buying in Gurgaon & NCR",
-      body: "India's market gives you the same information Dubai does — title chains, RERA records, mutation status, encumbrance certificates. It just scatters them across five places and hopes you won't look. We look. Before you shortlist, not after you've paid a token.",
+      body: "India's market gives you the same information Dubai does, title chains, RERA records, mutation status, encumbrance certificates. It just scatters them across five places and hopes you won't look. We look. Before you shortlist, not after you've paid a token.",
       cta: "Explore Gurgaon advisory",
       href: "/gurgaon",
     },
@@ -213,7 +213,7 @@ export const DEFAULT_HOMEPAGE = {
   /* ---- Founder block ---- */
   founderHeading: "Twelve years in Dubai. Now building the same standard in Gurgaon.",
   founderBody:
-    "I spent twelve years in a market where verification is built into the law. Coming back, the gap was obvious — the information exists here too, it is just scattered, and almost nobody assembles it before a buyer commits. That assembly is the work. Everything else is showing property.",
+    "I spent twelve years in a market where verification is built into the law. Coming back, the gap was obvious, the information exists here too, it is just scattered, and almost nobody assembles it before a buyer commits. That assembly is the work. Everything else is showing property.",
   founderCta: "Read the full story",
 
   /* ---- How we choose what to show you ---- */
@@ -286,7 +286,7 @@ export const DEFAULT_TESTIMONIALS = [
   {
     quote:
       "They talked me out of the unit I walked in wanting. The file showed a dues problem nobody else had mentioned. That is when I understood what I was paying for.",
-    name: "Placeholder — replace with a real client",
+    name: "Placeholder, replace with a real client",
     role: "First-time buyer",
     region: "India",
     agent: "",
@@ -294,7 +294,7 @@ export const DEFAULT_TESTIMONIALS = [
   {
     quote:
       "I asked for projected returns. What I got instead was three scenarios with the assumptions written underneath each one, including the one where I lose money.",
-    name: "Placeholder — replace with a real client",
+    name: "Placeholder, replace with a real client",
     role: "Off-plan investor",
     region: "Dubai",
     agent: "",
@@ -302,7 +302,7 @@ export const DEFAULT_TESTIMONIALS = [
   {
     quote:
       "The exit conversation happened before the entry conversation. No one had ever done that with me before.",
-    name: "Placeholder — replace with a real client",
+    name: "Placeholder, replace with a real client",
     role: "NRI investor",
     region: "Dubai",
     agent: "",
@@ -456,14 +456,14 @@ export const DEFAULT_FAQS = [
   {
     question: "Do you hold my money in escrow?",
     answer:
-      "No — and be careful of any advisor who says they do. In Dubai, escrow is a statutory mechanism: buyer funds sit in a government-supervised account and are released against certified construction milestones. We work within that system; we don't operate it. In India, RERA requires 70% of buyer funds for a registered project to sit in a designated project account. Where a market offers no such mechanism at all, we negotiate the payment schedule directly with the developer so your money still moves only as the building does. Your funds never pass through us in any market.",
+      "No, and be careful of any advisor who says they do. In Dubai, escrow is a statutory mechanism: buyer funds sit in a government-supervised account and are released against certified construction milestones. We work within that system; we don't operate it. In India, RERA requires 70% of buyer funds for a registered project to sit in a designated project account. Where a market offers no such mechanism at all, we negotiate the payment schedule directly with the developer so your money still moves only as the building does. Your funds never pass through us in any market.",
     category: "Escrow & payments",
     order: 2,
   },
   {
     question: "Do you guarantee returns?",
     answer:
-      "No. We do not guarantee rental income, appreciation or resale value, and we would be cautious of anyone who does. We give you research, the assumptions written down, three scenarios — conservative, realistic and optimistic — and an explicit risk view, so you decide with the downside in front of you.",
+      "No. We do not guarantee rental income, appreciation or resale value, and we would be cautious of anyone who does. We give you research, the assumptions written down, three scenarios, conservative, realistic and optimistic, and an explicit risk view, so you decide with the downside in front of you.",
     category: "Buying",
     order: 3,
   },
@@ -491,21 +491,21 @@ export const DEFAULT_FAQS = [
   {
     question: "What do you charge, and who pays you?",
     answer:
-      "One fixed advisory fee, agreed in writing before we start work. We do not take side commissions or builder kickbacks — if a developer offers one, it is disclosed to you and adjusted against your fee.",
+      "One fixed advisory fee, agreed in writing before we start work. We do not take side commissions or builder kickbacks, if a developer offers one, it is disclosed to you and adjusted against your fee.",
     category: "Fees",
     order: 3,
   },
   {
     question: "Why do you quote on carpet area?",
     answer:
-      "Because it is the area you will actually live in. Super built-up figures can include lobbies, shafts, walls and common areas — as much as 40% of what you are being asked to pay for. We quote carpet area and itemise every other charge separately, in plain language.",
+      "Because it is the area you will actually live in. Super built-up figures can include lobbies, shafts, walls and common areas, as much as 40% of what you are being asked to pay for. We quote carpet area and itemise every other charge separately, in plain language.",
     category: "Buying",
     order: 4,
   },
   {
     question: "Do you work with NRI buyers?",
     answer:
-      "Extensively — it is where we started. We handle remote viewings, documentation, power of attorney, FEMA-compliant payment routing and registration, so you can complete a purchase without flying in.",
+      "Extensively, it is where we started. We handle remote viewings, documentation, power of attorney, FEMA-compliant payment routing and registration, so you can complete a purchase without flying in.",
     category: "Buying",
     order: 5,
   },

@@ -63,7 +63,7 @@ export function EnquiryProvider({
         property,
         title: "Request the Glass File",
         description:
-          "Complete title chain, encumbrances, dues, litigation history and true carpet-area maths — sent to you before you commit to anything.",
+          "Complete title chain, encumbrances, dues, litigation history and true carpet-area maths, sent to you before you commit to anything.",
         submitLabel: "Send me the Glass File →",
         messageLabel: "Anything specific you want checked?",
         messagePlaceholder: "Title chain, builder track record, possession timeline…",
@@ -78,7 +78,7 @@ export function EnquiryProvider({
         property,
         title: "Schedule a site visit",
         description:
-          "Tell us when suits you. We'll confirm within one working day — and we don't bring anyone else along.",
+          "Tell us when suits you. We'll confirm within one working day, and we don't bring anyone else along.",
         submitLabel: "Request this visit →",
         messageLabel: "Preferred day and time",
         messagePlaceholder: "Saturday morning, or any weekday after 6pm…",

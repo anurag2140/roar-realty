@@ -263,7 +263,7 @@ function LeadsPanel() {
             <div style={{ fontSize: 11, color: "#aaa", marginTop: 8 }}>
               {l.formType}
               {l.sourcePage ? ` · ${l.sourcePage}` : ""}
-              {l.utmSource ? ` · ${l.utmSource}/${l.utmCampaign ?? "—"}` : ""}
+              {l.utmSource ? ` · ${l.utmSource}/${l.utmCampaign ?? "none"}` : ""}
             </div>
 
             <div style={{ display: "flex", gap: 6, marginTop: 12, flexWrap: "wrap", alignItems: "center" }}>

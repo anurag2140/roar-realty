@@ -35,7 +35,7 @@ export async function generateMetadata(): Promise<Metadata> {
     // Passing `title: undefined` here would render an empty <title>.
     title: home?.seo?.title
       ? { absolute: home.seo.title }
-      : { absolute: `${SITE_NAME} — ${SITE_TAGLINE}` },
+      : { absolute: `${SITE_NAME}, ${SITE_TAGLINE}` },
     description: home?.seo?.description || SITE_DESCRIPTION,
     alternates: { canonical: "/" },
   };

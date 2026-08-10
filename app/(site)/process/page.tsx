@@ -8,7 +8,7 @@ import { ButtonLink } from "@/components/ui/Button";
 export const revalidate = 3600;
 
 export const metadata: Metadata = {
-  title: "How we work — five steps, zero surprises",
+  title: "How we work, five steps, zero surprises",
   description:
     "The brief, the shortlist, the Glass File, escrow and registration, then twenty-four months of aftercare. You always know what happens next.",
   alternates: { canonical: "/process" },

@@ -8,7 +8,7 @@ import { BreadcrumbJsonLd } from "@/components/seo/JsonLd";
 export const revalidate = 3600;
 
 export const metadata: Metadata = {
-  title: "Insights — Delhi NCR property, honestly reported",
+  title: "Insights. Delhi NCR property, honestly reported",
   description:
     "Market reports, buyer guides and RERA explainers from Roar Realty. What's actually selling, where prices moved, and which projects we walked away from.",
   alternates: { canonical: "/insights" },

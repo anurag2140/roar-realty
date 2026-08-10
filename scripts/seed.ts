@@ -198,8 +198,9 @@ async function main() {
   /* ---- Site settings ---- */
   await upsertAndPatch("siteSettings", "siteSettings", {
     title: "Roar Realty",
-    phone: "+971 58 545 5256",
-    whatsapp: "+971585455256",
+    phone: "+91 78989 89029",
+    whatsapp: "+917898989029",
+    whatsappUae: "+971585455256",
     email: "contact@roarrealty.ae",
     emailIndia: "admin@roarrealty.in",
     officeAddress: "1507, Al Manara Tower, Business Bay, Dubai",

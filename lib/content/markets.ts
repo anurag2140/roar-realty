@@ -8,10 +8,10 @@
  */
 
 export const DUBAI = {
-  eyebrow: "Dubai · 60–70% of what we do",
+  eyebrow: "Dubai advisory",
   heading: "Dubai is verifiable. That doesn't make every project a good investment.",
   intro:
-    "Escrow law since 2007. Every title on public record. Every broker licensed and traceable. Dubai removed most of the fraud risk Indian buyers are used to fearing — and in doing so, moved the risk somewhere else entirely: choosing wrong. Oversupply, weak exit liquidity, service charges that eat the yield, a payment plan that looks generous and isn't. Those risks are real, and no registry protects you from them.",
+    "Escrow law since 2007. Every title on public record. Every broker licensed and traceable. Dubai removed most of the fraud risk Indian buyers are used to fearing, and in doing so, moved the risk somewhere else entirely: choosing wrong. Oversupply, weak exit liquidity, service charges that eat the yield, a payment plan that looks generous and isn't. Those risks are real, and no registry protects you from them.",
 
   protectsHeading: "What Dubai actually protects you from",
   protects: [
@@ -35,7 +35,7 @@ export const DUBAI = {
 
   doesNotHeading: "What it does not protect you from",
   doesNot: [
-    "Oversupply in high-density mid-market areas — supply pressure is concentrated, not uniform.",
+    "Oversupply in high-density mid-market areas, supply pressure is concentrated, not uniform.",
     "Weak exit liquidity. A unit can be legally perfect and still have no buyer at your price.",
     "Service charges quietly consuming the rental yield you were shown.",
     "Payment plans structured for the developer's cash flow, not yours.",
@@ -48,7 +48,7 @@ export const DUBAI = {
   filter: [
     {
       title: "Location demand",
-      body: "Real tenant and buyer demand — connectivity, employment hubs, community maturity, upcoming supply.",
+      body: "Real tenant and buyer demand, connectivity, employment hubs, community maturity, upcoming supply.",
     },
     {
       title: "Developer credibility",
@@ -60,7 +60,7 @@ export const DUBAI = {
     },
     {
       title: "Rental potential",
-      body: "Tenant profile, occupancy, service charges and competing supply — not the brochure yield.",
+      body: "Tenant profile, occupancy, service charges and competing supply, not the brochure yield.",
     },
     {
       title: "Capital appreciation",
@@ -82,29 +82,29 @@ export const DUBAI = {
 
   scenariosHeading: "Scenarios, not promises",
   scenariosBody:
-    "We do not say “this will return X.” We show three views — conservative, realistic and optimistic — with the assumptions behind each one written down. You see the downside as clearly as the upside, which is the only honest way to present an asset that can fall.",
+    "We do not say “this will return X.” We show three views, conservative, realistic and optimistic, with the assumptions behind each one written down. You see the downside as clearly as the upside, which is the only honest way to present an asset that can fall.",
 
   servicesHeading: "How we work in Dubai",
   services: [
     {
       title: "Off-plan advisory",
       who: "Buyers considering new launches",
-      body: "Whether the project makes sense beyond the brochure — developer record, handover risk, resale restrictions and exit.",
+      body: "Whether the project makes sense beyond the brochure, developer record, handover risk, resale restrictions and exit.",
     },
     {
       title: "Ready property advisory",
       who: "Rental income and end-use buyers",
-      body: "Real occupancy, real service charges and real tenant demand — before you count the yield.",
+      body: "Real occupancy, real service charges and real tenant demand, before you count the yield.",
     },
     {
       title: "Luxury & branded residences",
       who: "Premium and high-value buyers",
-      body: "Lifestyle understanding with investment logic — scarcity, positioning and long-term value.",
+      body: "Lifestyle understanding with investment logic, scarcity, positioning and long-term value.",
     },
     {
       title: "Portfolio strategy",
       who: "Repeat and multi-asset investors",
-      body: "Allocation across ready, off-plan, income and growth — with exit timing planned from the start.",
+      body: "Allocation across ready, off-plan, income and growth, with exit timing planned from the start.",
     },
     {
       title: "Resale & exit review",
@@ -115,11 +115,11 @@ export const DUBAI = {
 
   mistakesHeading: "Dubai is not Indian real estate with better weather",
   mistakesIntro:
-    "In India, property is bought on land value, familiarity and long-term emotional holding. Nobody sells the house. In Dubai, property is a timing, liquidity and strategy asset — buyers change, supply moves, and the exit is a real event you should plan for on the day you enter. Indian buyers who apply Indian instincts to Dubai make predictable, expensive mistakes.",
+    "In India, property is bought on land value, familiarity and long-term emotional holding. Nobody sells the house. In Dubai, property is a timing, liquidity and strategy asset, buyers change, supply moves, and the exit is a real event you should plan for on the day you enter. Indian buyers who apply Indian instincts to Dubai make predictable, expensive mistakes.",
   mistakes: [
     "Choosing on the brochure's finish rather than the area's demand",
     "Letting an attractive payment plan decide the purchase",
-    "Comparing Dubai to India — same instincts, wrong market",
+    "Comparing Dubai to India, same instincts, wrong market",
     "Ignoring service charges when calculating yield",
     "Treating launch hype as evidence of demand",
     "Never asking who buys this unit at exit",
@@ -128,27 +128,27 @@ export const DUBAI = {
 
   questionsHeading: "The practical questions Indian buyers actually ask",
   questions: [
-    "How money moves from India to Dubai legally — LRS limits and TCS thresholds",
+    "How money moves from India to Dubai legally. LRS limits and TCS thresholds",
     "What the Golden Visa actually requires, and what it does not grant",
     "Whether you can buy remotely without flying, and what that process looks like",
     "How rental income is treated, and where it can be held",
     "What happens at handover if you are not in the country",
   ],
   questionsNote:
-    "We answer these with current figures rather than remembered ones. LRS limits, TCS rates and Golden Visa thresholds change — often at the Union Budget — so we verify them at the time of your transaction rather than quoting a number from a blog post.",
+    "We answer these with current figures rather than remembered ones. LRS limits, TCS rates and Golden Visa thresholds change, often at the Union Budget, so we verify them at the time of your transaction rather than quoting a number from a blog post.",
 };
 
 export const GURGAON = {
-  eyebrow: "Gurgaon & NCR · the local practice",
+  eyebrow: "Gurgaon & NCR",
   heading:
-    "The information exists here too. It is just scattered — and nobody assembles it before you pay.",
+    "The information exists here too. It is just scattered, and nobody assembles it before you pay.",
   intro:
-    "Dubai puts every title, transaction and owner on one public record. India has the same information across five systems that do not talk to each other — the registry, the mutation record, RERA, the revenue courts and the licensing authority. That gap is not a legal problem. It is a time problem, and time is what makes buyers skip verification. So we do the assembling.",
+    "Dubai puts every title, transaction and owner on one public record. India has the same information across five systems that do not talk to each other, the registry, the mutation record, RERA, the revenue courts and the licensing authority. That gap is not a legal problem. It is a time problem, and time is what makes buyers skip verification. So we do the assembling.",
 
   verifyHeading: "What we verify before you shortlist",
   verify: [
     {
-      check: "Title chain — 30 years",
+      check: "Title chain, 30 years",
       reveals: "Every ownership transfer, in sequence",
       matters: "Breaks in the chain surface here or never",
     },
@@ -156,7 +156,7 @@ export const GURGAON = {
       check: "Mutation status (intkal)",
       reveals: "Whether the revenue record shows the current owner",
       matters:
-        "The registry alone does not update it — the single most common red flag in Haryana",
+        "The registry alone does not update it, the single most common red flag in Haryana",
     },
     {
       check: "Encumbrance certificate",
@@ -187,10 +187,10 @@ export const GURGAON = {
 
   askHeading: "What Gurgaon buyers should ask, and usually don't",
   ask: [
-    "Is this quoted on carpet area or super built-up — and what is the actual usable number?",
+    "Is this quoted on carpet area or super built-up, and what is the actual usable number?",
     "What completion date is registered with RERA, and does it match what I was told?",
     "Has mutation been completed, or does the revenue record still show the previous owner?",
-    "Does the delay penalty clause name an amount, a trigger date and a payment method — or is it decorative?",
+    "Does the delay penalty clause name an amount, a trigger date and a payment method, or is it decorative?",
     "How many units are genuinely unsold, according to the RERA filing rather than the sales desk?",
   ],
 
@@ -204,7 +204,7 @@ export const GURGAON = {
     {
       title: "Resale due diligence",
       who: "Anyone buying a secondary-market property",
-      body: "Title, mutation, encumbrance and litigation — assembled before your token, not after.",
+      body: "Title, mutation, encumbrance and litigation, assembled before your token, not after.",
     },
     {
       title: "NRI buying in India",

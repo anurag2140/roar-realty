@@ -5,14 +5,13 @@ import { ChapterTwo } from "@/components/home/Chapters";
 import { PageHeader } from "@/components/layout/PageHeader";
 import { BreadcrumbJsonLd } from "@/components/seo/JsonLd";
 import { ButtonLink } from "@/components/ui/Button";
-import { TBC } from "@/components/ui/TBC";
 
 export const revalidate = 3600;
 
 export const metadata: Metadata = {
-  title: "About Anurag — twelve years in Dubai real estate",
+  title: "About Anurag, twelve years in Dubai real estate",
   description:
-    "Twelve years selling property in a market where verification is built into the law, now applying the same standard in Gurgaon. The work is the assembly — everything else is showing property.",
+    "Twelve years selling property in a market where verification is built into the law, now applying the same standard in Gurgaon. The work is the assembly, everything else is showing property.",
   alternates: { canonical: "/about" },
 };
 
@@ -29,7 +28,7 @@ const STORY = [
   },
   {
     kind: "p",
-    text: "In Dubai that question takes minutes. Every title, every transaction, every developer record sits in one place, and it is open. In India the same information exists — registry, mutation, RERA, court records, licensing — spread across systems that were never designed to be read together.",
+    text: "In Dubai that question takes minutes. Every title, every transaction, every developer record sits in one place, and it is open. In India the same information exists, registry, mutation, RERA, court records, licensing, spread across systems that were never designed to be read together.",
   },
   {
     kind: "p",
@@ -37,7 +36,7 @@ const STORY = [
   },
   {
     kind: "quote",
-    text: "So the work became the assembly. Not showing property — anybody can show property.",
+    text: "So the work became the assembly. Not showing property, anybody can show property.",
   },
   {
     kind: "p",
@@ -51,7 +50,7 @@ const STORY = [
 
 const CREDENTIALS = [
   { label: "Experience", value: "12+ years in Dubai real estate" },
-  { label: "Practice", value: "Roar Realty — Dubai and Gurgaon" },
+  { label: "Practice", value: "Roar Realty. Dubai and Gurgaon" },
   {
     label: "Specialisation",
     value:
@@ -121,12 +120,6 @@ export default async function AboutPage() {
                 <dd className="m-0 text-[15px] leading-relaxed text-ivory/75">{c.value}</dd>
               </div>
             ))}
-            <div className="grid gap-1 sm:grid-cols-[110px_1fr] sm:gap-5">
-              <dt className="text-[11px] tracking-[0.2em] text-ivory/40 uppercase">RERA</dt>
-              <dd className="m-0 text-[15px]">
-                <TBC>Agent registration to be added</TBC>
-              </dd>
-            </div>
           </dl>
         </div>
       </article>

@@ -84,7 +84,7 @@ export async function getSiteSettings(): Promise<SiteSettings | null> {
     groq`*[_type == "siteSettings"][0]{
       title,
       logo{ ${imageFields} },
-      phone, whatsapp, email, emailIndia, officeAddress,
+      phone, whatsapp, whatsappUae, email, emailIndia, officeAddress,
       reraNumber, hideReraNotice, legalEntity, foundedYear, cin,
       socials[]{ _key, platform, url },
       goldTone, effects3d, grainOverlay, showProperties,

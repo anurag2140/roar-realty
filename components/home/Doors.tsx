@@ -60,7 +60,7 @@ export function Doors({ data }: { data: Homepage | null }) {
 
             <Link
               href={door.href}
-              className="mt-8 inline-flex items-center gap-3 self-start text-[12px] tracking-[0.24em] text-gold-hi uppercase no-underline transition-all group-hover:gap-5 after:absolute after:inset-0 after:content-['']"
+              className="mt-8 inline-flex min-h-11 items-center gap-3 self-start py-2 text-[12px] tracking-[0.24em] text-gold-hi uppercase no-underline transition-all group-hover:gap-5 after:absolute after:inset-0 after:content-['']"
             >
               {door.cta} <span aria-hidden>→</span>
             </Link>

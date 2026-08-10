@@ -58,14 +58,14 @@ export async function submitLead(formData: FormData): Promise<LeadResult> {
   // 1 — Honeypot. Only a bot fills a field positioned off-screen.
   //     Return success so the bot has nothing to learn from the response.
   if (lead.companyWebsite) {
-    return { ok: true, message: "Thank you — we'll be in touch." };
+    return { ok: true, message: "Thank you, we'll be in touch." };
   }
 
   // 2 — Timing. Sub-2.5s means a script, not a person.
   if (lead.renderedAt) {
     const elapsed = Date.now() - Number(lead.renderedAt);
     if (Number.isFinite(elapsed) && elapsed >= 0 && elapsed < MIN_FILL_MS) {
-      return { ok: true, message: "Thank you — we'll be in touch." };
+      return { ok: true, message: "Thank you, we'll be in touch." };
     }
   }
 
@@ -92,7 +92,7 @@ export async function submitLead(formData: FormData): Promise<LeadResult> {
   if (!burst.allowed || !sustained.allowed || !byPhone.allowed) {
     return {
       ok: false,
-      error: "You've sent several enquiries already. Please call us instead — we'd rather talk.",
+      error: "You've sent several enquiries already. Please call us instead, we'd rather talk.",
     };
   }
 
@@ -134,7 +134,7 @@ export async function submitLead(formData: FormData): Promise<LeadResult> {
     return {
       ok: false,
       error:
-        "Something went wrong on our side. Please call or WhatsApp us — we don't want to lose your enquiry.",
+        "Something went wrong on our side. Please call or WhatsApp us, we don't want to lose your enquiry.",
     };
   }
 }

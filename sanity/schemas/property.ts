@@ -182,7 +182,7 @@ export const property = defineType({
       group: "specs",
       of: [{ type: "priceRow" }],
       description:
-        "Itemise every charge in plain language — this is Rule 03 made visible.",
+        "Itemise every charge in plain language, this is Rule 03 made visible.",
     }),
     defineField({
       name: "escrowProtected",
@@ -328,7 +328,7 @@ export const property = defineType({
       const place = [locality, city].filter(Boolean).join(", ");
       return {
         title: `${illustrative ? "⚠️ " : ""}${title}`,
-        subtitle: `${formatPriceCr(priceCr)} · ${type || "—"}${place ? ` · ${place}` : ""}`,
+        subtitle: `${formatPriceCr(priceCr)} · ${type || "No type"}${place ? ` · ${place}` : ""}`,
         media,
       };
     },

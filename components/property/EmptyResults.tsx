@@ -11,11 +11,11 @@ export function EmptyResults({ summary }: { summary: string }) {
   return (
     <div className="mx-auto max-w-2xl border border-gold/20 bg-ink-2 px-6 py-12 text-center sm:px-12 sm:py-16">
       <div className="mb-4 font-serif text-[30px] italic text-gold">
-        Nothing matches — yet.
+        Nothing matches, yet.
       </div>
       <p className="mx-auto mb-8 max-w-md text-[15px] leading-relaxed text-ivory/55">
         We don&apos;t pad shortlists with near-misses. Tell us what you&apos;re after
-        and we&apos;ll go and find it — most of our best deals never reach a public
+        and we&apos;ll go and find it, most of our best deals never reach a public
         listing page.
       </p>
 

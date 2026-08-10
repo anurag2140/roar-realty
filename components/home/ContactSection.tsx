@@ -26,7 +26,7 @@ export function ContactSection({
     {
       label: "Phone",
       value: phone ? (
-        <a href={`tel:${phone.replace(/[^\d+]/g, "")}`} className="hover:text-gold-hi">
+        <a href={`tel:${phone.replace(/[^\d+]/g, "")}`} className="inline-flex min-h-11 items-center hover:text-gold-hi sm:min-h-0">
           {phone}
         </a>
       ) : (
@@ -37,13 +37,13 @@ export function ContactSection({
       label: "Email",
       value: settings?.email ? (
         <span className="flex flex-wrap gap-x-3 gap-y-1">
-          <a href={`mailto:${settings.email}`} className="hover:text-gold-hi">
+          <a href={`mailto:${settings.email}`} className="inline-flex min-h-11 items-center hover:text-gold-hi sm:min-h-0">
             {settings.email}
           </a>
           {settings.emailIndia && (
             <>
               <span className="text-ivory/25">·</span>
-              <a href={`mailto:${settings.emailIndia}`} className="hover:text-gold-hi">
+              <a href={`mailto:${settings.emailIndia}`} className="inline-flex min-h-11 items-center hover:text-gold-hi sm:min-h-0">
                 {settings.emailIndia}
               </a>
             </>

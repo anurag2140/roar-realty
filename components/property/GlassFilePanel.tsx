@@ -59,7 +59,7 @@ export function GlassFilePanel({ glassFile }: { glassFile?: GlassFile }) {
             <span className="min-w-0">
               <span className={`block text-sm ${c.done ? "text-ivory/85" : "text-ivory/40"}`}>
                 {c.label}
-                <span className="sr-only">{c.done ? " — verified" : " — not yet verified"}</span>
+                <span className="sr-only">{c.done ? "verified" : "not yet verified"}</span>
               </span>
               {c.detail && (
                 <span className="mt-0.5 block text-xs text-gold/70">{c.detail}</span>
@@ -70,7 +70,7 @@ export function GlassFilePanel({ glassFile }: { glassFile?: GlassFile }) {
       </ul>
 
       <p className="border-t border-gold/15 px-6 py-4 text-xs leading-relaxed text-ivory/40">
-        The complete file — documents, dates and the underlying searches — is
+        The complete file, documents, dates and the underlying searches, is
         sent to you before you commit to anything. Ask for it; there is no
         charge and no obligation.
       </p>

@@ -53,7 +53,7 @@ export function PropertyActions({
   const wa = whatsapp
     ? whatsappLink(
         whatsapp,
-        `Hello Roar Realty — I'm interested in ${property.name} (${formatPriceCr(property.priceCr)}).`
+        `Hello Roar Realty. I'm interested in ${property.name} (${formatPriceCr(property.priceCr)}).`
       )
     : "";
   const tel = telLink(phone || "");
@@ -200,7 +200,7 @@ export function PropertyActions({
       <Modal
         open={videoOpen}
         onClose={() => setVideoOpen(false)}
-        title={`${property.name} — video`}
+        title={`${property.name}, video`}
         hideTitle
         size="lg"
       >

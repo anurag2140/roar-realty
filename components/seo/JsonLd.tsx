@@ -72,7 +72,7 @@ export function PropertyJsonLd({ property }: { property: Property }) {
     url,
     description:
       property.summary ||
-      `${property.name} — ${[property.locality, property.city].filter(Boolean).join(", ")}`,
+      `${property.name}, ${[property.locality, property.city].filter(Boolean).join(", ")}`,
     datePosted: property.publishedAt,
     ...(images.length ? { image: images } : {}),
   };

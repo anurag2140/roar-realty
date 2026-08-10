@@ -70,7 +70,7 @@ export function Gallery({
             src={imageUrl(hero, 1200, 900) ?? ""}
             srcSet={imageSrcSet(hero, [640, 1080, 1440, 1920], 4 / 3) ?? undefined}
             sizes="(max-width: 640px) 100vw, 66vw"
-            alt={hero.alt || `${name} — main photograph`}
+            alt={hero.alt || `${name}, main photograph`}
             width={1200}
             height={900}
             fetchPriority="high"
@@ -93,7 +93,7 @@ export function Gallery({
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src={imageUrl(img, 700, 520) ?? ""}
-              alt={img.alt || `${name} — photograph ${i + 2}`}
+              alt={img.alt || `${name}, photograph ${i + 2}`}
               width={700}
               height={520}
               loading="lazy"
@@ -113,7 +113,7 @@ export function Gallery({
         open={open}
         onClose={() => setLightboxAt(null)}
         variant="full"
-        title={`${name} — photographs`}
+        title={`${name}, photographs`}
         hideTitle
         className="bg-ink/98"
       >
@@ -154,7 +154,7 @@ export function Gallery({
                 src={imageUrl(images[lightboxAt], 1920) ?? ""}
                 alt={
                   images[lightboxAt].alt ||
-                  `${name} — photograph ${lightboxAt + 1} of ${images.length}`
+                  `${name}, photograph ${lightboxAt + 1} of ${images.length}`
                 }
                 className="max-h-full max-w-full object-contain"
               />

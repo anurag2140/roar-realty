@@ -199,7 +199,7 @@ export function LeadForm({
           type="email"
           autoComplete="email"
           placeholder="you@example.com"
-          hint="Optional — but it's how we send your shortlist."
+          hint="Optional, but it's how we send your shortlist."
           error={fieldErrors.email}
         />
       )}
@@ -240,7 +240,7 @@ export function LeadForm({
       </Button>
 
       <p className="text-xs leading-relaxed text-ivory/35">
-        We reply within one working day. Your details are never sold or shared — that&apos;s rule zero.
+        We reply within one working day. Your details are never sold or shared, that&apos;s rule zero.
       </p>
     </form>
   );

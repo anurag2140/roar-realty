@@ -15,7 +15,7 @@ export default function ShortlistPage() {
       <PageHeader
         eyebrow="Saved by you"
         title="Your shortlist."
-        intro="Saved on this device — no account needed. Send the whole list to us and we'll come back with a Glass File for each."
+        intro="Saved on this device, no account needed. Send the whole list to us and we'll come back with a Glass File for each."
       />
       <ShortlistView />
     </>

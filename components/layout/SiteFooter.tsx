@@ -62,7 +62,7 @@ export function SiteFooter({ settings }: { settings: SiteSettings | null }) {
                 {contact.phone || settings?.phone ? (
                   <a
                     href={`tel:${(contact.phone || settings?.phone || "").replace(/[^\d+]/g, "")}`}
-                    className="transition-colors hover:text-gold-hi"
+                    className="inline-flex min-h-11 items-center transition-colors hover:text-gold-hi sm:min-h-0"
                   >
                     {contact.phone || settings?.phone}
                   </a>
@@ -74,7 +74,7 @@ export function SiteFooter({ settings }: { settings: SiteSettings | null }) {
                 {settings?.email ? (
                   <a
                     href={`mailto:${settings.email}`}
-                    className="transition-colors hover:text-gold-hi"
+                    className="inline-flex min-h-11 items-center transition-colors hover:text-gold-hi sm:min-h-0"
                   >
                     {settings.email}
                   </a>
@@ -86,7 +86,7 @@ export function SiteFooter({ settings }: { settings: SiteSettings | null }) {
                 <li>
                   <a
                     href={`mailto:${settings.emailIndia}`}
-                    className="transition-colors hover:text-gold-hi"
+                    className="inline-flex min-h-11 items-center transition-colors hover:text-gold-hi sm:min-h-0"
                   >
                     {settings.emailIndia}
                   </a>
@@ -150,7 +150,7 @@ export function SiteFooter({ settings }: { settings: SiteSettings | null }) {
               <Link
                 key={l.href}
                 href={l.href}
-                className="text-[11px] tracking-[0.2em] text-ivory/40 uppercase no-underline transition-colors hover:text-gold-hi"
+                className="inline-flex min-h-11 items-center py-1 text-[11px] tracking-[0.2em] text-ivory/40 uppercase no-underline transition-colors hover:text-gold-hi sm:min-h-0 sm:py-0"
               >
                 {l.label}
               </Link>
@@ -177,7 +177,7 @@ function FooterColumn({
           <li key={l.href}>
             <Link
               href={l.href}
-              className="text-sm text-ivory/55 no-underline transition-colors hover:text-gold-hi"
+              className="inline-flex min-h-11 items-center py-1 text-sm text-ivory/55 no-underline transition-colors hover:text-gold-hi sm:min-h-0 sm:py-0"
             >
               {l.label}
             </Link>

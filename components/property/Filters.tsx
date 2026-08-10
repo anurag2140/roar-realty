@@ -164,7 +164,7 @@ export function Filters({
             value={get("min")}
             onCommit={(v) => setSingle("min", v)}
           />
-          <span className="text-ivory/30">—</span>
+          <span aria-hidden className="text-ivory/30">to</span>
           <NumberInput
             label="Max ₹ Cr"
             value={get("max")}

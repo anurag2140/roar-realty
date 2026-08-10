@@ -5,7 +5,7 @@ export const SITE_NAME = "Roar Realty";
 export const SITE_TAGLINE = "Verified Before Recommended";
 export const SITE_DESCRIPTION =
   "Most buyers are shown property. Almost none are shown the risk. " +
-  "Twelve years of Dubai transaction experience applied to Dubai and Gurgaon — " +
+  "Twelve years of Dubai transaction experience applied to Dubai and Gurgaon, " +
   "titles verified, carpet-area pricing, one fee in writing, exit planned before entry.";
 
 /** The line the whole brand rests on. Used in CTAs and social cards. */
@@ -20,7 +20,7 @@ export const NAV_LINKS = [
   { href: "/gurgaon", label: "Gurgaon" },
   { href: "/the-roar-standard", label: "The Standard" },
   { href: "/insights", label: "Insights" },
-  { href: "/about", label: "About" },
+  { href: "/about", label: "Founder" },
 ] as const;
 
 /** Only shown once Site settings → "Show the properties section" is on. */
@@ -139,7 +139,7 @@ export function formatArea(
   value: number | null | undefined,
   unit: string | null | undefined
 ): string {
-  if (!value) return "—";
+  if (!value) return "n/a";
   return `${formatNumber(value)} ${unit || "sq ft"}`;
 }
 

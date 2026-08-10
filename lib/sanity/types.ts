@@ -248,6 +248,7 @@ export type SiteSettings = {
   logo?: SanityImage;
   phone?: string;
   whatsapp?: string;
+  whatsappUae?: string;
   email?: string;
   emailIndia?: string;
   officeAddress?: string;

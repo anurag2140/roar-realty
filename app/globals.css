@@ -84,10 +84,52 @@ body {
   font-weight: 300;
   -webkit-font-smoothing: antialiased;
   overflow-x: clip;
+  /* Stops iOS Safari inflating text in landscape. */
+  -webkit-text-size-adjust: 100%;
+}
+
+/* The sticky Call / WhatsApp / Enquire bar is 56px tall and fixed to the
+   bottom on phones. Without this, it covers the last element of every page. */
+@media (max-width: 639px) {
+  body {
+    padding-bottom: calc(56px + env(safe-area-inset-bottom, 0px));
+  }
 }
 
 * {
   box-sizing: border-box;
+}
+
+/* Nothing should be able to push the page sideways on a phone. Long words,
+   URLs and unbroken strings are the usual culprits. */
+h1, h2, h3, h4, p, li, blockquote, dd, dt, figcaption, summary {
+  overflow-wrap: break-word;
+}
+
+img,
+svg,
+video,
+canvas {
+  max-width: 100%;
+}
+
+/* Tap targets. iOS zooms any input whose font-size is under 16px on focus,
+   which then leaves the page zoomed — so the minimum is enforced here rather
+   than trusted to each component. */
+input,
+select,
+textarea,
+button {
+  font-size: max(16px, 1em);
+}
+
+@media (min-width: 640px) {
+  input,
+  select,
+  textarea,
+  button {
+    font-size: inherit;
+  }
 }
 
 ::selection {

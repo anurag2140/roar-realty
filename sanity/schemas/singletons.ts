@@ -53,7 +53,7 @@ export const homepage = defineType({
       title: "Market doors",
       type: "array",
       group: "doors",
-      description: "Dubai first — the order here sets the visual weight on the page.",
+      description: "Dubai first, the order here sets the visual weight on the page.",
       of: [
         {
           type: "object",
@@ -107,18 +107,18 @@ export const homepage = defineType({
     defineField({ name: "founderCta", title: "Button text", type: "string", group: "founder" }),
 
     /* Chapters */
-    defineField({ name: "chapter1Label", title: "Chapter I — label", type: "string", group: "story" }),
-    defineField({ name: "chapter1Heading", title: "Chapter I — heading", type: "string", group: "story" }),
+    defineField({ name: "chapter1Label", title: "Chapter I, label", type: "string", group: "story" }),
+    defineField({ name: "chapter1Heading", title: "Chapter I, heading", type: "string", group: "story" }),
     defineField({
       name: "chapter1Body",
-      title: "Chapter I — paragraphs",
+      title: "Chapter I, paragraphs",
       type: "array",
       group: "story",
       of: [{ type: "text", rows: 4 }],
     }),
     defineField({
       name: "chapter1Cards",
-      title: "Chapter I — three cards",
+      title: "Chapter I, three cards",
       type: "array",
       group: "story",
       of: [
@@ -133,19 +133,19 @@ export const homepage = defineType({
       ],
       validation: (r) => r.max(3),
     }),
-    defineField({ name: "chapter2Label", title: "Chapter II — label", type: "string", group: "story" }),
-    defineField({ name: "chapter2Heading", title: "Chapter II — heading", type: "string", group: "story" }),
-    defineField({ name: "chapter2Body", title: "Chapter II — intro", type: "text", rows: 4, group: "story" }),
+    defineField({ name: "chapter2Label", title: "Chapter II, label", type: "string", group: "story" }),
+    defineField({ name: "chapter2Heading", title: "Chapter II, heading", type: "string", group: "story" }),
+    defineField({ name: "chapter2Body", title: "Chapter II, intro", type: "text", rows: 4, group: "story" }),
     defineField({
       name: "chapter2Stats",
-      title: "Chapter II — four statistics",
+      title: "Chapter II, four statistics",
       type: "array",
       group: "story",
       of: [{ type: "stat" }],
       validation: (r) => r.max(4),
     }),
-    defineField({ name: "chapter2Quote", title: "Chapter II — pull quote", type: "text", rows: 3, group: "story" }),
-    defineField({ name: "chapter2QuoteAttrib", title: "Chapter II — attribution", type: "string", group: "story" }),
+    defineField({ name: "chapter2Quote", title: "Chapter II, pull quote", type: "text", rows: 3, group: "story" }),
+    defineField({ name: "chapter2QuoteAttrib", title: "Chapter II, attribution", type: "string", group: "story" }),
 
     /* Standard */
     defineField({ name: "standardLabel", title: "Label", type: "string", group: "standard" }),
@@ -215,14 +215,23 @@ export const siteSettings = defineType({
       title: "Phone",
       type: "string",
       group: "contact",
-      description: "Leave blank until you have a real number — the site shows a TBC marker rather than a placeholder.",
+      description: "Leave blank until you have a real number, the site shows a TBC marker rather than a placeholder.",
     }),
     defineField({
       name: "whatsapp",
-      title: "WhatsApp number",
+      title: "WhatsApp, India desk",
       type: "string",
       group: "contact",
-      description: "With country code, e.g. +919810000000. Powers the floating WhatsApp button.",
+      description:
+        "With country code and no spaces, e.g. +917898989029. Powers the floating WhatsApp button.",
+    }),
+    defineField({
+      name: "whatsappUae",
+      title: "WhatsApp, Dubai desk",
+      type: "string",
+      group: "contact",
+      description:
+        "Optional second number, e.g. +971585455256. When both are set, the WhatsApp button asks which desk to reach.",
     }),
     defineField({
       name: "email",
@@ -308,7 +317,7 @@ export const siteSettings = defineType({
       group: "look",
       initialValue: false,
       description:
-        "Off until you have real listings. Hides the homepage portfolio grid and the Properties link in the menu. Your listings and the search page still exist — they're just not linked.",
+        "Off until you have real listings. Hides the homepage portfolio grid and the Properties link in the menu. Your listings and the search page still exist, they're just not linked.",
     }),
 
     defineField({

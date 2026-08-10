@@ -39,7 +39,7 @@ export async function generateMetadata({
   const og = imageUrl(p.seo?.ogImage ?? p.images?.[0], 1200, 630);
 
   return {
-    title: p.seo?.title || `${p.name}, ${place} — ${price}`,
+    title: p.seo?.title || `${p.name}, ${place}, ${price}`,
     description:
       p.seo?.description ||
       p.summary ||
@@ -52,7 +52,7 @@ export async function generateMetadata({
     alternates: { canonical: `/properties/${p.slug}` },
     openGraph: {
       type: "article",
-      title: `${p.name} — ${price}`,
+      title: `${p.name}, ${price}`,
       description: p.summary ?? undefined,
       url: `/properties/${p.slug}`,
       images: og ? [{ url: og, width: 1200, height: 630 }] : undefined,
@@ -147,7 +147,7 @@ export default async function PropertyPage({
 
         {property.illustrative && (
           <p className="mb-6 border border-dashed border-gold/40 bg-gold/5 px-5 py-3 text-[12px] tracking-[0.14em] text-gold/85 uppercase">
-            ⚠ Illustrative sample listing — not currently available inventory
+            ⚠ Illustrative sample listing, not currently available inventory
           </p>
         )}
 

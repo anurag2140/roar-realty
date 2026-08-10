@@ -194,7 +194,7 @@ export function TestimonialSlider({ items }: { items: Testimonial[] }) {
 
       {anyIllustrative && (
         <p className="mt-5 text-center text-[11px] tracking-[0.16em] text-ivory/30 uppercase">
-          Placeholder testimonials — replace with real, consented client quotes before launch
+          Placeholder testimonials, replace with real, consented client quotes before launch
         </p>
       )}
     </section>

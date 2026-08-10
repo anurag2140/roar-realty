@@ -190,7 +190,7 @@ export function FounderBlock({ data }: { data: Homepage | null }) {
         </p>
         <Link
           href="/about"
-          className="mt-9 inline-flex items-center gap-3 text-[12px] tracking-[0.26em] text-gold-hi uppercase no-underline transition-all hover:gap-5"
+          className="mt-9 inline-flex min-h-11 items-center gap-3 py-2 text-[12px] tracking-[0.26em] text-gold-hi uppercase no-underline transition-all hover:gap-5"
         >
           {data?.founderCta || d.founderCta} <span aria-hidden>→</span>
         </Link>

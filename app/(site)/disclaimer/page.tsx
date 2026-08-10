@@ -23,28 +23,14 @@ export default async function DisclaimerPage() {
     <>
       <PageHeader eyebrow="Legal" title="Disclaimer & RERA disclosure" />
       <Legal>
-        <LegalHeading>RERA registration</LegalHeading>
-        <LegalP>
-          {entity} operates as a real estate agent. Our agent registration
-          number is{" "}
-          {rera ? (
-            <strong className="text-gold-hi">{rera}</strong>
-          ) : (
-            <TBC>registration pending</TBC>
-          )}
-          .
-        </LegalP>
-        {!rera && (
-          <div className="my-6 border border-dashed border-gold/40 bg-gold/5 px-5 py-4 text-sm leading-relaxed text-gold/85">
-            <strong>Notice:</strong> this website is operating in preview mode
-            and no agent registration number has yet been published. Under the
-            Real Estate (Regulation and Development) Act, 2016, a real estate
-            agent must be registered with the relevant state authority before
-            facilitating the sale or purchase of a registered project, and must
-            display that registration number in advertising. No brokerage
-            services are offered through this site until that number appears
-            above.
-          </div>
+        {rera && (
+          <>
+            <LegalHeading>Agent registration</LegalHeading>
+            <LegalP>
+              {entity} operates as a real estate agent. Our agent registration
+              number is <strong className="text-gold-hi">{rera}</strong>.
+            </LegalP>
+          </>
         )}
 
         <LegalHeading>Project registration</LegalHeading>
@@ -52,7 +38,7 @@ export default async function DisclaimerPage() {
           Where a project is registered under RERA, the registration number is
           shown on the individual property page. Buyers are advised to
           independently verify every project&apos;s registration on the relevant
-          state authority&apos;s portal — Haryana RERA (haryanarera.gov.in),
+          state authority&apos;s portal: Haryana RERA (haryanarera.gov.in),
           UP RERA (up-rera.in) or Delhi RERA, as applicable.
         </LegalP>
 
@@ -117,8 +103,8 @@ export default async function DisclaimerPage() {
           All investment discussion, rental estimates, resale expectations and
           appreciation projections published here are based on available
           information and stated assumptions. Returns are not guaranteed and
-          market conditions change. Scenario analysis we provide — conservative,
-          realistic and optimistic — describes possible outcomes under stated
+          market conditions change. Scenario analysis we provide, conservative,
+          realistic and optimistic, describes possible outcomes under stated
           assumptions and is not a forecast or a promise. We are not licensed
           investment or tax advisors.
         </LegalP>

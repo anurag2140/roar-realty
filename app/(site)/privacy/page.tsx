@@ -42,8 +42,8 @@ export default async function PrivacyPage() {
         <LegalHeading>What we collect</LegalHeading>
         <LegalP>
           When you submit an enquiry, site-visit request, brochure download or
-          market-report signup, we collect: your name, phone number, and — if
-          you provide them — your email address, budget range and the message
+          market-report signup, we collect: your name, phone number, and, if
+          you provide them, your email address, budget range and the message
           you write. We also record which page you submitted from, the campaign
           parameters in the URL if you arrived from an advertisement, your
           browser&apos;s user-agent string, and a one-way hash of your IP
@@ -67,7 +67,7 @@ export default async function PrivacyPage() {
         <LegalP>
           We do not sell, rent or share your details with builders, other
           brokers, lead aggregators or any third party for their own marketing.
-          This is not a policy we intend to revise — a broker forwarding your
+          This is not a policy we intend to revise, a broker forwarding your
           number to six developers is precisely the practice this company exists
           to replace.
         </LegalP>
@@ -84,8 +84,8 @@ export default async function PrivacyPage() {
         <LegalP>
           We use Vercel Web Analytics, which is cookieless and does not build a
           cross-site profile of you. We set no advertising or tracking cookies.
-          A small amount of data is kept in your browser&apos;s local storage —
-          your saved shortlist and whether you&apos;ve dismissed a notice — which
+          A small amount of data is kept in your browser&apos;s local storage,
+          your saved shortlist and whether you&apos;ve dismissed a notice, which
           never leaves your device unless you submit a form.
         </LegalP>
 

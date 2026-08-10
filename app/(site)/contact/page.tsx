@@ -6,7 +6,7 @@ import { BreadcrumbJsonLd } from "@/components/seo/JsonLd";
 export const revalidate = 3600;
 
 export const metadata: Metadata = {
-  title: "Contact — begin the conversation",
+  title: "Contact, begin the conversation",
   description:
     "Tell us what you're looking for. Within 48 hours you'll have a curated shortlist, each with its Glass File, and a fixed fee in writing. No obligation.",
   alternates: { canonical: "/contact" },

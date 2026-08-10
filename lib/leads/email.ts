@@ -44,7 +44,10 @@ export async function sendLeadEmails(lead: LeadInput, leadId: number): Promise<v
     ["Property", lead.propertyName || undefined],
     ["Form", label],
     ["Page", lead.sourcePage || undefined],
-    ["Campaign", lead.utmSource ? `${lead.utmSource} / ${lead.utmCampaign || "—"}` : undefined],
+    [
+      "Campaign",
+      lead.utmSource ? `${lead.utmSource} / ${lead.utmCampaign || "none"}` : undefined,
+    ],
   ];
 
   const tableRows = rows
@@ -57,12 +60,12 @@ export async function sendLeadEmails(lead: LeadInput, leadId: number): Promise<v
     .join("");
 
   await Promise.allSettled([
-    // 1 — internal alert
+    // 1, internal alert
     resend.emails.send({
       from: serverEnv.leadFrom,
       to: notify.split(",").map((s) => s.trim()).filter(Boolean),
       replyTo: lead.email || undefined,
-      subject: `${label}: ${lead.name}${lead.propertyName ? ` — ${lead.propertyName}` : ""}`,
+      subject: `${label}: ${lead.name}${lead.propertyName ? `${lead.propertyName}` : ""}`,
       html: `
         <div style="font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;max-width:560px">
           <p style="font-size:12px;letter-spacing:2px;text-transform:uppercase;color:#C6A15B;margin:0 0 6px">
@@ -88,12 +91,12 @@ export async function sendLeadEmails(lead: LeadInput, leadId: number): Promise<v
         </div>`,
     }),
 
-    // 2 — auto-reply, in the brand's own voice from the prototype
+    // 2, auto-reply, in the brand's own voice from the prototype
     lead.email
       ? resend.emails.send({
           from: serverEnv.leadFrom,
           to: lead.email,
-          subject: "Consider it heard — Roar Realty",
+          subject: "Consider it heard. Roar Realty",
           html: `
             <div style="font-family:Georgia,serif;max-width:520px;color:#111">
               <p style="font-size:12px;letter-spacing:3px;text-transform:uppercase;color:#9a7b3c;margin:0 0 20px">
@@ -107,13 +110,13 @@ export async function sendLeadEmails(lead: LeadInput, leadId: number): Promise<v
                     ? ` We've noted your interest in <strong>${esc(lead.propertyName)}</strong>.`
                     : ""
                 }
-                Expect a curated shortlist — each listing with its complete Glass File — within 48 hours.
+                Expect a curated shortlist, each listing with its complete Glass File, within 48 hours.
               </p>
               <p style="font-size:15px;line-height:1.75">
                 No obligation, and no follow-up calls you didn't ask for. Your details are never
                 sold or shared. That's rule zero.
               </p>
-              <p style="font-size:15px;line-height:1.75;margin-top:28px">— The team at Roar Realty</p>
+              <p style="font-size:15px;line-height:1.75;margin-top:28px">The team at Roar Realty</p>
               <hr style="border:none;border-top:1px solid #e5e0d5;margin:28px 0">
               <p style="font-family:sans-serif;font-size:11px;color:#999;line-height:1.6">
                 You're receiving this because you submitted an enquiry at
