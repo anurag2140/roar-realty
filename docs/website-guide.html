@@ -9,8 +9,6 @@
 <style>
   :root {
     --ink: #0A0907;
-    --ink-2: #17140E;
-    --ivory: #F4EFE4;
     --paper: #FFFDF9;
     --text: #232019;
     --muted: #6B6558;
@@ -24,12 +22,11 @@
     --red-br: #C0654F;
     --green-bg: #F0F6EF;
     --green-br: #6E9B62;
+    --blue-bg: #EEF3F8;
+    --blue-br: #5F86AE;
   }
 
-  @page {
-    size: A4;
-    margin: 18mm 16mm 20mm 16mm;
-  }
+  @page { size: A4; margin: 18mm 16mm 20mm 16mm; }
   @page :first { margin: 0; }
 
   * { box-sizing: border-box; }
@@ -38,7 +35,7 @@
     margin: 0;
     font-family: 'Jost', 'Segoe UI', sans-serif;
     font-weight: 300;
-    font-size: 10.2pt;
+    font-size: 10.3pt;
     line-height: 1.62;
     color: var(--text);
     background: var(--paper);
@@ -50,210 +47,101 @@
 
   /* ---------------- Cover ---------------- */
   .cover {
-    position: relative;
-    height: 297mm;
-    background: var(--ink);
-    color: var(--ivory);
-    padding: 30mm 22mm;
-    display: flex;
-    flex-direction: column;
-    page-break-after: always;
-    overflow: hidden;
+    position: relative; height: 297mm; background: var(--ink); color: #F4EFE4;
+    padding: 30mm 22mm; display: flex; flex-direction: column;
+    page-break-after: always; overflow: hidden;
   }
   .cover::after {
-    content: "";
-    position: absolute;
-    left: 0; right: 0; bottom: 0;
-    height: 120mm;
-    background: radial-gradient(ellipse 80% 100% at 50% 100%, rgba(198,161,91,.30), transparent 70%);
+    content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 130mm;
+    background: radial-gradient(ellipse 80% 100% at 50% 100%, rgba(198,161,91,.32), transparent 70%);
   }
-  .cover-mark {
-    font-family: 'Marcellus', serif;
-    font-size: 13pt;
-    letter-spacing: .42em;
-    color: var(--gold);
-    text-transform: uppercase;
-  }
+  .cover-mark { font-family: 'Marcellus', serif; font-size: 13pt; letter-spacing: .42em; color: var(--gold); text-transform: uppercase; }
   .cover-rule { width: 46mm; height: 1px; background: var(--gold); margin: 7mm 0 auto; }
-  .cover h1 {
-    font-size: 40pt;
-    line-height: 1.06;
-    margin: 0 0 6mm;
-    color: var(--ivory);
-    position: relative; z-index: 2;
-  }
-  .cover h1 em {
-    font-family: 'Cormorant Garamond', serif;
-    font-style: italic;
-    color: var(--gold-hi);
-  }
-  .cover-sub {
-    font-size: 12pt;
-    line-height: 1.7;
-    color: rgba(244,239,228,.62);
-    max-width: 115mm;
-    margin: 0 0 14mm;
-    position: relative; z-index: 2;
-  }
-  .cover-meta {
-    display: flex; gap: 14mm; flex-wrap: wrap;
-    border-top: 1px solid rgba(198,161,91,.34);
-    padding-top: 6mm;
-    position: relative; z-index: 2;
-  }
-  .cover-meta div { }
-  .cover-meta dt {
-    font-size: 7.6pt; letter-spacing: .26em; text-transform: uppercase;
-    color: var(--gold); margin-bottom: 1.5mm;
-  }
-  .cover-meta dd { margin: 0; font-size: 10.5pt; color: var(--ivory); }
+  .cover h1 { font-size: 42pt; line-height: 1.05; margin: 0 0 7mm; position: relative; z-index: 2; }
+  .cover h1 em { font-family: 'Cormorant Garamond', serif; font-style: italic; color: var(--gold-hi); }
+  .cover-sub { font-size: 12pt; line-height: 1.7; color: rgba(244,239,228,.62); max-width: 118mm; margin: 0 0 14mm; position: relative; z-index: 2; }
+  .cover-meta { display: flex; gap: 13mm; flex-wrap: wrap; border-top: 1px solid rgba(198,161,91,.34); padding-top: 6mm; position: relative; z-index: 2; }
+  .cover-meta dt { font-size: 7.6pt; letter-spacing: .26em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.5mm; }
+  .cover-meta dd { margin: 0; font-size: 10.5pt; color: #F4EFE4; }
 
   /* ---------------- Structure ---------------- */
   .section { page-break-before: always; }
-  .section-head {
-    display: flex; align-items: baseline; gap: 6mm;
-    border-bottom: 2px solid var(--gold);
-    padding-bottom: 3.5mm; margin-bottom: 7mm;
-  }
-  .section-num {
-    font-family: 'Cormorant Garamond', serif;
-    font-style: italic;
-    font-size: 26pt;
-    color: var(--gold);
-    line-height: 1;
-  }
+  .section-head { display: flex; align-items: baseline; gap: 6mm; border-bottom: 2px solid var(--gold); padding-bottom: 3.5mm; margin-bottom: 7mm; }
+  .section-num { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 26pt; color: var(--gold); line-height: 1; }
   .section-head h2 { font-size: 21pt; margin: 0; color: var(--ink); line-height: 1.1; }
-  .lede { font-size: 11pt; color: var(--muted); margin: 0 0 7mm; max-width: 150mm; }
+  .lede { font-size: 11pt; color: var(--muted); margin: 0 0 7mm; max-width: 152mm; }
 
-  h3 {
-    font-size: 13.5pt; margin: 8mm 0 2.5mm; color: var(--ink);
-    page-break-after: avoid;
-  }
-  h4 {
-    font-size: 10.5pt; margin: 6mm 0 2mm; color: var(--gold-deep);
-    letter-spacing: .04em; page-break-after: avoid;
-  }
+  h3 { font-size: 13.5pt; margin: 8mm 0 2.5mm; color: var(--ink); page-break-after: avoid; }
+  h4 { font-size: 10.5pt; margin: 6mm 0 2mm; color: var(--gold-deep); letter-spacing: .04em; page-break-after: avoid; }
   p { margin: 0 0 3.2mm; }
   a { color: var(--gold-deep); text-decoration: none; border-bottom: .5px solid rgba(138,108,51,.4); }
   strong { font-weight: 600; color: var(--ink); }
-  em { font-family: 'Cormorant Garamond', serif; font-size: 1.1em; }
 
   ul, ol { margin: 0 0 3.5mm; padding-left: 5mm; }
   li { margin-bottom: 1.6mm; }
 
-  code, .mono {
-    font-family: 'JetBrains Mono', 'Consolas', monospace;
-    font-size: 8.6pt;
-    background: #F2EEE4;
-    border: .5px solid var(--rule);
-    padding: .4mm 1.4mm;
-    border-radius: 1.5px;
-    color: #4A3F28;
+  code {
+    font-family: 'JetBrains Mono', Consolas, monospace; font-size: 8.6pt;
+    background: #F2EEE4; border: .5px solid var(--rule); padding: .4mm 1.4mm;
+    border-radius: 1.5px; color: #4A3F28;
   }
 
   /* ---------------- Steps ---------------- */
   .steps { counter-reset: step; list-style: none; padding: 0; margin: 4mm 0 5mm; }
-  .steps > li {
-    counter-increment: step;
-    position: relative;
-    padding-left: 11mm;
-    margin-bottom: 4.5mm;
-    page-break-inside: avoid;
-  }
+  .steps > li { counter-increment: step; position: relative; padding-left: 11mm; margin-bottom: 4.5mm; page-break-inside: avoid; }
   .steps > li::before {
-    content: counter(step);
-    position: absolute; left: 0; top: -0.3mm;
-    width: 7mm; height: 7mm;
-    background: var(--gold);
-    color: var(--ink);
-    font-family: 'Jost', sans-serif;
-    font-size: 9pt; font-weight: 600;
-    display: flex; align-items: center; justify-content: center;
-    border-radius: 50%;
+    content: counter(step); position: absolute; left: 0; top: -0.3mm;
+    width: 7mm; height: 7mm; background: var(--gold); color: var(--ink);
+    font-family: 'Jost', sans-serif; font-size: 9pt; font-weight: 600;
+    display: flex; align-items: center; justify-content: center; border-radius: 50%;
   }
   .steps strong { display: block; margin-bottom: .6mm; }
 
   /* ---------------- Callouts ---------------- */
-  .box {
-    border-left: 3px solid var(--gold);
-    background: #FAF6EC;
-    padding: 4mm 5mm;
-    margin: 4.5mm 0;
-    page-break-inside: avoid;
-  }
+  .box { border-left: 3px solid var(--gold); background: #FAF6EC; padding: 4mm 5mm; margin: 4.5mm 0; page-break-inside: avoid; }
   .box.warn { border-left-color: var(--amber-br); background: var(--amber-bg); }
   .box.danger { border-left-color: var(--red-br); background: var(--red-bg); }
   .box.ok { border-left-color: var(--green-br); background: var(--green-bg); }
-  .box-title {
-    font-size: 8pt; letter-spacing: .2em; text-transform: uppercase;
-    font-weight: 600; margin-bottom: 1.8mm; color: var(--gold-deep);
-  }
+  .box.info { border-left-color: var(--blue-br); background: var(--blue-bg); }
+  .box-title { font-size: 8pt; letter-spacing: .2em; text-transform: uppercase; font-weight: 600; margin-bottom: 1.8mm; color: var(--gold-deep); }
   .box.warn .box-title { color: #8A6414; }
   .box.danger .box-title { color: #96402C; }
   .box.ok .box-title { color: #3F6634; }
+  .box.info .box-title { color: #3D5F82; }
   .box p:last-child { margin-bottom: 0; }
 
   /* ---------------- Tables ---------------- */
-  table {
-    width: 100%; border-collapse: collapse; margin: 4mm 0 5mm;
-    font-size: 9.4pt; page-break-inside: avoid;
-  }
+  table { width: 100%; border-collapse: collapse; margin: 4mm 0 5mm; font-size: 9.4pt; page-break-inside: avoid; }
   th {
     text-align: left; font-family: 'Jost', sans-serif; font-weight: 600;
     font-size: 8pt; letter-spacing: .16em; text-transform: uppercase;
-    color: var(--gold-deep);
-    border-bottom: 1.5px solid var(--gold);
-    padding: 2.2mm 3mm 2.2mm 0;
+    color: var(--gold-deep); border-bottom: 1.5px solid var(--gold); padding: 2.2mm 3mm 2.2mm 0;
   }
-  td {
-    padding: 2.4mm 3mm 2.4mm 0;
-    border-bottom: .5px solid var(--rule);
-    vertical-align: top;
-  }
+  td { padding: 2.4mm 3mm 2.4mm 0; border-bottom: .5px solid var(--rule); vertical-align: top; }
   td:last-child, th:last-child { padding-right: 0; }
   tr { page-break-inside: avoid; }
 
-  /* ---------------- Field reference ---------------- */
-  .fields { margin: 4mm 0; }
-  .field {
-    display: grid; grid-template-columns: 42mm 1fr; gap: 4mm;
-    padding: 2.6mm 0; border-bottom: .5px solid var(--rule);
-    page-break-inside: avoid;
-  }
+  /* ---------------- Field list ---------------- */
+  .field { display: grid; grid-template-columns: 44mm 1fr; gap: 4mm; padding: 2.6mm 0; border-bottom: .5px solid var(--rule); page-break-inside: avoid; }
   .field dt { font-weight: 500; color: var(--ink); font-size: 9.6pt; }
   .field dd { margin: 0; color: var(--muted); font-size: 9.4pt; }
-  .req { color: var(--red-br); font-size: 8pt; letter-spacing: .1em; }
 
   /* ---------------- Contents ---------------- */
   .toc { columns: 2; column-gap: 12mm; margin-top: 6mm; }
-  .toc-item {
-    break-inside: avoid;
-    display: grid; grid-template-columns: 8mm 1fr; gap: 2mm;
-    padding: 2.2mm 0; border-bottom: .5px solid var(--rule);
-  }
+  .toc-item { break-inside: avoid; display: grid; grid-template-columns: 8mm 1fr; gap: 2mm; padding: 2.2mm 0; border-bottom: .5px solid var(--rule); }
   .toc-n { font-family: 'Cormorant Garamond', serif; font-style: italic; color: var(--gold); font-size: 12pt; }
   .toc-t { font-size: 9.6pt; }
   .toc-t small { display: block; color: var(--muted); font-size: 8.2pt; }
 
   /* ---------------- Misc ---------------- */
-  .kicker {
-    font-size: 7.8pt; letter-spacing: .28em; text-transform: uppercase;
-    color: var(--gold-deep); margin-bottom: 2mm;
-  }
-  .path {
-    font-family: 'Jost', sans-serif; font-size: 9pt; font-weight: 500;
-    background: var(--ink); color: var(--gold-hi);
-    padding: 1mm 2.4mm; border-radius: 2px; white-space: nowrap;
-  }
-  .pill {
-    display: inline-block; font-size: 7.6pt; letter-spacing: .14em;
-    text-transform: uppercase; padding: .8mm 2.2mm;
-    border: .5px solid var(--gold); color: var(--gold-deep); border-radius: 999px;
-  }
+  .path { font-family: 'Jost', sans-serif; font-size: 9pt; font-weight: 500; background: var(--ink); color: var(--gold-hi); padding: 1mm 2.4mm; border-radius: 2px; white-space: nowrap; }
+  .pill { display: inline-block; font-size: 7.6pt; letter-spacing: .14em; text-transform: uppercase; padding: .8mm 2.2mm; border: .5px solid var(--gold); color: var(--gold-deep); border-radius: 999px; }
   .divider { height: 1px; background: var(--rule); margin: 7mm 0; }
-  .two-col { columns: 2; column-gap: 10mm; }
-  .avoid-break { page-break-inside: avoid; }
   .tiny { font-size: 8.4pt; color: var(--muted); }
+  .template {
+    background: #F6F2E8; border: .5px solid var(--rule); border-left: 3px solid var(--gold);
+    padding: 4mm 5mm; margin: 4mm 0; font-size: 9.6pt; line-height: 1.65; page-break-inside: avoid;
+  }
 </style>
 </head>
 <body>
@@ -262,610 +150,565 @@
 <div class="cover">
   <div class="cover-mark">Roar Realty</div>
   <div class="cover-rule"></div>
-  <h1>The Owner's<br>Guide to <em>your website.</em></h1>
+  <h1>Running <em>your website.</em></h1>
   <p class="cover-sub">
-    Everything you need to run roarrealty.in yourself — changing your phone
-    number, adding properties, publishing your RERA registration, handling
-    enquiries, and taking the site public.
+    Everything you need to change anything on roarrealty.in yourself. Written for
+    someone who has never touched a website before, and does not intend to start now.
   </p>
   <dl class="cover-meta">
     <div><dt>Website</dt><dd>roarrealty.in</dd></div>
-    <div><dt>Admin panel</dt><dd>roarrealty.in/studio</dd></div>
-    <div><dt>Status</dt><dd>Preview mode</dd></div>
-    <div><dt>Issued</dt><dd>31 July 2026</dd></div>
+    <div><dt>Your control panel</dt><dd>roarrealty.in/studio</dd></div>
+    <div><dt>Status</dt><dd>Live and public</dd></div>
+    <div><dt>Version</dt><dd>August 2026</dd></div>
   </dl>
 </div>
 
 <!-- ============ CONTENTS ============ -->
 <div class="section" style="page-break-before: avoid;">
-  <div class="section-head">
-    <span class="section-num">§</span>
-    <h2>What's in this guide</h2>
-  </div>
+  <div class="section-head"><span class="section-num">&sect;</span><h2>What's in this guide</h2></div>
   <p class="lede">
-    Sections 1–3 are the ones to read first. Section 9 is the single switch that
-    makes the site public, and section 10 lists what's still outstanding.
+    Sections 1 to 3 are the ones to read now. Everything after is reference,
+    for when you want to change a specific thing.
   </p>
 
   <div class="toc">
-    <div class="toc-item"><span class="toc-n">1</span><span class="toc-t">Start here<small>Your three logins and what each one does</small></span></div>
-    <div class="toc-item"><span class="toc-n">2</span><span class="toc-t">A tour of your admin panel<small>What every item in the sidebar is for</small></span></div>
-    <div class="toc-item"><span class="toc-n">3</span><span class="toc-t">Your phone, RERA number &amp; contact details<small>Do this first — it clears the ⚠ warnings</small></span></div>
-    <div class="toc-item"><span class="toc-n">4</span><span class="toc-t">Adding a property<small>Every field, explained</small></span></div>
-    <div class="toc-item"><span class="toc-n">5</span><span class="toc-t">Editing &amp; removing properties<small>Featuring, unpublishing, deleting</small></span></div>
-    <div class="toc-item"><span class="toc-n">6</span><span class="toc-t">Testimonials, team &amp; builders<small>Including the consent rule</small></span></div>
-    <div class="toc-item"><span class="toc-n">7</span><span class="toc-t">Editing the homepage &amp; writing articles<small>Headlines, statistics, insights</small></span></div>
-    <div class="toc-item"><span class="toc-n">8</span><span class="toc-t">Your leads inbox<small>Where enquiries land and how to work them</small></span></div>
-    <div class="toc-item"><span class="toc-n">9</span><span class="toc-t">Going live: removing preview mode<small>The pre-flight checklist and the switch</small></span></div>
-    <div class="toc-item"><span class="toc-n">10</span><span class="toc-t">Setup still outstanding<small>Webhook, domain fix, Google, spam protection</small></span></div>
-    <div class="toc-item"><span class="toc-n">11</span><span class="toc-t">When something looks wrong<small>Troubleshooting the common cases</small></span></div>
-    <div class="toc-item"><span class="toc-n">12</span><span class="toc-t">Reference<small>Accounts, costs, limits, and what not to touch</small></span></div>
+    <div class="toc-item"><span class="toc-n">1</span><span class="toc-t">The one thing to understand<small>How changing anything works</small></span></div>
+    <div class="toc-item"><span class="toc-n">2</span><span class="toc-t">A tour of your control panel<small>What every menu item does</small></span></div>
+    <div class="toc-item"><span class="toc-n">3</span><span class="toc-t">Your phone numbers and contact details<small>Including all three WhatsApp desks</small></span></div>
+    <div class="toc-item"><span class="toc-n">4</span><span class="toc-t">Getting reviews, and publishing them<small>Includes a message you can copy and send</small></span></div>
+    <div class="toc-item"><span class="toc-n">5</span><span class="toc-t">Changing words on the homepage<small>Headlines, statistics, the six rules</small></span></div>
+    <div class="toc-item"><span class="toc-n">6</span><span class="toc-t">Writing articles<small>The thing that brings people from Google</small></span></div>
+    <div class="toc-item"><span class="toc-n">7</span><span class="toc-t">Turning on properties<small>When you're ready to list</small></span></div>
+    <div class="toc-item"><span class="toc-n">8</span><span class="toc-t">Your enquiries inbox<small>Where leads land and how to work them</small></span></div>
+    <div class="toc-item"><span class="toc-n">9</span><span class="toc-t">Every page on the site<small>And what each one is for</small></span></div>
+    <div class="toc-item"><span class="toc-n">10</span><span class="toc-t">The free calculators<small>Your strongest lead generators</small></span></div>
+    <div class="toc-item"><span class="toc-n">11</span><span class="toc-t">When something looks wrong<small>Fix it yourself in a minute</small></span></div>
+    <div class="toc-item"><span class="toc-n">12</span><span class="toc-t">Reference<small>Costs, addresses, and what not to touch</small></span></div>
   </div>
 
   <div class="box ok" style="margin-top: 10mm;">
-    <div class="box-title">The one-minute version</div>
+    <div class="box-title">If you read nothing else</div>
     <p>
-      Everything you'd want to change lives at <span class="path">roarrealty.in/studio</span>.
-      Sign in with Google, edit, press <strong>Publish</strong>. The live website
-      updates in about ten seconds. You never touch code, and you cannot break the
-      site from there.
+      Go to <span class="path">roarrealty.in/studio</span>, sign in with Google,
+      change what you like, press the green <strong>Publish</strong> button. The
+      website updates in about ten seconds. You cannot break anything from
+      there, and every old version is kept in case you want it back.
     </p>
   </div>
 </div>
 
 <!-- ============ 1 ============ -->
 <div class="section">
-  <div class="section-head"><span class="section-num">1</span><h2>Start here</h2></div>
+  <div class="section-head"><span class="section-num">1</span><h2>The one thing to understand</h2></div>
   <p class="lede">
-    Three accounts run your website. You'll use the first one almost daily and
-    the other two only occasionally.
+    Your website has two halves. Knowing which half you are in explains
+    everything else in this guide.
   </p>
 
   <table>
-    <thead>
-      <tr><th style="width:34mm">Account</th><th style="width:44mm">Where</th><th>What it's for</th></tr>
-    </thead>
+    <thead><tr><th style="width:44mm">The half</th><th>What it is</th></tr></thead>
     <tbody>
       <tr>
-        <td><strong>Sanity Studio</strong><br><span class="pill">daily</span></td>
-        <td><span class="path">roarrealty.in/studio</span></td>
-        <td>Your admin panel. Properties, photos, contact details, homepage text, testimonials, articles, and your leads inbox. Sign in with Google.</td>
+        <td><strong>The website</strong><br><span class="path">roarrealty.in</span></td>
+        <td>What your customers see. You never edit this directly. It simply displays whatever is in the other half.</td>
       </tr>
       <tr>
-        <td><strong>Vercel</strong><br><span class="pill">rarely</span></td>
-        <td>vercel.com</td>
-        <td>Hosting. You'll go here once to take the site public, and otherwise only if something needs redeploying.</td>
-      </tr>
-      <tr>
-        <td><strong>GitHub</strong><br><span class="pill">never</span></td>
-        <td>github.com/anurag2140/roar-realty</td>
-        <td>Where the code lives. Nothing here needs your attention day to day.</td>
+        <td><strong>Your control panel</strong><br><span class="path">roarrealty.in/studio</span></td>
+        <td>Where all the words, photos and settings actually live. You edit here, and the website updates itself.</td>
       </tr>
     </tbody>
   </table>
 
-  <h3>What the website already does</h3>
-  <ul>
-    <li>Full property search — filter by type, budget, bedrooms, locality, possession status and amenities, with results shareable by link.</li>
-    <li>Individual property pages with photo galleries, floor plans, maps, and the Glass File due-diligence panel.</li>
-    <li>Enquiry forms that email you within seconds and store every lead in a private database.</li>
-    <li>A WhatsApp button and a call/WhatsApp/enquire bar fixed to the bottom of every phone screen.</li>
-    <li>Visitors can save properties to a shortlist and compare up to three side by side — no signup required.</li>
-    <li>Automatic sitemaps and Google-readable listing data, ready to switch on.</li>
-  </ul>
+  <p>
+    That separation is why you can change your phone number, add a review or
+    rewrite a headline without anyone technical being involved. It also means
+    there is nothing you can click in the control panel that takes the website
+    offline.
+  </p>
 
-  <div class="box warn">
-    <div class="box-title">The site is currently private</div>
+  <h3>How every change works</h3>
+  <ol class="steps">
+    <li><strong>Go to roarrealty.in/studio</strong> and sign in with Google. Use the same Google account each time.</li>
+    <li><strong>Find the thing you want to change</strong> in the left-hand menu, and click it.</li>
+    <li><strong>Type.</strong> Your work saves automatically as you go, so nothing is lost if you close the tab or your phone dies.</li>
+    <li><strong>Press the green Publish button</strong> at the bottom. Until you do, nobody else can see the change.</li>
+    <li><strong>Wait about ten seconds</strong>, then refresh the website. Done.</li>
+  </ol>
+
+  <div class="box">
+    <div class="box-title">Changed your mind?</div>
     <p>
-      It is deliberately hidden from Google and shows a <strong>“Preview mode ·
-      sample content”</strong> bar at the top. That is intentional and stays until
-      you finish section 9. Anyone with the link can still see it — it's hidden
-      from search engines, not password-protected.
+      Open the item, click the <strong>&hellip;</strong> button at the top right,
+      and choose <strong>Review changes</strong>. You will see every previous
+      version and can put any of them back. This works for a paragraph you
+      overwrote as well as for a whole page you deleted.
+    </p>
+  </div>
+
+  <div class="box info">
+    <div class="box-title">On your phone</div>
+    <p>
+      The control panel works on a phone browser. It is more comfortable on a
+      laptop for long writing, but adding a review or correcting a phone number
+      from your phone is perfectly practical.
     </p>
   </div>
 </div>
 
 <!-- ============ 2 ============ -->
 <div class="section">
-  <div class="section-head"><span class="section-num">2</span><h2>A tour of your admin panel</h2></div>
+  <div class="section-head"><span class="section-num">2</span><h2>A tour of your control panel</h2></div>
   <p class="lede">
-    Go to <span class="path">roarrealty.in/studio</span> and sign in with Google.
-    You'll see a list down the left-hand side.
+    Sign in at <span class="path">roarrealty.in/studio</span>. This is the list
+    down the left-hand side, top to bottom.
   </p>
 
-  <dl class="fields">
-    <div class="field"><dt>Leads</dt><dd>Every enquiry anyone has sent you, newest first. Mark them New, Contacted, Qualified or Closed, add private notes, message them on WhatsApp in one click, or export the lot to a spreadsheet. <em>Asks for a separate password — see section 8.</em></dd></div>
-    <div class="field"><dt>Properties</dt><dd>Your listings. Includes ready-made views for the ones featured on your homepage, the illustrative samples still to be replaced, and any listing with no photos yet.</dd></div>
-    <div class="field"><dt>Localities</dt><dd>Areas like Golf Course Road or Sector 150. Each one gets its own page on the website, which is how people searching “property in Golf Course Road” find you.</dd></div>
-    <div class="field"><dt>Builders</dt><dd>Developers, with their track record. Attach one to a listing and it appears on the property page.</dd></div>
-    <div class="field"><dt>Team &amp; agents</dt><dd>Your people. Appears on the About page. Each can carry their own RERA number.</dd></div>
-    <div class="field"><dt>Testimonials</dt><dd>Client quotes for the homepage.</dd></div>
-    <div class="field"><dt>Insights</dt><dd>Articles and market reports. This is what earns you Google traffic over time.</dd></div>
-    <div class="field"><dt>FAQs</dt><dd>Questions and answers shown on The Roar Standard page. Google can display these directly in search results.</dd></div>
-    <div class="field"><dt>Homepage</dt><dd>Every headline, paragraph and statistic on your front page.</dd></div>
-    <div class="field"><dt>Site settings</dt><dd>Phone, WhatsApp, email, office address, RERA number, social links, and a few appearance options. <strong>Start here.</strong></dd></div>
+  <dl>
+    <div class="field"><dt>Leads</dt><dd>Every enquiry anyone has ever sent you. Mark them New, Contacted, Qualified or Closed, add private notes, message them on WhatsApp in one click, or download the lot as a spreadsheet. Asks for its own password, see section 8.</dd></div>
+    <div class="field"><dt>Properties</dt><dd>Your listings. Currently switched off on the website until you add real ones, see section 7.</dd></div>
+    <div class="field"><dt>Localities</dt><dd>Areas like Golf Course Road or Business Bay. Each one gets its own page, which is how someone searching "property in Golf Course Road" finds you.</dd></div>
+    <div class="field"><dt>Builders</dt><dd>Developers and their track record. Attach one to a listing and it appears on that property's page.</dd></div>
+    <div class="field"><dt>Team &amp; agents</dt><dd>Your people. Appears on the Founder page.</dd></div>
+    <div class="field"><dt>Testimonials</dt><dd>Client reviews. New ones submitted through the website land here waiting for your approval. See section 4.</dd></div>
+    <div class="field"><dt>Insights</dt><dd>Your articles. Seventeen are already written and live. See section 6.</dd></div>
+    <div class="field"><dt>FAQs</dt><dd>Questions and answers shown on The Standard page. Google can display these directly in search results, which is free visibility.</dd></div>
+    <div class="field"><dt>Homepage</dt><dd>Every headline, paragraph and statistic on your front page. See section 5.</dd></div>
+    <div class="field"><dt>Site settings</dt><dd>Phone numbers, WhatsApp desks, email, address, social links, and a few appearance options. See section 3.</dd></div>
   </dl>
 
-  <h3>How editing works</h3>
-  <ol class="steps">
-    <li><strong>Open the item you want to change</strong> and type. Your work saves automatically as a draft as you go — nothing is lost if you close the tab.</li>
-    <li><strong>Press the green Publish button</strong> at the bottom of the screen. Until you do, changes are invisible to visitors.</li>
-    <li><strong>Wait about ten seconds</strong> and refresh the website. Your change is live.</li>
-  </ol>
-
-  <div class="box">
-    <div class="box-title">You can't break anything</div>
+  <div class="box warn">
+    <div class="box-title">Two words you will see a lot</div>
     <p>
-      Sanity keeps a full history of every document. If you delete a paragraph you
-      wanted, open the item, click the <strong>⋯</strong> menu at the top and choose
-      <strong>Review changes</strong> to see previous versions and restore one.
+      <strong>Publish</strong> means "make this visible on the website".
+      <strong>Unpublish</strong> means "hide this from the website but keep it
+      here". Unpublishing is always safer than deleting, and always reversible.
     </p>
   </div>
 </div>
 
 <!-- ============ 3 ============ -->
 <div class="section">
-  <div class="section-head"><span class="section-num">3</span><h2>Your phone, RERA number &amp; contact details</h2></div>
+  <div class="section-head"><span class="section-num">3</span><h2>Your phone numbers and contact details</h2></div>
   <p class="lede">
-    These are blank right now, on purpose. Filling them in is the most important
-    thing you'll do in this guide.
+    All of this lives in one place: <strong>Site settings</strong>, on the
+    Contact tab.
   </p>
 
-  <div class="box danger">
-    <div class="box-title">Why they're blank</div>
-    <p>
-      The original design carried invented placeholders — the phone number
-      <code>+91 98100 00000</code> and the RERA registration
-      <code>HRERA-GGM-XXXX-2026</code>. Neither is real. A fake phone number that
-      <em>looks</em> real is far more dangerous than an obvious gap, because it
-      gets published and nobody notices until a buyer dials it. So the website
-      shows a visible <strong>⚠ warning marker</strong> wherever a detail is
-      missing, and those markers disappear the moment you fill each field in.
-    </p>
-  </div>
+  <h3>What is currently set</h3>
+  <table>
+    <thead><tr><th style="width:46mm">Setting</th><th>Current value</th></tr></thead>
+    <tbody>
+      <tr><td>Phone</td><td>+91 78989 89029</td></tr>
+      <tr><td>WhatsApp, India desk</td><td>+91 78989 89029</td></tr>
+      <tr><td>WhatsApp, Dubai desk</td><td>+971 58 545 5256</td></tr>
+      <tr><td>Extra WhatsApp desk</td><td>+971 56 865 2202</td></tr>
+      <tr><td>Primary email</td><td>contact@roarrealty.ae</td></tr>
+      <tr><td>India email</td><td>admin@roarrealty.in</td></tr>
+      <tr><td>Office address</td><td>1507, Al Manara Tower, Business Bay, Dubai</td></tr>
+      <tr><td>Registered entity</td><td>Roar Realty LLC</td></tr>
+    </tbody>
+  </table>
 
-  <h3>How to fill them in</h3>
+  <h3>How the WhatsApp button behaves</h3>
+  <p>
+    Because you have more than one number, the green WhatsApp button does not
+    guess. Tapping it opens a small list so the visitor picks a desk, and the
+    message is already written for them, including which page they were reading.
+    So instead of "Hi", you receive something like:
+  </p>
+  <div class="template">
+    Hello Roar Realty, I&rsquo;d like to discuss a property (from the dubai page).
+  </div>
+  <p>
+    That tells you what they were looking at before you have said a word, which
+    is worth more than it sounds.
+  </p>
+
+  <h3>To change or add a number</h3>
   <ol class="steps">
-    <li><strong>Open Studio → Site settings.</strong> The Contact tab is showing by default.</li>
-    <li><strong>Phone</strong> — the number you want people to call. Write it how you'd want it read, for example <code>+91 98765 43210</code>.</li>
-    <li>
-      <strong>WhatsApp number</strong> — must include the country code and no spaces:
-      <code>+919876543210</code>. This powers the green WhatsApp button that floats on
-      every page and the WhatsApp tab on the mobile bar. If you leave it blank, those
-      buttons stay hidden.
-    </li>
-    <li><strong>Email</strong> — for example <code>hello@roarrealty.in</code>.</li>
-    <li><strong>Office address</strong> — your registered office, as you'd want it printed.</li>
-    <li>
-      <strong>RERA agent registration number</strong> — switch to the <strong>Legal</strong>
-      tab. Enter it exactly as issued. It appears in your footer and on the disclaimer page.
-    </li>
-    <li><strong>Registered entity name and CIN</strong> — also on the Legal tab, used in the copyright line.</li>
-    <li><strong>Social profiles</strong> — back on Contact, press <strong>Add item</strong>, choose the platform, paste the full URL.</li>
-    <li><strong>Press Publish.</strong> Refresh the site — the ⚠ markers are gone.</li>
+    <li><strong>Site settings &rarr; Contact tab.</strong></li>
+    <li><strong>Edit the number you want to change.</strong> Always include the country code and no spaces: <code>+919876543210</code>.</li>
+    <li><strong>To add a fourth desk</strong>, scroll to "Extra WhatsApp desks", press <strong>Add item</strong>, give it a name (which the visitor sees) and the number.</li>
+    <li><strong>Press Publish.</strong></li>
   </ol>
 
   <div class="box danger">
-    <div class="box-title">Please read before publishing the site</div>
+    <div class="box-title">The country code matters</div>
     <p>
-      In India, advertising property brokerage without displaying a valid RERA
-      agent registration number is an offence under the Real Estate (Regulation
-      and Development) Act, 2016. This applies in both Haryana and Uttar Pradesh,
-      where your listings are. <strong>The site should not be made public until a
-      genuine registration number is in this field.</strong> Section 9 covers the
-      order to do things in.
+      A WhatsApp number without its country code will not work. If the button
+      stops opening WhatsApp, this is almost always why. Check there is a
+      <code>+</code> and no spaces or brackets.
     </p>
   </div>
 
-  <h3>Replacing the logo</h3>
-  <p>
-    The current logo is a JPEG, which looks slightly soft at large sizes. If you
-    have an <strong>SVG</strong> or a <strong>transparent PNG</strong>, upload it
-    under Site settings → Contact → Logo. It will sharpen the header, footer and
-    social sharing images everywhere at once.
-  </p>
-
-  <h3>Appearance options</h3>
-  <table>
-    <thead><tr><th style="width:38mm">Setting</th><th>What it does</th></tr></thead>
-    <tbody>
-      <tr><td>Gold tone</td><td>Shifts the brand gold across the whole site. Four options; the default is the original.</td></tr>
-      <tr><td>3D effects</td><td>Master switch for the moving skyline, globe and liquid-gold backgrounds. Already turns itself off automatically on older phones.</td></tr>
-      <tr><td>Film grain overlay</td><td>The subtle texture over the whole page.</td></tr>
-      <tr><td>Announcement bar</td><td>A gold strip across the top for a launch or an event. Off by default.</td></tr>
-      <tr><td>Exit-intent popup</td><td>The offer shown when a visitor looks like they're leaving. You control the wording.</td></tr>
-    </tbody>
-  </table>
+  <h3>Other things on this screen</h3>
+  <dl>
+    <div class="field"><dt>Social profiles</dt><dd>Press Add item, choose the platform, paste the full link. They appear in the footer.</dd></div>
+    <div class="field"><dt>Logo</dt><dd>Upload a replacement any time. An SVG or transparent PNG will look sharper than the current JPEG.</dd></div>
+    <div class="field"><dt>Gold tone</dt><dd>Shifts the brand gold across the entire site. Four options.</dd></div>
+    <div class="field"><dt>3D effects</dt><dd>The moving skyline and globe. Already switches itself off on older phones.</dd></div>
+    <div class="field"><dt>Announcement bar</dt><dd>A gold strip across the top of every page for a launch or an event. Off by default.</dd></div>
+    <div class="field"><dt>Exit popup</dt><dd>What appears when a visitor looks like they are leaving. You control the wording.</dd></div>
+    <div class="field"><dt>RERA number</dt><dd>Currently blank, and the notice about it is hidden. The moment you type a number here, it appears in your footer and on the disclaimer page automatically.</dd></div>
+  </dl>
 </div>
 
 <!-- ============ 4 ============ -->
 <div class="section">
-  <div class="section-head"><span class="section-num">4</span><h2>Adding a property</h2></div>
+  <div class="section-head"><span class="section-num">4</span><h2>Getting reviews, and publishing them</h2></div>
   <p class="lede">
-    Roughly five minutes per listing once you have the photos ready.
+    Your website has a full review system at <span class="path">roarrealty.in/reviews</span>.
+    Clients write them, you approve them, they appear.
   </p>
 
+  <h3>How it works</h3>
   <ol class="steps">
-    <li><strong>Studio → Properties → All properties</strong>, then the <strong>＋</strong> button at the top.</li>
-    <li><strong>Type the property name.</strong> Then click <strong>Generate</strong> under URL slug — that becomes the web address.</li>
-    <li><strong>Choose the type</strong> — Apartments, Villas, Off-plan, Commercial or Plots. This drives the search filters.</li>
-    <li>
-      <strong>Enter the price in crore.</strong> This one catches people out: the box
-      wants <em>crore</em>, not rupees. 85 lakh is <code>0.85</code>. 14.5 crore is
-      <code>14.5</code>. Leave it blank and tick “Price on request” if you'd rather not show it.
-    </li>
-    <li><strong>Write a short summary</strong> — one or two sentences. It appears on cards and in Google results.</li>
-    <li><strong>Fill the Specifications tab</strong> — bedrooms, bathrooms, carpet area, possession, amenities.</li>
-    <li><strong>Add photos</strong> on the Photos &amp; media tab. Drag them all in at once. The first is the card image; drag to reorder.</li>
-    <li><strong>Write alt text for each photo.</strong> It's required, and it's how blind visitors and Google understand the image. “Living room with floor-to-ceiling windows” is plenty.</li>
-    <li><strong>Complete the Glass File tab</strong> — tick only what has genuinely been verified. See the warning below.</li>
-    <li><strong>Set the Location tab</strong> — city, locality, and drop a map pin if you have one.</li>
-    <li><strong>Press Publish.</strong> It appears on the site in about ten seconds.</li>
+    <li><strong>A client fills in the form</strong> at roarrealty.in/reviews. They give a star rating, their review, where they are based, where they bought, and their email and phone.</li>
+    <li><strong>It arrives in your control panel</strong> under Testimonials, marked with an hourglass and the words AWAITING APPROVAL. It is not on the website yet, and nobody can see it.</li>
+    <li><strong>You check it.</strong> Their email and phone are attached so you can confirm they are genuinely a client of yours.</li>
+    <li><strong>Tick "Approved for the website"</strong> and press Publish. It appears within ten seconds, and the star rating at the top of the reviews page recalculates automatically.</li>
   </ol>
 
-  <h3>The fields that matter most</h3>
-  <dl class="fields">
-    <div class="field"><dt>Price (₹ crore) <span class="req">important</span></dt><dd>In crore. <code>0.85</code> = 85 lakh. <code>14.5</code> = 14.5 crore.</dd></div>
-    <div class="field"><dt>Carpet area</dt><dd>The area the buyer actually occupies. This is what your pricing promise is built on — always fill it.</dd></div>
-    <div class="field"><dt>Super built-up area</dt><dd>Optional, but powerful. Enter both and the page automatically calculates and displays the percentage the buyer <em>isn't</em> getting. It's the clearest demonstration of your carpet-area rule on the whole site.</dd></div>
-    <div class="field"><dt>Badge</dt><dd>The small label on the photo — “Ultra-luxury”, “Escrow-protected”, “Pre-leased 7.1%”.</dd></div>
-    <div class="field"><dt>Feature on homepage</dt><dd>Puts it in the six-property grid on the front page.</dd></div>
-    <div class="field"><dt>Illustrative sample</dt><dd>Marks a listing as placeholder. Shows a “Sample” badge and hides it from Google. All nine current listings have this ticked.</dd></div>
-    <div class="field"><dt>Price breakdown</dt><dd>Itemise every charge in plain language. Renders as a clean table on the listing page.</dd></div>
-    <div class="field"><dt>Brochure</dt><dd>Upload a PDF and the page offers it as a download — but asks for a phone number first, so each download becomes a lead.</dd></div>
-  </dl>
+  <div class="box ok">
+    <div class="box-title">Why this is worth doing properly</div>
+    <p>
+      Because you verify each one, your reviews page can honestly say every
+      review is checked against your transaction records. No competitor can
+      claim that, and it is exactly the kind of proof your whole brand is built
+      on. Reviews you cannot stand behind would undermine the one thing that
+      makes you different.
+    </p>
+  </div>
+
+  <h3>Getting your first fifteen, fast</h3>
+  <p>
+    The quickest route is a personal WhatsApp to past clients. Copy this,
+    change the first name, send it one at a time rather than as a broadcast.
+  </p>
+
+  <div class="template">
+    Hi [name], hope you&rsquo;re well.<br><br>
+    We&rsquo;ve just put the new Roar Realty website live and I&rsquo;m adding a
+    reviews section to it. Would you mind writing a couple of lines about how
+    the process went for you? Honest is better than glowing, if something took
+    longer than you wanted, say that too.<br><br>
+    Takes about a minute here: roarrealty.in/reviews<br><br>
+    Thank you, it genuinely helps.
+  </div>
+
+  <p>
+    A few things that make a real difference to the response rate:
+  </p>
+  <ul>
+    <li><strong>Ask individually.</strong> A broadcast gets ignored; a personal message gets answered.</li>
+    <li><strong>Ask soon after a handover</strong>, while the experience is fresh and the goodwill is high.</li>
+    <li><strong>Say honest is better than glowing.</strong> It removes the awkwardness, and the review you get back will be far more persuasive.</li>
+    <li><strong>Send the direct link</strong>, roarrealty.in/reviews, not just the homepage.</li>
+  </ul>
+
+  <h3>Adding a review yourself</h3>
+  <p>
+    If a client sends you their words over WhatsApp instead, you can enter it
+    for them: Testimonials &rarr; <strong>+</strong> &rarr; fill in the quote,
+    their name, rating, region and where they bought &rarr; make sure
+    <strong>Approved</strong> is ticked &rarr; Publish.
+  </p>
 
   <div class="box warn">
-    <div class="box-title">Only tick what you've actually checked</div>
+    <div class="box-title">Before you publish someone's words</div>
     <p>
-      The Glass File panel deliberately shows unverified items as <em>not</em> ticked
-      rather than hiding them. A due-diligence panel that only ever shows green ticks
-      tells a buyer nothing, and would be exactly the opacity your business exists to
-      replace. An honest partial file is far more persuasive than a suspiciously
-      perfect one.
+      Get their permission, even a WhatsApp message saying "yes, fine to use
+      that" is enough, and keep it. Publishing a named person&rsquo;s quote
+      without their agreement causes problems that are entirely avoidable by
+      asking.
+    </p>
+  </div>
+
+  <div class="box info">
+    <div class="box-title">Until you have real ones</div>
+    <p>
+      The reviews section does not appear on your homepage at all while it is
+      empty. That reads as a new practice, which is fine. Cards saying
+      "placeholder" would read as carelessness, which is not, so those hide
+      themselves automatically now the site is live.
     </p>
   </div>
 </div>
 
 <!-- ============ 5 ============ -->
 <div class="section">
-  <div class="section-head"><span class="section-num">5</span><h2>Editing &amp; removing properties</h2></div>
+  <div class="section-head"><span class="section-num">5</span><h2>Changing words on the homepage</h2></div>
+  <p class="lede">
+    Control panel &rarr; <strong>Homepage</strong>. It is split into tabs that
+    match the page as you scroll down it.
+  </p>
 
-  <h3>Changing something</h3>
-  <p>Open the property, edit, press <strong>Publish</strong>. Around ten seconds later it's live.</p>
-
-  <h3>Taking a property off the website</h3>
-  <p>You have three options, and they're not the same thing:</p>
   <table>
-    <thead><tr><th style="width:42mm">If you want to…</th><th>Do this</th></tr></thead>
+    <thead><tr><th style="width:40mm">Tab</th><th>What it controls</th></tr></thead>
     <tbody>
-      <tr>
-        <td><strong>Hide it temporarily</strong><br><span class="tiny">Under offer, or paused</span></td>
-        <td>Open it, click the <strong>⋯</strong> menu at the top right, choose <strong>Unpublish</strong>. It vanishes from the site but stays in Studio, ready to bring back.</td>
-      </tr>
-      <tr>
-        <td><strong>Mark it sold</strong></td>
-        <td>Unpublish it. If you'd rather keep the page up for credibility, change the badge to “Sold” and remove it from featured.</td>
-      </tr>
-      <tr>
-        <td><strong>Delete it permanently</strong></td>
-        <td>Same <strong>⋯</strong> menu → <strong>Delete</strong>. This cannot be undone from the interface, so unpublish first if you're unsure.</td>
-      </tr>
+      <tr><td>Hero</td><td>The big opening headline, the paragraph under it, the four statistics, and the scrolling gold banner.</td></tr>
+      <tr><td>Dubai / Gurgaon</td><td>The two large panels asking "Where are you buying?".</td></tr>
+      <tr><td>Selection framework</td><td>Your three-step method: understand the client, filter the opportunity, plan entry and exit.</td></tr>
+      <tr><td>Chapters I &amp; II</td><td>The Dubai story and the four statistics about the Indian market.</td></tr>
+      <tr><td>The Roar Standard</td><td>Your six rules.</td></tr>
+      <tr><td>Process</td><td>The five steps.</td></tr>
+      <tr><td>Comparison</td><td>The "typical broker vs the Roar way" table.</td></tr>
+      <tr><td>Founder block</td><td>The short paragraph about you near the bottom.</td></tr>
+      <tr><td>Contact</td><td>The heading and introduction above the enquiry form.</td></tr>
     </tbody>
   </table>
 
-  <h3>Replacing the nine sample listings</h3>
+  <h3>The statistics</h3>
   <p>
-    Your site currently shows nine illustrative properties carried over from the
-    design. They're clearly badged “Sample” and hidden from Google. Two ways to
-    deal with them:
+    Each statistic has a <strong>Displayed value</strong>, which is what people
+    read, and an optional <strong>Count up to</strong> number. Fill in the
+    second one and the figure animates from zero as the visitor scrolls to it.
+    Leave it empty and the number just sits there, which is what you want for
+    something like <code>100%</code>.
   </p>
-  <ul>
-    <li><strong>If a sample happens to be real inventory</strong> — open it, correct the details, untick <strong>Illustrative sample</strong>, publish.</li>
-    <li><strong>Otherwise</strong> — add your real listings first, then delete the samples. Studio → Properties → <strong>⚠ Illustrative samples</strong> lists them all in one place.</li>
-  </ul>
 
-  <div class="box">
-    <div class="box-title">Handy views</div>
+  <div class="box warn">
+    <div class="box-title">Two figures to look at</div>
     <p>
-      Under Properties you'll find <strong>Featured on homepage</strong>,
-      <strong>⚠ Illustrative samples</strong> and <strong>Missing photos</strong>.
-      That last one is worth checking before you go live — a listing with no
-      photographs converts very poorly.
+      One statistic currently reads <strong>TBC, transactions closed, confirm
+      figure</strong>. That is deliberate, it is waiting for a number you can
+      stand behind. Another says <strong>100% escrow-protected on eligible
+      Dubai transactions</strong>. Both are on a public, indexed page now, so
+      they are worth a second look.
     </p>
   </div>
 </div>
 
 <!-- ============ 6 ============ -->
 <div class="section">
-  <div class="section-head"><span class="section-num">6</span><h2>Testimonials, team &amp; builders</h2></div>
-
-  <h3>Testimonials</h3>
-  <p>
-    Studio → Testimonials. Three placeholder quotes are in there now, each ticked
-    as <strong>Illustrative sample</strong>. Replace them with real ones, then
-    untick that box.
+  <div class="section-head"><span class="section-num">6</span><h2>Writing articles</h2></div>
+  <p class="lede">
+    Seventeen articles are already written and live at
+    <span class="path">roarrealty.in/insights</span>. This is what will bring
+    you visitors from Google who have never heard your name.
   </p>
 
-  <div class="box danger">
-    <div class="box-title">Get written consent first</div>
+  <h3>Why bother</h3>
+  <p>
+    Someone searching "super built up vs carpet area" or "what does escrow
+    actually cover in Dubai" is a buyer thinking carefully. If your article
+    answers them properly, you have earned the conversation before any
+    competitor knows they exist. It is slow, and it compounds.
+  </p>
+
+  <h3>Adding one</h3>
+  <ol class="steps">
+    <li><strong>Insights &rarr; the + button.</strong></li>
+    <li><strong>Type the title</strong>, then click <strong>Generate</strong> under the slug. That becomes the web address.</li>
+    <li><strong>Write a two-line excerpt.</strong> It shows on the listing page and in Google results.</li>
+    <li><strong>Add a cover image and a category.</strong></li>
+    <li><strong>Write the article</strong> in the body box. You can add headings, lists, links and images as you go.</li>
+    <li><strong>Publish.</strong></li>
+  </ol>
+
+  <div class="box">
+    <div class="box-title">Dates are hidden on purpose</div>
     <p>
-      Publishing invented client quotes as though they were real falls foul of the
-      ASCI code and the misleading-advertisement provisions of the Consumer
-      Protection Act. Before a testimonial goes live, get the client's permission
-      in writing — a WhatsApp message saying “yes, happy for you to use that” is
-      enough, and worth keeping.
-    </p>
-    <p style="margin-top:2.5mm">
-      The same applies to the claims on your homepage: <strong>“12 years”</strong>,
-      <strong>“4,200 keys handed over”</strong> and <strong>“100% escrow-protected”</strong>.
-      Confirm each is literally true, or edit it in Studio → Homepage.
+      Articles do not show a publication date anywhere on the site. Your pieces
+      are about how markets work rather than this week&rsquo;s news, and a
+      visible date makes good advice look stale long before it actually is.
     </p>
   </div>
 
-  <h3>Team &amp; agents</h3>
+  <h3>What to write about</h3>
   <p>
-    Studio → Team &amp; agents. Name, role, photo, a short bio, and their individual
-    RERA registration number if they hold one. They appear on your About page in the
-    order you set under “Display order” — lower numbers come first.
-  </p>
-
-  <h3>Builders</h3>
-  <p>
-    Add a developer once — name, logo, year established, projects delivered, and a
-    short note on their track record — and then attach them to any listing from that
-    property's Location tab. Their record then shows on the property page, which
-    supports the due-diligence story rather than just asserting it.
-  </p>
-
-  <h3>Localities</h3>
-  <p>
-    Each locality becomes its own page, for example
-    <span class="path">roarrealty.in/in/gurugram/golf-course-road</span>. Those pages
-    are how someone searching “property in Golf Course Road” finds you. Add a short
-    intro and, if you have time, a proper area guide in the body field — the more
-    genuinely useful that page is, the higher it ranks.
+    The pieces that work best for you are the ones that tell buyers something
+    inconvenient. What Dubai&rsquo;s protections do not cover. Why a delay
+    penalty clause is usually decoration. How to check "only two units left" in
+    ten seconds. That is the voice the existing seventeen are written in, so
+    anything new should sit alongside them comfortably.
   </p>
 </div>
 
 <!-- ============ 7 ============ -->
 <div class="section">
-  <div class="section-head"><span class="section-num">7</span><h2>Editing the homepage &amp; writing articles</h2></div>
-
-  <h3>The homepage</h3>
-  <p>
-    Studio → <strong>Homepage</strong>. It's split into tabs that match the page as
-    you scroll down it:
-  </p>
-  <table>
-    <thead><tr><th style="width:38mm">Tab</th><th>What it controls</th></tr></thead>
-    <tbody>
-      <tr><td>Hero</td><td>The opening headline, the paragraph beneath it, the four statistics, and the scrolling gold banner.</td></tr>
-      <tr><td>Chapters I &amp; II</td><td>The Dubai story and the four statistics about the Indian market.</td></tr>
-      <tr><td>The Roar Standard</td><td>Your six rules.</td></tr>
-      <tr><td>Process</td><td>The five steps.</td></tr>
-      <tr><td>Portfolio</td><td>The heading above the property grid.</td></tr>
-      <tr><td>Comparison</td><td>The “old way vs the Roar way” table.</td></tr>
-      <tr><td>Contact</td><td>The heading and intro above the enquiry form.</td></tr>
-    </tbody>
-  </table>
-
-  <h4>About those animated statistics</h4>
-  <p>
-    Each stat has a <strong>Displayed value</strong> (what people read, e.g.
-    <code>4,200+</code>) and an optional <strong>Count up to</strong> number. Fill
-    the second and the figure animates from zero as the visitor scrolls to it. Leave
-    it blank and the number simply sits there — which is what you want for something
-    like <code>100%</code>.
+  <div class="section-head"><span class="section-num">7</span><h2>Turning on properties</h2></div>
+  <p class="lede">
+    The whole property system is built and working. It is simply switched off
+    until you have real listings to put in it.
   </p>
 
-  <h3>Writing an article</h3>
-  <p>
-    Studio → Insights → <strong>＋</strong>. Articles are the single most effective
-    way to bring in visitors who've never heard of you. A short honest piece on what
-    actually sold in Gurugram last quarter will out-perform any amount of marketing
-    copy.
-  </p>
+  <h3>What is waiting behind the switch</h3>
+  <ul>
+    <li>A search page with filters for type, budget, bedrooms, locality, possession status and amenities</li>
+    <li>Individual property pages with photo galleries, floor plans, maps and the Glass File panel</li>
+    <li>Visitors can save properties to a shortlist and compare three side by side</li>
+    <li>A "Request Glass File" button on every listing that becomes an enquiry</li>
+  </ul>
+
+  <h3>To switch it on</h3>
   <ol class="steps">
-    <li><strong>Title</strong>, then <strong>Generate</strong> the slug.</li>
-    <li><strong>Excerpt</strong> — two lines. Used on the listing page and in Google results.</li>
-    <li><strong>Cover image</strong> and a <strong>category</strong>.</li>
-    <li><strong>Write the article</strong> in the body field. You can add headings, lists, links and images inline.</li>
-    <li><strong>Publish.</strong></li>
+    <li><strong>Add at least four real properties first.</strong> Properties &rarr; the + button.</li>
+    <li><strong>Site settings &rarr; Look &amp; effects &rarr; tick "Show the properties section".</strong></li>
+    <li><strong>Publish.</strong> The Properties link appears in your menu and the grid appears on the homepage.</li>
   </ol>
 
-  <h3>FAQs</h3>
-  <p>
-    Studio → FAQs. Six are already written for you. These appear on The Roar Standard
-    page and are marked up so Google can show them directly in search results — which
-    is free visibility, so it's worth adding the questions buyers actually ask you.
-  </p>
+  <h3>Adding a property</h3>
+  <p>About five minutes each, once you have the photos.</p>
+  <dl>
+    <div class="field"><dt>Price</dt><dd>In <strong>crore</strong>, not rupees. 85 lakh is <code>0.85</code>. 14.5 crore is <code>14.5</code>. This catches everyone out once.</dd></div>
+    <div class="field"><dt>Carpet area</dt><dd>The area the buyer actually occupies. Always fill this in, it is what your pricing promise rests on.</dd></div>
+    <div class="field"><dt>Super built-up</dt><dd>Optional but powerful. Enter both and the page automatically works out and displays the percentage the buyer is <em>not</em> getting.</dd></div>
+    <div class="field"><dt>Photos</dt><dd>Drag them all in at once. The first is the card image. Alt text is required for each, one short sentence describing the photo.</dd></div>
+    <div class="field"><dt>Glass File</dt><dd>Tick only what has genuinely been verified. Unticked items show as unticked on purpose.</dd></div>
+    <div class="field"><dt>Brochure</dt><dd>Upload a PDF and the page offers it as a download, but asks for a phone number first. Every download becomes a lead.</dd></div>
+  </dl>
+
+  <div class="box">
+    <div class="box-title">Useful views</div>
+    <p>
+      Under Properties you will find <strong>Featured on homepage</strong> and
+      <strong>Missing photos</strong>. Check the second one before switching the
+      section on. A listing with no photograph converts very badly.
+    </p>
+  </div>
 </div>
 
 <!-- ============ 8 ============ -->
 <div class="section">
-  <div class="section-head"><span class="section-num">8</span><h2>Your leads inbox</h2></div>
+  <div class="section-head"><span class="section-num">8</span><h2>Your enquiries inbox</h2></div>
   <p class="lede">
-    Every enquiry from every form on the site lands in two places at once: your
-    email, and a private inbox inside Studio.
+    Every form on the website lands in two places at once: your email, and a
+    private inbox inside the control panel.
   </p>
 
   <h3>What happens when someone enquires</h3>
   <ol class="steps">
-    <li><strong>They submit a form</strong> — the contact page, a Glass File request, a site-visit request, a brochure download, or the exit popup.</li>
-    <li><strong>You get an email within seconds</strong>, with their name, number, which property they were looking at, and buttons to call or WhatsApp them straight away.</li>
-    <li><strong>They get an automatic reply</strong> in your brand's voice, confirming a shortlist is coming within 48 hours.</li>
-    <li><strong>The enquiry is stored</strong> in your private database, so a lost email is never a lost lead.</li>
+    <li><strong>They submit a form</strong>, from the contact page, a calculator, the exit popup, or a property.</li>
+    <li><strong>You get an email within seconds</strong> with their name, number, what they were looking at, and buttons to call or WhatsApp them straight away.</li>
+    <li><strong>They get an automatic reply</strong> in your brand&rsquo;s voice, promising a shortlist within 48 hours.</li>
+    <li><strong>The enquiry is stored</strong> in a private database, so a lost email is never a lost lead.</li>
   </ol>
 
   <h3>Working the inbox</h3>
   <p>
-    Studio → <strong>Leads</strong>. It asks for a password the first time —
-    a separate one from your Google sign-in, because this data is more sensitive
-    than your website content.
+    Control panel &rarr; <strong>Leads</strong>. It asks for a password the
+    first time, separate from your Google sign-in, because this data is more
+    sensitive than your website words.
   </p>
 
-  <div class="box">
+  <div class="box info">
     <div class="box-title">Where to find the leads password</div>
     <p>
-      It's deliberately not printed in this document, since a PDF gets forwarded.
-      Find it at <strong>vercel.com</strong> → your project → <strong>Settings</strong> →
-      <strong>Environment Variables</strong> → the value of
-      <code>LEADS_ADMIN_PASSWORD</code>. Click the eye icon to reveal it. You can
-      change it there to something memorable — edit the value, save, and redeploy.
+      Deliberately not printed in this document, since PDFs get forwarded. Go to
+      <strong>vercel.com</strong> &rarr; your project &rarr; <strong>Settings</strong>
+      &rarr; <strong>Environment Variables</strong> and reveal the value of
+      <code>LEADS_ADMIN_PASSWORD</code>. You can change it there to something you
+      will remember.
     </p>
   </div>
 
-  <p>Once you're in, each lead can be:</p>
-  <ul>
-    <li>Moved between <strong>New → Contacted → Qualified → Closed</strong> with one click.</li>
-    <li>Annotated with private notes that only your team sees.</li>
-    <li>Messaged on WhatsApp instantly via the link on the right of each card.</li>
-    <li>Searched by name, phone, email, property or message content.</li>
-    <li>Exported — <strong>Export CSV</strong> downloads everything currently on screen, ready for Excel or a CRM.</li>
-  </ul>
+  <p>Each lead can be moved between <strong>New, Contacted, Qualified and Closed</strong>,
+  annotated with private notes, messaged on WhatsApp in one click, searched, and
+  exported to a spreadsheet with the <strong>Export CSV</strong> button.</p>
 
-  <h3>Spam protection</h3>
+  <h3>Spam</h3>
   <p>
-    Three defences are already running without any setup: a hidden field that only
-    automated bots fill in, a timing check that rejects anything submitted
-    impossibly fast, and rate limits of three enquiries per minute and twenty-five
-    per day from a single visitor. Section 10 covers an optional fourth layer.
+    Three defences run automatically: a hidden field only robots fill in, a
+    timing check that rejects anything submitted impossibly fast, and limits of
+    three enquiries a minute and twenty-five a day from one visitor. You do not
+    need to do anything.
   </p>
 
   <div class="box ok">
     <div class="box-title">On privacy</div>
     <p>
       Enquiries are stored in a private database, never in the public content
-      system, and visitors' IP addresses are stored as a one-way hash rather than
-      the address itself. Your published privacy policy reflects exactly this, and
-      commits you to never selling or sharing enquirers' details.
+      system, and visitors&rsquo; IP addresses are stored scrambled rather than
+      readable. Your published privacy policy reflects exactly this and commits
+      you to never selling or sharing enquirers&rsquo; details.
     </p>
   </div>
 </div>
 
 <!-- ============ 9 ============ -->
 <div class="section">
-  <div class="section-head"><span class="section-num">9</span><h2>Going live: removing preview mode</h2></div>
+  <div class="section-head"><span class="section-num">9</span><h2>Every page on the site</h2></div>
   <p class="lede">
-    One setting takes the site public. Everything on the checklist below should be
-    done before you flip it.
+    Thirteen public pages, plus your control panel. This is what each one is for.
   </p>
 
-  <h3>What preview mode is doing right now</h3>
-  <ul>
-    <li>Telling Google and every other search engine not to index any page.</li>
-    <li>Serving an empty sitemap and a <code>Disallow: /</code> instruction to crawlers.</li>
-    <li>Showing the “Preview mode · sample content” bar at the top of every page.</li>
-    <li>Keeping every illustrative sample listing out of search results.</li>
-  </ul>
-
-  <h3>Pre-flight checklist</h3>
   <table>
-    <thead><tr><th style="width:8mm"></th><th>Before you go public</th></tr></thead>
+    <thead><tr><th style="width:42mm">Address</th><th>What it does</th></tr></thead>
     <tbody>
-      <tr><td>☐</td><td>Real <strong>RERA agent registration number</strong> is in Site settings <span class="req">legally required</span></td></tr>
-      <tr><td>☐</td><td>Real phone, WhatsApp, email and office address are filled in</td></tr>
-      <tr><td>☐</td><td>Your real listings are published</td></tr>
-      <tr><td>☐</td><td>The nine illustrative samples are deleted or corrected</td></tr>
-      <tr><td>☐</td><td>Testimonials are real, with written consent — or the placeholders are deleted</td></tr>
-      <tr><td>☐</td><td>The “12 years” and “4,200 keys” claims are confirmed accurate</td></tr>
-      <tr><td>☐</td><td>Properties → <strong>Missing photos</strong> is empty</td></tr>
-      <tr><td>☐</td><td>The domain fix in section 10.2 is done</td></tr>
+      <tr><td><span class="path">/</span></td><td>Homepage. Positions you, proves the method, sends people to Dubai or Gurgaon.</td></tr>
+      <tr><td><span class="path">/dubai</span></td><td>Your main commercial page. What Dubai protects buyers from, what it does not, and the eight-point filter.</td></tr>
+      <tr><td><span class="path">/gurgaon</span></td><td>The India practice. The seven-check verification table and the questions buyers should ask.</td></tr>
+      <tr><td><span class="path">/the-roar-standard</span></td><td>Your six rules, the comparison table, and the FAQs.</td></tr>
+      <tr><td><span class="path">/tools</span></td><td>Two free calculators. See section 10.</td></tr>
+      <tr><td><span class="path">/insights</span></td><td>Your seventeen articles.</td></tr>
+      <tr><td><span class="path">/reviews</span></td><td>Client reviews plus the submission form.</td></tr>
+      <tr><td><span class="path">/about</span></td><td>Your story, in first person.</td></tr>
+      <tr><td><span class="path">/process</span></td><td>The five steps, expanded.</td></tr>
+      <tr><td><span class="path">/contact</span></td><td>The main enquiry form and your details.</td></tr>
+      <tr><td><span class="path">/privacy</span> <span class="path">/terms</span> <span class="path">/disclaimer</span></td><td>Legal pages. Written already, linked in the footer.</td></tr>
+      <tr><td><span class="path">/studio</span></td><td>Your control panel. Not visible to the public and blocked from Google.</td></tr>
     </tbody>
   </table>
 
-  <h3>The switch</h3>
-  <ol class="steps">
-    <li>Go to <strong>vercel.com</strong> and open your <strong>roar-realty</strong> project.</li>
-    <li>Click <strong>Settings</strong>, then <strong>Environment Variables</strong> in the left menu.</li>
-    <li>Find <code>NEXT_PUBLIC_LAUNCH_MODE</code>. Click <strong>Edit</strong>.</li>
-    <li>Change the value from <code>preview</code> to <code>live</code>. Save.</li>
-    <li>Go to the <strong>Deployments</strong> tab, click the <strong>⋯</strong> on the most recent deployment, and choose <strong>Redeploy</strong>.</li>
-    <li>Wait about two minutes, then load the site. The preview bar is gone and you're public.</li>
-  </ol>
-
-  <div class="box warn">
-    <div class="box-title">It's reversible</div>
+  <div class="box">
+    <div class="box-title">Why Dubai comes before Gurgaon in the menu</div>
     <p>
-      If you need to pull the site back out of public view, set the same variable
-      to <code>preview</code> and redeploy. Do note that Google may already have
-      indexed pages by then, and those take a while to drop out again.
+      Deliberate. Menu order tells a visitor where the weight of your business
+      sits before they read a single word. If that balance ever changes, the
+      order should change with it.
     </p>
   </div>
-
-  <h3>Immediately afterwards</h3>
-  <ol class="steps">
-    <li><strong>Tell Google the site exists.</strong> Go to <strong>search.google.com/search-console</strong>, choose <strong>Domain</strong>, enter <code>roarrealty.in</code>, and add the TXT record it gives you at your domain registrar. Verify.</li>
-    <li><strong>Submit your sitemap</strong> — in Search Console, open Sitemaps and enter <code>sitemap.xml</code>.</li>
-    <li><strong>Check a property page</strong> in Google's Rich Results Test to confirm listings are readable as structured data.</li>
-  </ol>
 </div>
 
 <!-- ============ 10 ============ -->
 <div class="section">
-  <div class="section-head"><span class="section-num">10</span><h2>Setup still outstanding</h2></div>
+  <div class="section-head"><span class="section-num">10</span><h2>The free calculators</h2></div>
   <p class="lede">
-    Four items. The first two are worth doing this week; the rest are optional
-    improvements.
+    At <span class="path">roarrealty.in/tools</span>. These are the strongest
+    lead generators on the site, and worth understanding.
   </p>
 
-  <h3>10.1 &nbsp;Connect the content webhook <span class="pill">recommended</span></h3>
+  <h3>The Dubai yield calculator</h3>
   <p>
-    Without this, your edits take up to an hour to appear instead of ten seconds.
-    It's a five-minute, one-time setup.
+    A visitor enters a purchase price, the advertised rent and the unit size.
+    The calculator then deducts the service charge, void periods, management fee
+    and letting commission, and shows what actually reaches them, alongside the
+    gap between that and the advertised figure.
   </p>
-  <ol class="steps">
-    <li>Go to <strong>sanity.io/manage</strong> and open your project.</li>
-    <li><strong>API</strong> → <strong>Webhooks</strong> → <strong>Create webhook</strong>.</li>
-    <li><strong>URL:</strong> <code>https://roarrealty.in/api/revalidate</code></li>
-    <li><strong>Dataset:</strong> <code>production</code> &nbsp;·&nbsp; <strong>Trigger on:</strong> tick Create, Update and Delete</li>
-    <li><strong>Filter:</strong><br><code>_type in ["property","homepage","siteSettings","testimonial","insight","faq","locality","builder","teamMember"]</code></li>
-    <li><strong>Projection:</strong> <code>{"_type": _type, "slug": slug.current}</code></li>
-    <li><strong>HTTP method:</strong> POST. <strong>Secret:</strong> copy the value of <code>SANITY_REVALIDATE_SECRET</code> from Vercel → Settings → Environment Variables.</li>
-    <li>Save. Publish any change and confirm the site updates within seconds.</li>
-  </ol>
-
-  <h3>10.2 &nbsp;Fix the www / non-www mismatch <span class="pill">do before going live</span></h3>
   <p>
-    Vercel currently treats <strong>www.roarrealty.in</strong> as your main address,
-    so <code>roarrealty.in</code> redirects to it. But the site tells Google its
-    official address is <code>roarrealty.in</code> without the www. The two disagree,
-    which sends Google mixed signals about which version to rank.
-  </p>
-  <p>Harmless while you're private. Fix it in under a minute:</p>
-  <ol class="steps">
-    <li>Vercel → your project → <strong>Settings</strong> → <strong>Domains</strong>.</li>
-    <li>Find <code>roarrealty.in</code> (the one without www) and set it as the <strong>Primary Domain</strong>.</li>
-    <li>Done — www now redirects to the short address, matching what the site tells Google.</li>
-  </ol>
-  <p class="tiny">
-    If you'd rather keep www as your public address, that's equally fine — instead
-    change <code>NEXT_PUBLIC_SITE_URL</code> in Vercel to
-    <code>https://www.roarrealty.in</code> and redeploy. They just have to agree.
+    The moment somebody drags the service-charge slider and watches a 7% yield
+    become 4.2%, they understand your entire argument without you saying a word.
+    A button appears at exactly that point offering to check the real numbers
+    for their specific building. That is the conversion.
   </p>
 
-  <h3>10.3 &nbsp;Add invisible spam protection <span class="pill">optional</span></h3>
+  <h3>The carpet area calculator</h3>
   <p>
-    Free and unlimited, and unlike the old “click all the traffic lights” puzzles it's
-    invisible to genuine visitors.
+    The visitor enters the super built-up area, the carpet area and the quoted
+    rate. It shows what they are really paying per square foot of usable space,
+    and what the difference costs them in rupees. Rule 03, turned into
+    arithmetic.
   </p>
-  <ol class="steps">
-    <li>Sign up free at <strong>dash.cloudflare.com</strong>. You do <em>not</em> need to move your domain there.</li>
-    <li>Open <strong>Turnstile</strong> in the sidebar → <strong>Add widget</strong>.</li>
-    <li>Name it <code>roar-realty</code>, add the hostnames <code>roarrealty.in</code>, <code>www.roarrealty.in</code> and <code>localhost</code>, mode <strong>Managed</strong>.</li>
-    <li>Copy the two keys into Vercel → Settings → Environment Variables as <code>NEXT_PUBLIC_TURNSTILE_SITE_KEY</code> and <code>TURNSTILE_SECRET_KEY</code>, then redeploy.</li>
-  </ol>
-  <p class="tiny">The site detects both keys and switches the protection on by itself. No code change needed.</p>
 
-  <h3>10.4 &nbsp;A mailbox that can receive mail <span class="pill">optional</span></h3>
-  <p>
-    Your site <em>sends</em> from <code>hello@roarrealty.in</code>, which is already
-    verified and working. But nothing currently <em>receives</em> mail at that address.
-    <strong>Zoho Mail's Forever Free plan</strong> (zoho.com/mail) gives you five
-    mailboxes on your own domain at no cost — about fifteen minutes of DNS setup.
-    Google Workspace has no free tier any more.
-  </p>
+  <div class="box ok">
+    <div class="box-title">Why these work better than a brochure</div>
+    <p>
+      Nobody shares an advert. People do share a tool that showed them something
+      alarming about a purchase they were about to make. Both calculators are
+      free, need no email, and are built to be sent to a friend, which is how
+      inbound actually starts.
+    </p>
+  </div>
+
+  <h3>Other things quietly bringing you leads</h3>
+  <dl>
+    <div class="field"><dt>WhatsApp button</dt><dd>On every page, with the message pre-written including which page they came from.</dd></div>
+    <div class="field"><dt>Mobile bar</dt><dd>Call, WhatsApp and Enquire fixed to the bottom of every phone screen.</dd></div>
+    <div class="field"><dt>Exit popup</dt><dd>Appears when a visitor looks like they are leaving. Suppressed for thirty days once dismissed, so it never nags.</dd></div>
+    <div class="field"><dt>Article endings</dt><dd>Every piece leads somewhere useful rather than stopping dead.</dd></div>
+    <div class="field"><dt>Search results</dt><dd>Your six rules and FAQs are marked up so Google can show them directly in results.</dd></div>
+  </dl>
 </div>
 
 <!-- ============ 11 ============ -->
@@ -873,54 +716,49 @@
   <div class="section-head"><span class="section-num">11</span><h2>When something looks wrong</h2></div>
 
   <table>
-    <thead><tr><th style="width:52mm">What you're seeing</th><th>What's happening</th></tr></thead>
+    <thead><tr><th style="width:54mm">What you're seeing</th><th>What to do</th></tr></thead>
     <tbody>
       <tr>
         <td><strong>I published a change but the site looks the same</strong></td>
-        <td>Either the webhook in 10.1 isn't connected yet — changes then take up to an hour — or your browser cached the old page. Press <strong>Ctrl+Shift+R</strong> to force a fresh copy.</td>
+        <td>Your browser is showing you a saved copy. Press <strong>Ctrl+Shift+R</strong> (or <strong>Cmd+Shift+R</strong> on a Mac) to force a fresh one. If it still has not changed after a few minutes, the webhook in section 12 is not connected yet.</td>
       </tr>
       <tr>
-        <td><strong>A ⚠ warning marker on the live site</strong></td>
-        <td>A contact detail is still blank. Go to Site settings and fill it in — see section 3.</td>
+        <td><strong>The WhatsApp button does nothing</strong></td>
+        <td>The number is missing its country code. It must look like <code>+919876543210</code>, with no spaces.</td>
       </tr>
       <tr>
-        <td><strong>“Sample” badges on my listings</strong></td>
-        <td>The <strong>Illustrative sample</strong> box is ticked on that property. Untick it and publish.</td>
+        <td><strong>A review I approved is not showing</strong></td>
+        <td>Check you pressed <strong>Publish</strong> as well as ticking Approved. Both are needed.</td>
       </tr>
       <tr>
-        <td><strong>The WhatsApp button isn't showing</strong></td>
-        <td>The WhatsApp number in Site settings is empty, or missing its country code. It must look like <code>+919876543210</code>.</td>
+        <td><strong>The reviews section is missing from my homepage</strong></td>
+        <td>It hides itself until at least one real review is approved. Add one and it reappears.</td>
       </tr>
       <tr>
-        <td><strong>A property won't appear in search results</strong></td>
-        <td>Check it's published, not just saved as a draft — the Publish button turns grey once there's nothing left to publish.</td>
-      </tr>
-      <tr>
-        <td><strong>Studio won't load, or shows a connection error</strong></td>
-        <td>Usually the address you're visiting isn't on Sanity's approved list. sanity.io/manage → your project → API → CORS origins → add it with “Allow credentials” ticked.</td>
+        <td><strong>The control panel will not load</strong></td>
+        <td>Usually the address you are visiting has not been approved in Sanity. sanity.io/manage &rarr; your project &rarr; API &rarr; CORS origins &rarr; add it with "Allow credentials" ticked.</td>
       </tr>
       <tr>
         <td><strong>No email when a form is submitted</strong></td>
         <td>Check your spam folder first. Then confirm <code>LEAD_NOTIFY_EMAIL</code> in Vercel points at the right inbox.</td>
       </tr>
       <tr>
-        <td><strong>The moving 3D backgrounds aren't showing</strong></td>
-        <td>Working as intended. They switch off automatically on older phones, on slow connections, and for anyone who has asked their device to reduce motion.</td>
+        <td><strong>The moving backgrounds are not showing</strong></td>
+        <td>Working as intended. They switch off on older phones, slow connections, and for anyone who has asked their device to reduce motion.</td>
       </tr>
       <tr>
-        <td><strong>Google still isn't showing my site</strong></td>
-        <td>Indexing takes days to weeks even after going live. Confirm preview mode is off, then check Search Console for coverage errors.</td>
+        <td><strong>Google is not showing my site</strong></td>
+        <td>Indexing takes days to weeks. Make sure you have completed the Search Console step in section 12.</td>
       </tr>
     </tbody>
   </table>
 
   <div class="box">
-    <div class="box-title">Restoring something you deleted</div>
+    <div class="box-title">Getting something back that you deleted</div>
     <p>
-      Open the item, click <strong>⋯</strong> at the top right, and choose
-      <strong>Review changes</strong>. You can see every previous version and roll
-      back to any of them. This works for text you've overwritten as well as whole
-      documents.
+      Open the item, click <strong>&hellip;</strong> at the top right, choose
+      <strong>Review changes</strong>. Every previous version is there and you
+      can roll back to any of them.
     </p>
   </div>
 </div>
@@ -929,14 +767,27 @@
 <div class="section">
   <div class="section-head"><span class="section-num">12</span><h2>Reference</h2></div>
 
-  <h3>What you're running, and what it costs</h3>
+  <h3>Still to do</h3>
   <table>
-    <thead><tr><th style="width:34mm">Service</th><th style="width:24mm">Cost</th><th>What it does</th></tr></thead>
+    <thead><tr><th style="width:8mm"></th><th>Task</th></tr></thead>
     <tbody>
-      <tr><td>Vercel</td><td>Free</td><td>Hosts the website. 100 GB of traffic a month included — far beyond what this site will use.</td></tr>
-      <tr><td>Sanity</td><td>Free</td><td>Your admin panel and content. 10,000 documents, 100 GB of images.</td></tr>
-      <tr><td>Neon</td><td>Free</td><td>The private database holding your enquiries.</td></tr>
-      <tr><td>Resend</td><td>Free</td><td>Sends the lead emails. 100 a day, 3,000 a month. Each enquiry uses two.</td></tr>
+      <tr><td>&#9744;</td><td><strong>Google Search Console.</strong> search.google.com/search-console &rarr; Add property &rarr; Domain &rarr; <code>roarrealty.in</code> &rarr; add the TXT record at your registrar &rarr; verify &rarr; submit <code>sitemap.xml</code>. Nothing appears in Google until you do this.</td></tr>
+      <tr><td>&#9744;</td><td><strong>Connect the content webhook</strong>, so your edits appear in ten seconds instead of up to an hour. Five minutes, one time. Steps are in docs/GO-LIVE.md section 10.1.</td></tr>
+      <tr><td>&#9744;</td><td><strong>Collect real reviews.</strong> Section 4 has the message to send.</td></tr>
+      <tr><td>&#9744;</td><td><strong>Confirm the two homepage figures</strong> mentioned in section 5.</td></tr>
+      <tr><td>&#9744;</td><td><strong>Add your RERA number</strong> when issued. Site settings &rarr; Legal.</td></tr>
+      <tr><td>&#9744;</td><td><strong>A mailbox that receives.</strong> Your site sends from your domain already, but nothing receives at those addresses yet. Zoho Mail&rsquo;s free plan gives you five mailboxes on your own domain.</td></tr>
+    </tbody>
+  </table>
+
+  <h3>What you are running, and what it costs</h3>
+  <table>
+    <thead><tr><th style="width:32mm">Service</th><th style="width:24mm">Cost</th><th>What it does</th></tr></thead>
+    <tbody>
+      <tr><td>Vercel</td><td>Free</td><td>Hosts the website.</td></tr>
+      <tr><td>Sanity</td><td>Free</td><td>Your control panel and all content.</td></tr>
+      <tr><td>Neon</td><td>Free</td><td>The private database holding enquiries.</td></tr>
+      <tr><td>Resend</td><td>Free</td><td>Sends the lead emails. 100 a day.</td></tr>
       <tr><td>Domain</td><td>Your renewal</td><td>roarrealty.in</td></tr>
     </tbody>
   </table>
@@ -944,12 +795,12 @@
   <div class="box warn">
     <div class="box-title">One thing to be aware of</div>
     <p>
-      Vercel's free plan is described in their terms as being for non-commercial,
-      personal use. A great many small business sites run on it without incident,
-      but they would be within their rights to ask you to upgrade. If you'd rather
-      not carry that, the paid plan is $20 a month, or the site can be moved to
-      Cloudflare — also free, and explicitly fine for commercial use. It's a
-      half-day job and nothing about the site changes.
+      Vercel&rsquo;s free plan is described in their terms as being for
+      non-commercial use. Many small business sites run on it without incident,
+      but they would be within their rights to ask you to upgrade. The paid plan
+      is $20 a month, or the site can be moved to Cloudflare, also free and
+      explicitly fine for commercial use. Half a day&rsquo;s work, and nothing
+      about the site changes.
     </p>
   </div>
 
@@ -957,8 +808,9 @@
   <table>
     <tbody>
       <tr><td style="width:52mm"><strong>Your website</strong></td><td>roarrealty.in</td></tr>
-      <tr><td><strong>Your admin panel</strong></td><td>roarrealty.in/studio</td></tr>
-      <tr><td><strong>Your leads inbox</strong></td><td>roarrealty.in/studio → Leads</td></tr>
+      <tr><td><strong>Your control panel</strong></td><td>roarrealty.in/studio</td></tr>
+      <tr><td><strong>Your enquiries</strong></td><td>roarrealty.in/studio &rarr; Leads</td></tr>
+      <tr><td><strong>Send clients here for reviews</strong></td><td>roarrealty.in/reviews</td></tr>
       <tr><td><strong>Hosting dashboard</strong></td><td>vercel.com</td></tr>
       <tr><td><strong>Content project settings</strong></td><td>sanity.io/manage</td></tr>
       <tr><td><strong>Email delivery logs</strong></td><td>resend.com</td></tr>
@@ -967,51 +819,39 @@
     </tbody>
   </table>
 
-  <h3>Settings in Vercel worth knowing</h3>
+  <h3>Settings that live in Vercel, not the control panel</h3>
   <p class="tiny" style="margin-bottom:3mm">
-    Vercel → your project → Settings → Environment Variables. Changing any of these
-    requires a redeploy to take effect.
+    Vercel &rarr; your project &rarr; Settings &rarr; Environment Variables.
+    Changing any of these needs a redeploy afterwards.
   </p>
   <table>
     <thead><tr><th style="width:56mm">Name</th><th>What it does</th></tr></thead>
     <tbody>
-      <tr><td><code>NEXT_PUBLIC_LAUNCH_MODE</code></td><td>The public/private switch. <code>preview</code> or <code>live</code>.</td></tr>
-      <tr><td><code>LEADS_ADMIN_PASSWORD</code></td><td>The password for your leads inbox. Change it to whatever you like.</td></tr>
+      <tr><td><code>LEADS_ADMIN_PASSWORD</code></td><td>The password for your enquiries inbox.</td></tr>
       <tr><td><code>LEAD_NOTIFY_EMAIL</code></td><td>Where enquiry alerts are sent. Accepts several addresses separated by commas.</td></tr>
-      <tr><td><code>NEXT_PUBLIC_SITE_URL</code></td><td>Your official web address, used for Google and social sharing.</td></tr>
+      <tr><td><code>NEXT_PUBLIC_SITE_MODE</code></td><td>Not currently set, and the site is live. Adding it with the value <code>preview</code> pulls the whole site out of Google.</td></tr>
     </tbody>
   </table>
 
   <div class="box danger">
-    <div class="box-title">Please don't change these</div>
+    <div class="box-title">Please do not change these</div>
     <p>
-      Anything containing a long random string — the Sanity tokens, the database
-      address, the Resend key. Those are passwords to the services that keep your
-      site running, and altering one will take the site or your enquiry forms
-      offline until it's put back.
+      Anything containing a long random string: the Sanity tokens, the database
+      address, the Resend key. Those are passwords to the services keeping your
+      site running, and altering one takes the website or your enquiry forms
+      offline until it is put back.
     </p>
   </div>
 
   <div class="divider"></div>
 
-  <h3>The order to do things in</h3>
-  <ol class="steps">
-    <li><strong>Fill in Site settings</strong> — phone, WhatsApp, email, address, RERA number. <span class="tiny">Section 3</span></li>
-    <li><strong>Connect the webhook</strong> so your edits appear instantly. <span class="tiny">Section 10.1</span></li>
-    <li><strong>Fix the www mismatch.</strong> <span class="tiny">Section 10.2</span></li>
-    <li><strong>Add your real properties</strong> and remove the samples. <span class="tiny">Sections 4 and 5</span></li>
-    <li><strong>Replace the testimonials</strong>, with consent. <span class="tiny">Section 6</span></li>
-    <li><strong>Work through the pre-flight checklist</strong>, then switch to live. <span class="tiny">Section 9</span></li>
-    <li><strong>Submit the site to Google</strong> and watch the leads arrive. <span class="tiny">Section 9</span></li>
-  </ol>
-
   <div class="box ok">
     <div class="box-title">A closing note</div>
     <p>
-      Everything in sections 1 through 8 is yours to change whenever you like,
-      without a developer and without any risk of breaking the site. The parts that
-      could break it are locked away in Vercel, and this guide has been careful to
-      point out which those are.
+      Everything in sections 1 to 8 is yours to change whenever you like,
+      without a developer and without any risk of breaking the site. The parts
+      that could break it live in Vercel, and this guide has been careful to
+      point out exactly which those are.
     </p>
   </div>
 </div>
