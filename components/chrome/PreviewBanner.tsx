@@ -3,7 +3,8 @@ import { isLive } from "@/lib/env";
 /**
  * Standing reminder that the site is not yet public. Deliberately impossible
  * to miss, and impossible to forget about — it disappears only when
- * NEXT_PUBLIC_LAUNCH_MODE is set to `live`.
+ * NEXT_PUBLIC_SITE_MODE is set to `preview`. It is absent by default, so this
+ * renders nothing on the live site.
  */
 export function PreviewBanner() {
   if (isLive) return null;

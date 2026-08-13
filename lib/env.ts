@@ -33,12 +33,19 @@ export const siteUrl = (
 ).replace(/\/$/, "");
 
 /**
- * Live is now the default. Setting NEXT_PUBLIC_LAUNCH_MODE to `preview`
- * puts the site back behind a sitewide noindex, which is useful if you ever
- * need to pull it out of search while something is corrected.
+ * The site is live by default.
+ *
+ * Deliberately reads NEXT_PUBLIC_SITE_MODE rather than the old
+ * NEXT_PUBLIC_LAUNCH_MODE: the latter is still set to `preview` in Vercel and
+ * would keep overriding the default. Renaming the switch takes the site public
+ * without needing that stale variable removed first, and it can be deleted
+ * whenever convenient.
+ *
+ * To pull the site back out of search, add NEXT_PUBLIC_SITE_MODE=preview in
+ * Vercel and redeploy.
  */
 export const launchMode: "preview" | "live" =
-  process.env.NEXT_PUBLIC_LAUNCH_MODE === "preview" ? "preview" : "live";
+  process.env.NEXT_PUBLIC_SITE_MODE === "preview" ? "preview" : "live";
 
 export const isLive = launchMode === "live";
 

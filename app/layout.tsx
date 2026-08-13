@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   description: SITE_DESCRIPTION,
   applicationName: SITE_NAME,
   // Until real inventory and a RERA number are in, the whole site stays out of
-  // the index. Flip NEXT_PUBLIC_LAUNCH_MODE to `live` to reverse this.
+  // the index. Setting NEXT_PUBLIC_SITE_MODE=preview re-enables that.
   robots: isLive
     ? { index: true, follow: true }
     : { index: false, follow: false, nocache: true },

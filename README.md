@@ -77,15 +77,19 @@ sanity/            Schemas, Studio structure, Leads panel
 
 ## Going live
 
-The site ships with `NEXT_PUBLIC_LAUNCH_MODE=preview`, which:
+The site is **live by default**. Setting `NEXT_PUBLIC_SITE_MODE=preview` in
+Vercel and redeploying pulls it back out of search:
 
 - returns `noindex, nofollow` on every page
 - serves a `Disallow: /` robots.txt and an empty sitemap
-- shows a "preview mode · sample content" bar at the top
-- marks the nine seeded sample listings with a visible warning
+- shows a "preview mode" bar at the top
 
-To go live, set `NEXT_PUBLIC_LAUNCH_MODE=live` in Vercel and redeploy. Before
-you do, work through [docs/GO-LIVE.md](docs/GO-LIVE.md).
+The switch deliberately reads `NEXT_PUBLIC_SITE_MODE`, not the older
+`NEXT_PUBLIC_LAUNCH_MODE`. That older variable is still set to `preview` in
+Vercel and is now ignored; delete it whenever convenient.
+
+Placeholder testimonials (`illustrative: true`) are hidden automatically while
+the site is live, so nothing labelled "placeholder" can reach a public page.
 
 ---
 
