@@ -23,6 +23,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const staticPages: MetadataRoute.Sitemap = [
     { url: `${siteUrl}/`, lastModified: now, changeFrequency: "weekly", priority: 1 },
     { url: `${siteUrl}/properties`, lastModified: now, changeFrequency: "daily", priority: 0.9 },
+    { url: `${siteUrl}/dubai`, lastModified: now, changeFrequency: "weekly", priority: 0.95 },
+    { url: `${siteUrl}/gurgaon`, lastModified: now, changeFrequency: "weekly", priority: 0.85 },
+    { url: `${siteUrl}/tools`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
+    { url: `${siteUrl}/reviews`, lastModified: now, changeFrequency: "weekly", priority: 0.7 },
     { url: `${siteUrl}/about`, lastModified: now, changeFrequency: "monthly", priority: 0.7 },
     { url: `${siteUrl}/the-roar-standard`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
     { url: `${siteUrl}/process`, lastModified: now, changeFrequency: "monthly", priority: 0.7 },

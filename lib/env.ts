@@ -33,11 +33,12 @@ export const siteUrl = (
 ).replace(/\/$/, "");
 
 /**
- * `preview` keeps the whole site noindex and shows "illustrative content"
- * markers. Flip to `live` in Vercel once real inventory + RERA number are in.
+ * Live is now the default. Setting NEXT_PUBLIC_LAUNCH_MODE to `preview`
+ * puts the site back behind a sitewide noindex, which is useful if you ever
+ * need to pull it out of search while something is corrected.
  */
 export const launchMode: "preview" | "live" =
-  process.env.NEXT_PUBLIC_LAUNCH_MODE === "live" ? "live" : "preview";
+  process.env.NEXT_PUBLIC_LAUNCH_MODE === "preview" ? "preview" : "live";
 
 export const isLive = launchMode === "live";
 

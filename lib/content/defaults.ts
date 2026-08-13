@@ -11,9 +11,9 @@ export const DEFAULT_HOMEPAGE = {
   heroLine1: "Most buyers are shown property.",
   heroLine2: "Almost none are shown the risk.",
   heroBody:
-    "Twelve years selling property in a city where every rupee sits in escrow, every title is public and every promise is enforceable. We apply that same standard to everything we recommend, in Dubai and now in Gurgaon.",
+    "Ten years selling property in a city where every rupee sits in escrow, every title is public and every promise is enforceable. We apply that same standard to everything we recommend, in Dubai and now in Gurgaon.",
   heroStats: [
-    { value: "12 yrs", countTo: 12, suffix: " yrs", label: "Operating in Dubai real estate" },
+    { value: "10 yrs", countTo: 10, suffix: " yrs", label: "Operating in Dubai real estate" },
     // The prototype claimed "4,200+ keys handed over". The content plan flags
     // this as needing verification — whether it is a personal record or the
     // record of firms worked within. Left as a CMS field with a neutral label
@@ -35,7 +35,7 @@ export const DEFAULT_HOMEPAGE = {
   chapter1Heading: "Where we come from, a handshake is law.",
   chapter1Body: [
     "In Dubai, a buyer's money never touches a developer's pocket directly. It sits in a government-regulated escrow account and is released only as construction milestones are certified. Every title is registered with the Land Department. Every off-plan sale is recorded before a single brick is laid. Every broker carries a licence number you can verify in seconds.",
-    "We didn't just work inside that system, we were shaped by it. And after twelve years and thousands of handovers, one question kept following us home: why doesn't buying in India feel like this?",
+    "We didn't just work inside that system, we were shaped by it. And after ten years and thousands of handovers, one question kept following us home: why doesn't buying in India feel like this?",
   ],
   chapter1Cards: [
     { title: "Escrow law", body: "Buyer funds locked & milestone-released since 2007" },
@@ -211,9 +211,9 @@ export const DEFAULT_HOMEPAGE = {
   ],
 
   /* ---- Founder block ---- */
-  founderHeading: "Twelve years in Dubai. Now building the same standard in Gurgaon.",
+  founderHeading: "Ten years in Dubai. Now building the same standard in Gurgaon.",
   founderBody:
-    "I spent twelve years in a market where verification is built into the law. Coming back, the gap was obvious, the information exists here too, it is just scattered, and almost nobody assembles it before a buyer commits. That assembly is the work. Everything else is showing property.",
+    "I spent ten years in a market where verification is built into the law. Coming back, the gap was obvious, the information exists here too, it is just scattered, and almost nobody assembles it before a buyer commits. That assembly is the work. Everything else is showing property.",
   founderCta: "Read the full story",
 
   /* ---- How we choose what to show you ---- */
@@ -442,7 +442,7 @@ export const DEFAULT_FAQS = [
   {
     question: "Do you work in Dubai or India?",
     answer:
-      "Both. The majority of our advisory work is Dubai, where we have twelve years of transaction experience. We also advise on Gurgaon and NCR, applying the same verification standard. The market changes; the process does not.",
+      "Both. The majority of our advisory work is Dubai, where we have ten years of transaction experience. We also advise on Gurgaon and NCR, applying the same verification standard. The market changes; the process does not.",
     category: "Buying",
     order: 0,
   },

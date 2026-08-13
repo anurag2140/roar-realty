@@ -195,6 +195,15 @@ textarea::placeholder {
 .roar-scrollbar::-webkit-scrollbar-track { background: rgb(198 161 91 / 0.08); }
 .roar-scrollbar::-webkit-scrollbar-thumb { background: rgb(198 161 91 / 0.4); }
 
+/* Carousels get their own progress indicator, so the native bar is noise. */
+.roar-no-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.roar-no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
 /* Lock background scroll while a modal or sheet is open. */
 body[data-scroll-locked="true"] {
   overflow: hidden;

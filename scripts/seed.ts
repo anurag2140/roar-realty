@@ -201,6 +201,9 @@ async function main() {
     phone: "+91 78989 89029",
     whatsapp: "+917898989029",
     whatsappUae: "+971585455256",
+    whatsappDesks: [
+      { _key: "desk-uae-2", label: "Dubai desk 2", number: "+971568652202" },
+    ],
     email: "contact@roarrealty.ae",
     emailIndia: "admin@roarrealty.in",
     officeAddress: "1507, Al Manara Tower, Business Bay, Dubai",

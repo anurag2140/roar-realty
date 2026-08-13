@@ -113,13 +113,43 @@ export const testimonial = defineType({
       description:
         "Tick for placeholder testimonials. Publishing invented client quotes as real is a misleading-advertisement risk under the Consumer Protection Act.",
     }),
+    defineField({
+      name: "approved",
+      title: "Approved for the website",
+      type: "boolean",
+      initialValue: true,
+      description:
+        "Reviews submitted through the website arrive unticked. Nothing appears publicly until you tick this.",
+    }),
+    defineField({
+      name: "submittedEmail",
+      title: "Submitter's email",
+      type: "string",
+      readOnly: true,
+      description: "Captured from website submissions so you can verify the person is a real client.",
+    }),
+    defineField({
+      name: "submittedPhone",
+      title: "Submitter's phone",
+      type: "string",
+      readOnly: true,
+    }),
     defineField({ name: "order", title: "Display order", type: "number", initialValue: 100 }),
   ],
+  orderings: [
+    { title: "Awaiting approval", name: "pending", by: [{ field: "approved", direction: "asc" }] },
+  ],
   preview: {
-    select: { title: "name", subtitle: "role", media: "avatar", illustrative: "illustrative" },
-    prepare: ({ title, subtitle, media, illustrative }) => ({
-      title: `${illustrative ? "⚠️ " : ""}${title}`,
-      subtitle,
+    select: {
+      title: "name",
+      subtitle: "role",
+      media: "avatar",
+      illustrative: "illustrative",
+      approved: "approved",
+    },
+    prepare: ({ title, subtitle, media, illustrative, approved }) => ({
+      title: `${approved === false ? "⏳ " : ""}${illustrative ? "⚠️ " : ""}${title}`,
+      subtitle: approved === false ? `AWAITING APPROVAL · ${subtitle ?? ""}` : subtitle,
       media,
     }),
   },

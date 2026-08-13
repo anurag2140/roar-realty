@@ -11,6 +11,7 @@ import type {
   Testimonial,
 } from "./types";
 import { PROPERTIES_PER_PAGE, type SortOption } from "@/lib/site";
+import { isLive } from "@/lib/env";
 
 /* ---------------- Fragments ---------------- */
 
@@ -85,6 +86,7 @@ export async function getSiteSettings(): Promise<SiteSettings | null> {
       title,
       logo{ ${imageFields} },
       phone, whatsapp, whatsappUae, email, emailIndia, officeAddress,
+      whatsappDesks[]{ _key, label, number },
       reraNumber, hideReraNotice, legalEntity, foundedYear, cin,
       socials[]{ _key, platform, url },
       goldTone, effects3d, grainOverlay, showProperties,
@@ -364,15 +366,44 @@ export async function getAllLocalityPaths(): Promise<
 
 /* ---------------- Editorial ---------------- */
 
+/**
+ * Approved reviews only. Website submissions arrive with `approved: false`
+ * and stay invisible until someone ticks the box in Studio.
+ */
 export async function getTestimonials(limit = 300): Promise<Testimonial[]> {
+  // Once the site is public, placeholders are suppressed entirely. An absent
+  // testimonial section reads as "new practice"; a visible card saying
+  // "Placeholder, replace with a real client" reads as carelessness.
+  const filter = isLive
+    ? `_type == "testimonial" && approved != false && illustrative != true`
+    : `_type == "testimonial" && approved != false`;
+
   return sanityFetch<Testimonial[]>(
-    groq`*[_type == "testimonial"] | order(order asc, _createdAt asc)[0...$limit]{
+    groq`*[${filter}]
+      | order(order asc, _createdAt asc)[0...$limit]{
       _id, quote, name, role, region, market, agent, rating, illustrative, order,
       avatar{ ${imageFields} }
     }`,
     { limit },
     { tags: ["testimonial"] }
   );
+}
+
+/** Count and mean rating, for the reviews page header and AggregateRating. */
+export async function getReviewSummary(): Promise<{ count: number; average: number }> {
+  const res = await sanityFetch<{ count: number; rated: number[] }>(
+    groq`{
+      "count": count(*[_type == "testimonial" && approved != false]),
+      "rated": *[_type == "testimonial" && approved != false && defined(rating)].rating
+    }`,
+    {},
+    { tags: ["testimonial"] }
+  );
+  const rated = res?.rated ?? [];
+  const average = rated.length
+    ? Math.round((rated.reduce((a, b) => a + b, 0) / rated.length) * 10) / 10
+    : 0;
+  return { count: res?.count ?? 0, average };
 }
 
 export async function getTeam(): Promise<TeamMember[]> {

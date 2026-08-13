@@ -9,9 +9,9 @@ import { ButtonLink } from "@/components/ui/Button";
 export const revalidate = 3600;
 
 export const metadata: Metadata = {
-  title: "About Anurag, twelve years in Dubai real estate",
+  title: "About Anurag, ten years in Dubai real estate",
   description:
-    "Twelve years selling property in a market where verification is built into the law, now applying the same standard in Gurgaon. The work is the assembly, everything else is showing property.",
+    "Ten years selling property in a market where verification is built into the law, now applying the same standard in Gurgaon. The work is the assembly, everything else is showing property.",
   alternates: { canonical: "/about" },
 };
 
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
 const STORY = [
   {
     kind: "lede",
-    text: "I spent twelve years selling property in Dubai. Then I came back to India and discovered I could no longer answer a simple question quickly: who actually owns this, and is it clean?",
+    text: "I spent ten years selling property in Dubai. Then I came back to India and discovered I could no longer answer a simple question quickly: who actually owns this, and is it clean?",
   },
   {
     kind: "p",
@@ -49,7 +49,7 @@ const STORY = [
 ];
 
 const CREDENTIALS = [
-  { label: "Experience", value: "12+ years in Dubai real estate" },
+  { label: "Experience", value: "10 years in Dubai real estate" },
   { label: "Practice", value: "Roar Realty. Dubai and Gurgaon" },
   {
     label: "Specialisation",
@@ -72,7 +72,7 @@ export default async function AboutPage() {
 
       <PageHeader
         eyebrow="About"
-        title="Twelve years in Dubai. Now building the same standard in Gurgaon."
+        title="Ten years in Dubai. Now building the same standard in Gurgaon."
       />
 
       <article className="mx-auto max-w-3xl px-5 pb-20 lg:px-10">

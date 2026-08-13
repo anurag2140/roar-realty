@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { imageUrl } from "@/lib/sanity/image";
 import type { Testimonial } from "@/lib/sanity/types";
@@ -127,7 +128,7 @@ export function TestimonialSlider({ items }: { items: Testimonial[] }) {
 
       <ul
         ref={trackRef}
-        className="roar-scrollbar -mx-1 flex snap-x snap-mandatory list-none gap-5.5 overflow-x-auto scroll-smooth px-1 pb-4"
+        className="roar-no-scrollbar -mx-1 flex snap-x snap-mandatory list-none items-stretch gap-5.5 overflow-x-auto scroll-smooth px-1 pb-2"
         tabIndex={0}
         aria-label="Client testimonials"
         onKeyDown={(e) => {
@@ -192,9 +193,24 @@ export function TestimonialSlider({ items }: { items: Testimonial[] }) {
         })}
       </ul>
 
+      <div className="mt-7 flex flex-wrap items-center justify-between gap-4 border-t border-gold/12 pt-6">
+        <Link
+          href="/reviews"
+          className="inline-flex min-h-11 items-center gap-3 text-[12px] tracking-[0.24em] text-gold-hi uppercase no-underline transition-all hover:gap-5"
+        >
+          Read all reviews <span aria-hidden>→</span>
+        </Link>
+        <Link
+          href="/reviews#write"
+          className="inline-flex min-h-11 items-center text-[12px] tracking-[0.2em] text-ivory/45 uppercase no-underline transition-colors hover:text-gold-hi"
+        >
+          Worked with us? Leave a review
+        </Link>
+      </div>
+
       {anyIllustrative && (
-        <p className="mt-5 text-center text-[11px] tracking-[0.16em] text-ivory/30 uppercase">
-          Placeholder testimonials, replace with real, consented client quotes before launch
+        <p className="mt-4 text-[11px] tracking-[0.16em] text-ivory/30 uppercase">
+          Some cards above are placeholders until real client reviews replace them
         </p>
       )}
     </section>

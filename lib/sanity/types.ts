@@ -249,6 +249,7 @@ export type SiteSettings = {
   phone?: string;
   whatsapp?: string;
   whatsappUae?: string;
+  whatsappDesks?: { _key: string; label: string; number: string }[];
   email?: string;
   emailIndia?: string;
   officeAddress?: string;

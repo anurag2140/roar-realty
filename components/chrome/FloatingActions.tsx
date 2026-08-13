@@ -32,10 +32,17 @@ export function FloatingActions({ settings }: { settings: SiteSettings | null })
   const waIndia = contact.whatsapp || settings?.whatsapp || "";
   const waUae = settings?.whatsappUae || "";
 
-  const message = "Hello Roar Realty, I'd like to discuss a property.";
+  // Pre-fill the message with the page they're on, so every WhatsApp lead
+  // arrives already attributed instead of starting from "Hi".
+  const pageLabel = pathname === "/" ? "" : ` (from the ${pathname.replace(/^\//, "")} page)`;
+  const message = `Hello Roar Realty, I'd like to discuss a property${pageLabel}.`;
+
   const desks = [
     waIndia && { label: "India desk", sub: waIndia, href: whatsappLink(waIndia, message) },
     waUae && { label: "Dubai desk", sub: waUae, href: whatsappLink(waUae, message) },
+    ...(settings?.whatsappDesks ?? []).map((d) =>
+      d.number ? { label: d.label || "Dubai desk", sub: d.number, href: whatsappLink(d.number, message) } : null
+    ),
   ].filter(Boolean) as { label: string; sub: string; href: string }[];
 
   const tel = telLink(phone);

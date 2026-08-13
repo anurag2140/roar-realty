@@ -230,8 +230,25 @@ export const siteSettings = defineType({
       title: "WhatsApp, Dubai desk",
       type: "string",
       group: "contact",
+      description: "e.g. +971585455256",
+    }),
+    defineField({
+      name: "whatsappDesks",
+      title: "Extra WhatsApp desks",
+      type: "array",
+      group: "contact",
       description:
-        "Optional second number, e.g. +971585455256. When both are set, the WhatsApp button asks which desk to reach.",
+        "Any additional numbers. When more than one desk exists in total, the WhatsApp button shows a chooser instead of guessing.",
+      of: [
+        {
+          type: "object",
+          fields: [
+            { name: "label", type: "string", title: "Desk name" },
+            { name: "number", type: "string", title: "Number with country code" },
+          ],
+          preview: { select: { title: "label", subtitle: "number" } },
+        },
+      ],
     }),
     defineField({
       name: "email",

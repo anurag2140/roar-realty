@@ -5,7 +5,7 @@ export const SITE_NAME = "Roar Realty";
 export const SITE_TAGLINE = "Verified Before Recommended";
 export const SITE_DESCRIPTION =
   "Most buyers are shown property. Almost none are shown the risk. " +
-  "Twelve years of Dubai transaction experience applied to Dubai and Gurgaon, " +
+  "Ten years of Dubai transaction experience applied to Dubai and Gurgaon, " +
   "titles verified, carpet-area pricing, one fee in writing, exit planned before entry.";
 
 /** The line the whole brand rests on. Used in CTAs and social cards. */
@@ -19,6 +19,7 @@ export const NAV_LINKS = [
   { href: "/dubai", label: "Dubai" },
   { href: "/gurgaon", label: "Gurgaon" },
   { href: "/the-roar-standard", label: "The Standard" },
+  { href: "/tools", label: "Calculators" },
   { href: "/insights", label: "Insights" },
   { href: "/about", label: "Founder" },
 ] as const;
@@ -31,12 +32,14 @@ export const FOOTER_LINKS = {
     { href: "/dubai", label: "Dubai advisory" },
     { href: "/gurgaon", label: "Gurgaon & NCR" },
     { href: "/insights", label: "Insights" },
+    { href: "/reviews", label: "Client reviews" },
     { href: "/contact", label: "Contact" },
   ],
   company: [
     { href: "/about", label: "About Anurag" },
     { href: "/the-roar-standard", label: "The Roar Standard" },
     { href: "/process", label: "How we work" },
+    { href: "/tools", label: "Free calculators" },
   ],
   legal: [
     { href: "/privacy", label: "Privacy policy" },
